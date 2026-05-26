@@ -1,0 +1,125 @@
+@page
+@model CampusSentinel.Pages.Schedule.MyScheduleModel
+@{
+    ViewData["Title"] = "My Schedule";
+    var today = DateOnly.FromDateTime(DateTime.Today);
+}
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="color: var(--cs-text-primary); margin: 0;">My Weekly Schedule</h2>
+    </div>
+
+    <div class="cs-card" style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a asp-page="./MySchedule" asp-route-date="@Model.WeekStartDate.AddDays(-7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">⬅ Previous Week</a>
+        <h3 style="margin: 0; color: var(--cs-text-primary);">@Model.WeekStartDate.ToString("MMM dd, yyyy") - @Model.WeekStartDate.AddDays(6).ToString("MMM dd, yyyy")</h3>
+        <a asp-page="./MySchedule" asp-route-date="@Model.WeekStartDate.AddDays(7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">Next Week ➡</a>
+    </div>
+
+    <div class="cs-table-wrap">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Zone</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var shift in Model.Shifts)
+                {
+                    var isPast = shift.ShiftDate < today;
+                    var rowStyle = isPast ? "opacity: 0.6;" : "";
+                    
+                    <tr style="@rowStyle">
+                        <td>
+                            <div style="font-weight: 600;">@shift.ShiftDate.ToString("ddd, MMM dd")</div>
+                        </td>
+                        <td>@shift.StartTime.ToString("HH:mm") - @shift.EndTime.ToString("HH:mm")</td>
+                        <td>@shift.Zone?.Name</td>
+                        <td>
+                            @{
+                                var bg = "rgba(59, 130, 246, 0.1)"; 
+                                var color = "#60a5fa";
+                                if (shift.Status == CampusSentinel.Models.ShiftStatus.Active) { bg = "rgba(16, 185, 129, 0.1)"; color = "#10b981"; }
+                                else if (shift.Status == CampusSentinel.Models.ShiftStatus.Completed) { bg = "rgba(255, 255, 255, 0.05)"; color = "#94a3b8"; }
+                                else if (shift.Status == CampusSentinel.Models.ShiftStatus.Missed) { bg = "rgba(239, 68, 68, 0.1)"; color = "#f87171"; }
+                                else if (shift.Status == CampusSentinel.Models.ShiftStatus.Swapped) { bg = "rgba(245, 158, 11, 0.1)"; color = "#fbbf24"; }
+                            }
+                            <span class="cs-badge" style="background: @bg; color: @color;">@shift.Status</span>
+                        </td>
+                        <td>
+                             @if (!isPast && shift.Status == CampusSentinel.Models.ShiftStatus.Scheduled)
+                            {
+                                <button type="button" class="cs-btn cs-btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;" onclick="openSwapModal(@shift.Id)">Request Swap</button>
+                            }
+                            
+                            @if (shift.ShiftDate == today && shift.Status == CampusSentinel.Models.ShiftStatus.Scheduled)
+                            {
+                                <form method="post" asp-page-handler="MarkActive" asp-route-id="@shift.Id" style="display:inline;">
+                                    <button type="submit" class="cs-btn cs-btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Check In</button>
+                                </form>
+                            }
+                            
+                            @if (shift.ShiftDate == today && shift.Status == CampusSentinel.Models.ShiftStatus.Active)
+                            {
+                                <form method="post" asp-page-handler="MarkCompleted" asp-route-id="@shift.Id" style="display:inline;">
+                                    <button type="submit" class="cs-btn cs-btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Check Out</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if(!Model.Shifts.Any())
+                {
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: var(--cs-text-muted); padding: 2rem;">No shifts scheduled for this week.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Swap Request Modal -->
+<div id="swapModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+    <div class="cs-card" style="width: 400px; padding: 2rem; background: var(--cs-bg-surface);">
+        <h3 style="margin-top: 0; color: var(--cs-text-primary);">Request Shift Swap</h3>
+        <form method="post" asp-page-handler="Swap">
+            <input type="hidden" asp-for="ShiftIdToSwap" id="hiddenShiftId" />
+            
+            <div class="cs-form-group">
+                <label class="cs-label">Target Guard</label>
+                <select asp-for="TargetGuardId" class="cs-select" required>
+                    <option value="">Select a guard...</option>
+                    @if(Model.AvailableGuards != null)
+                    {
+                        foreach (var guard in Model.AvailableGuards)
+                        {
+                            <option value="@guard.Id">@guard.Username</option>
+                        }
+                    }
+                </select>
+            </div>
+            
+            <div class="cs-form-group">
+                <label class="cs-label">Reason</label>
+                <textarea asp-for="SwapReason" class="cs-textarea" rows="3" required></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                <button type="submit" class="cs-btn cs-btn-primary">Submit Request</button>
+                <button type="button" class="cs-btn cs-btn-secondary" onclick="document.getElementById('swapModal').style.display='none'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openSwapModal(shiftId) {
+        document.getElementById('hiddenShiftId').value = shiftId;
+        document.getElementById('swapModal').style.display = 'flex';
+    }
+</script>

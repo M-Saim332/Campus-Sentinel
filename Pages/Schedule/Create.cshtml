@@ -1,0 +1,77 @@
+@page
+@model CampusSentinel.Pages.Schedule.CreateModel
+@{
+    ViewData["Title"] = "Assign Shift";
+}
+
+<div class="cs-animate" style="max-width: 600px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="color: var(--cs-text-primary); margin: 0;">Assign Guard Shift</h2>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">Cancel</a>
+    </div>
+
+    <div class="cs-card">
+        @if (!ModelState.IsValid)
+        {
+            <div style="background: var(--cs-danger-bg); border-left: 4px solid var(--cs-danger); padding: 1rem; margin-bottom: 1.5rem; border-radius: var(--cs-radius-sm);">
+                <div asp-validation-summary="All" style="color: var(--cs-danger); font-size: 0.9rem;"></div>
+            </div>
+        }
+
+        <form method="post">
+            <div class="cs-form-group">
+                <label class="cs-label">Guard</label>
+                <select asp-for="Input.GuardUserId" class="cs-select" required>
+                    <option value="">Select a guard...</option>
+                    @if (Model.Guards != null)
+                    {
+                        foreach (var guard in Model.Guards)
+                        {
+                            <option value="@guard.Id">@guard.Username</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.GuardUserId" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+            </div>
+
+            <div class="cs-form-group">
+                <label class="cs-label">Zone</label>
+                <select asp-for="Input.ZoneId" class="cs-select" required>
+                    <option value="">Select a zone...</option>
+                    @if (Model.Zones != null)
+                    {
+                        foreach (var zone in Model.Zones)
+                        {
+                            <option value="@zone.Id">@zone.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.ZoneId" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+            </div>
+
+            <div class="cs-form-group">
+                <label class="cs-label">Shift Date</label>
+                <input asp-for="Input.ShiftDate" type="date" class="cs-input" required />
+                <span asp-validation-for="Input.ShiftDate" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="cs-form-group">
+                    <label class="cs-label">Start Time</label>
+                    <input asp-for="Input.StartTime" type="time" class="cs-input" required />
+                    <span asp-validation-for="Input.StartTime" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+                </div>
+
+                <div class="cs-form-group">
+                    <label class="cs-label">End Time</label>
+                    <input asp-for="Input.EndTime" type="time" class="cs-input" required />
+                    <span asp-validation-for="Input.EndTime" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <button type="submit" class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">Assign Shift</button>
+            </div>
+        </form>
+    </div>
+</div>

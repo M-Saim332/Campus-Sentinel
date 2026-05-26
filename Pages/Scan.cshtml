@@ -1,0 +1,477 @@
+@page
+@model CampusSentinel.Pages.ScanModel
+@{
+    ViewData["Title"] = "Scan Access";
+}
+
+<style>
+    .scanner-page {
+        max-width: 640px;
+        margin: 1.5rem auto;
+        text-align: center;
+    }
+
+    /* Header */
+    .scan-header h1 {
+        font-size: 1.5rem; font-weight: 700;
+        color: var(--cs-text-primary); margin: 0 0 0.25rem;
+        display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .scan-header p { color: var(--cs-text-muted); font-size: 0.875rem; margin: 0 0 1.5rem; }
+
+    /* Direction toggle */
+    .dir-toggle { display: flex; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .dir-btn {
+        flex: 1; padding: 0.8rem; border-radius: 0.6rem;
+        border: 1.5px solid var(--cs-border);
+        background: var(--cs-bg-elevated);
+        color: var(--cs-text-secondary); cursor: pointer;
+        font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+    }
+    .dir-btn.active {
+        background: var(--cs-accent-glow); color: var(--cs-accent);
+        border-color: var(--cs-accent); box-shadow: 0 0 14px var(--cs-accent-glow);
+    }
+
+    /* ── Camera idle state ── */
+    #cam-idle {
+        width: 100%; border-radius: 1rem; overflow: hidden;
+        border: 2px solid var(--cs-border);
+        background: var(--cs-bg-elevated);
+        padding: 2rem 1.5rem;
+        display: flex; flex-direction: column; align-items: center; gap: 0.85rem;
+        cursor: pointer; transition: all 0.2s ease;
+        margin-bottom: 0.75rem;
+    }
+    #cam-idle:hover { border-color: var(--cs-accent); background: var(--cs-bg-overlay); }
+    #cam-idle i { font-size: 2.2rem; color: var(--cs-accent); opacity: 0.8; }
+    #cam-idle span { color: var(--cs-text-secondary); font-size: 0.875rem; }
+
+    /* ── Camera live state ── */
+    #cam-live { display: none; margin-bottom: 0.75rem; position: relative; }
+    #cam-video {
+        width: 100%; display: block; border-radius: 1rem; overflow: hidden;
+        border: 2px solid var(--cs-accent);
+        box-shadow: var(--cs-shadow-glow);
+        background: #000;
+        min-height: 300px; object-fit: cover;
+    }
+    /* Scan animation overlay */
+    #cam-live::before {
+        content: '';
+        position: absolute; left: 20px; right: 20px;
+        height: 2px; z-index: 5;
+        background: linear-gradient(90deg, transparent, var(--cs-accent), transparent);
+        box-shadow: 0 0 10px var(--cs-accent);
+        animation: scanMove 2s linear infinite;
+        pointer-events: none;
+    }
+    @@keyframes scanMove { 0%{top:15%} 50%{top:82%} 100%{top:15%} }
+    /* Corner brackets */
+    #cam-live::after { display: none; }
+    .scan-corner {
+        position: absolute; width: 26px; height: 26px;
+        border-color: var(--cs-accent); border-style: solid; z-index: 5;
+        pointer-events: none;
+    }
+    .sc-tl { top:12px;  left:12px;  border-width:3px 0 0 3px; border-radius:4px 0 0 0; }
+    .sc-tr { top:12px;  right:12px; border-width:3px 3px 0 0; border-radius:0 4px 0 0; }
+    .sc-bl { bottom:12px; left:12px;  border-width:0 0 3px 3px; border-radius:0 0 0 4px; }
+    .sc-br { bottom:12px; right:12px; border-width:0 3px 3px 0; border-radius:0 0 4px 0; }
+
+    /* Countdown overlay */
+    #scan-countdown {
+        position: absolute; inset: 0; z-index: 10;
+        background: rgba(10,13,20,0.85);
+        display: none; flex-direction: column; align-items: center; justify-content: center;
+        backdrop-filter: blur(4px);
+    }
+    .countdown-circle {
+        width: 70px; height: 70px; border-radius: 50%;
+        background: rgba(0,201,167,0.15); border: 2.5px solid var(--cs-accent);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2rem; font-weight: 700; color: #fff;
+        margin-bottom: 1rem;
+    }
+    #scan-detected-id {
+        font-family: var(--cs-font-mono); font-size: 1.05rem; color: var(--cs-accent);
+        background: rgba(0,201,167,0.1); padding: 4px 12px; border-radius: 6px;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Camera controls */
+    .cam-btns { display:flex; gap:0.75rem; justify-content:center; margin-bottom:1rem; }
+
+    /* Status row */
+    .cam-status {
+        font-size:0.78rem; font-weight:600; color:#64748b;
+        margin-bottom:0.75rem; display:flex; align-items:center; justify-content:center; gap:0.4rem;
+    }
+    .status-dot { width:7px; height:7px; border-radius:50%; background:currentColor; flex-shrink:0; }
+    .cam-status.live  { color:#10b981; }
+    .cam-status.error { color:#ef4444; }
+
+    /* Alert box */
+    .alert-box {
+        border-radius:10px; padding:0.8rem 1rem; font-size:0.83rem;
+        text-align:left; margin-bottom:1rem;
+        align-items:flex-start; gap:0.6rem; display:none;
+    }
+    .alert-box.show { display:flex; }
+    .alert-box.err { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); color:#f87171; }
+    .alert-box.info { background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.3); color:#60a5fa; }
+
+    /* Manual entry */
+    .manual-card {
+        background:var(--cs-bg-elevated); border:1px solid var(--cs-border);
+        border-radius:var(--cs-radius-lg); padding:1.25rem 1.5rem; text-align:left;
+        margin-top:0.25rem;
+    }
+    .manual-card h3 {
+        font-size:0.9rem; color:var(--cs-text-secondary);
+        margin:0 0 0.75rem; display:flex; align-items:center; gap:0.4rem;
+    }
+    .manual-row { display:flex; gap:0.75rem; }
+    .manual-row .cs-input { flex:1; font-family:var(--cs-font-mono); }
+
+    /* Result card */
+    .result-card {
+        margin-top:1.75rem; padding:2rem; border-radius:1rem;
+        animation: slideUp 0.4s ease-out;
+    }
+    @@keyframes slideUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+    .granted { background:rgba(16,185,129,0.08); border:1.5px solid #10b981; color:#10b981; }
+    .denied  { background:rgba(239,68,68,0.08);  border:1.5px solid #ef4444; color:#ef4444; }
+    .result-icon { font-size:3rem; margin-bottom:0.6rem; }
+    .result-card h3 { font-size:1.35rem; font-weight:700; margin:0 0 0.4rem; }
+    .result-card p  { font-size:0.9rem; opacity:0.85; margin:0 0 0.4rem; }
+    .result-meta { font-family:monospace; font-size:0.82rem; opacity:0.65; margin-top:0.4rem; }
+    .result-actions { margin-top:1.25rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+</style>
+
+<div class="scanner-page">
+
+    <!-- Header -->
+    <div class="scan-header">
+        <h1><i class="ti ti-qrcode" style="color:var(--cs-accent);"></i> Secure Access Scanner</h1>
+        <p>Click Start Camera, or enter the ID manually below.</p>
+    </div>
+
+    <!-- Entry / Exit toggle -->
+    <div class="dir-toggle">
+        <button type="button" class="dir-btn @(Model.Direction == "Entry" ? "active" : "")"
+                onclick="setDirection('Entry')" id="btnEntry">
+            <i class="ti ti-door-enter"></i> ENTRY
+        </button>
+        <button type="button" class="dir-btn @(Model.Direction == "Exit" ? "active" : "")"
+                onclick="setDirection('Exit')" id="btnExit">
+            <i class="ti ti-door-exit"></i> EXIT
+        </button>
+    </div>
+
+    <!-- Status row -->
+    <div class="cam-status" id="camStatus">
+        <span class="status-dot"></span>
+        <span id="camStatusText">Camera off</span>
+    </div>
+
+    <!-- Error alert -->
+    <div class="alert-box err" id="errBox">
+        <i class="ti ti-alert-circle" style="flex-shrink:0;font-size:1.1rem;margin-top:1px;"></i>
+        <div id="errMsg"></div>
+    </div>
+
+    <!-- ── IDLE STATE ── shown before camera starts -->
+    <div id="cam-idle" onclick="startCamera()">
+        <i class="ti ti-camera-off"></i>
+        <span>Camera is off — click to start scanning</span>
+        <button type="button" class="cs-btn cs-btn-primary" onclick="event.stopPropagation();startCamera()">
+            <i class="ti ti-video"></i> Start Camera
+        </button>
+    </div>
+
+    <!-- ── LIVE STATE ── shown when camera is active -->
+    <div id="cam-live">
+        <video id="cam-video" playsinline muted></video>
+        <canvas id="cam-canvas" style="display:none;"></canvas>
+        <!-- Corner brackets -->
+        <div class="scan-corner sc-tl"></div>
+        <div class="scan-corner sc-tr"></div>
+        <div class="scan-corner sc-bl"></div>
+        <div class="scan-corner sc-br"></div>
+        <!-- Countdown overlay -->
+        <div id="scan-countdown">
+            <div style="color:#fff; font-weight:600; margin-bottom:0.5rem;">Code Detected</div>
+            <div id="scan-detected-id">ID</div>
+            <div class="countdown-circle" id="countdown-num">3</div>
+            <button type="button" class="cs-btn cs-btn-secondary" onclick="cancelCountdown()" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <!-- Camera controls -->
+    <div class="cam-btns">
+        <button type="button" class="cs-btn cs-btn-secondary" id="btnStop"
+                onclick="stopCamera()" style="display:none;">
+            <i class="ti ti-video-off"></i> Stop Camera
+        </button>
+    </div>
+
+    <!-- Hidden POST form -->
+    <form id="scanForm" method="post" style="display:none;">
+        <input type="hidden" asp-for="QrCodeId"  id="qrInput" />
+        <input type="hidden" asp-for="Direction" id="dirInput" value="@Model.Direction" />
+    </form>
+
+    <!-- Manual entry -->
+    <div class="manual-card">
+        <h3><i class="ti ti-keyboard"></i> Manual ID Entry</h3>
+        <div class="manual-row">
+            <input type="text" id="manualId" class="cs-input"
+                   placeholder="e.g. 2024-CS-BC-001 or VISIT-AB12CD"
+                   autocomplete="off" spellcheck="false" />
+            <button type="button" class="cs-btn cs-btn-primary" onclick="submitManual()">
+                <i class="ti ti-check"></i> Verify
+            </button>
+        </div>
+        <div style="font-size:0.75rem;color:var(--cs-text-muted);margin-top:6px;">
+            Enter the QR code ID printed on the access card and click Verify.
+        </div>
+    </div>
+
+    <!-- Server-side scan result -->
+    @if (Model.ShowResult)
+    {
+        <div class="result-card @(Model.IsGranted ? "granted" : "denied")">
+            <div class="result-icon">@(Model.IsGranted ? "✅" : "🚫")</div>
+            <h3>@(Model.IsGranted ? "ACCESS GRANTED" : "ACCESS DENIED")</h3>
+            <p>@Model.ScanResult</p>
+            <div class="result-meta">ID: @Model.QrCodeId &nbsp;|&nbsp; @Model.Direction</div>
+            <div class="result-actions">
+                <button onclick="window.location.href='/Scan'" class="cs-btn cs-btn-secondary">
+                    <i class="ti ti-scan"></i> Scan Next
+                </button>
+                @if (!Model.IsGranted && Model.CurrentLogId.HasValue)
+                {
+                    <a asp-page="/Incidents/Create" asp-route-logId="@Model.CurrentLogId" class="cs-btn cs-btn-danger">
+                        <i class="ti ti-alert-triangle"></i> Log Incident
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+<script src="~/lib/jsqr/jsqr.js"></script>
+<script>
+// ── References ────────────────────────────────────────────────────────────────
+const camIdle   = document.getElementById('cam-idle');
+const camLive   = document.getElementById('cam-live');
+const video     = document.getElementById('cam-video');
+const canvas    = document.getElementById('cam-canvas');
+const ctx       = canvas.getContext('2d', { willReadFrequently: true });
+const btnStop   = document.getElementById('btnStop');
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let activeStream = null;
+let scanLocked   = false;
+let scanning     = false;
+let rafId        = null;
+let camStarting  = false;
+let countdownInterval = null;
+
+// ── Direction ─────────────────────────────────────────────────────────────────
+function setDirection(dir) {
+    document.getElementById('dirInput').value = dir;
+    document.getElementById('btnEntry').classList.toggle('active', dir === 'Entry');
+    document.getElementById('btnExit').classList.toggle('active',  dir === 'Exit');
+}
+
+// ── Status / errors ───────────────────────────────────────────────────────────
+function setStatus(msg, cls) {
+    document.getElementById('camStatus').className = 'cam-status' + (cls ? ' '+cls : '');
+    document.getElementById('camStatusText').textContent = msg;
+}
+function showErr(html) {
+    document.getElementById('errMsg').innerHTML = html;
+    document.getElementById('errBox').classList.add('show');
+    setStatus('Camera error', 'error');
+}
+function clearErr() {
+    document.getElementById('errBox').classList.remove('show');
+}
+
+// ── Submit ────────────────────────────────────────────────────────────────────
+function submitCode(code) {
+    if (scanLocked || !code || !code.trim()) return;
+    scanLocked = true;
+    stopCamera();
+    document.getElementById('qrInput').value = code.trim();
+    document.getElementById('scanForm').submit();
+}
+function submitManual() {
+    const v = document.getElementById('manualId').value.trim();
+    if (!v) { document.getElementById('manualId').focus(); return; }
+    submitCode(v);
+}
+document.getElementById('manualId').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); submitManual(); }
+});
+
+// ── Scan loop ─────────────────────────────────────────────────────────────────
+function tick() {
+    if (scanLocked || !scanning) return;
+    if (video.readyState >= 2 && video.videoWidth > 0) {
+        canvas.width  = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0);
+        const img  = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const code = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
+        if (code && code.data) { 
+            startCountdown(code.data);
+            return; 
+        }
+    }
+    rafId = requestAnimationFrame(tick);
+}
+
+// ── Countdown ─────────────────────────────────────────────────────────────────
+function startCountdown(codeData) {
+    scanning = false; // Pause scanning
+    document.getElementById('scan-detected-id').textContent = codeData;
+    document.getElementById('scan-countdown').style.display = 'flex';
+    let count = 3;
+    document.getElementById('countdown-num').textContent = count;
+    
+    countdownInterval = setInterval(() => {
+        count--;
+        if (count <= 0) {
+            clearInterval(countdownInterval);
+            submitCode(codeData);
+        } else {
+            document.getElementById('countdown-num').textContent = count;
+        }
+    }, 1000);
+}
+
+function cancelCountdown() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    document.getElementById('scan-countdown').style.display = 'none';
+    scanning = true; // Resume scanning
+    rafId = requestAnimationFrame(tick);
+}
+
+// ── Stop ──────────────────────────────────────────────────────────────────────
+function stopCamera() {
+    scanning    = false;
+    camStarting = false;
+    if (countdownInterval) clearInterval(countdownInterval);
+    document.getElementById('scan-countdown').style.display = 'none';
+    if (rafId)        { cancelAnimationFrame(rafId); rafId = null; }
+    if (activeStream) { activeStream.getTracks().forEach(t => t.stop()); activeStream = null; }
+    video.srcObject = null;
+    // Switch back to idle view
+    camLive.style.display = 'none';
+    camIdle.style.display = 'flex';
+    btnStop.style.display = 'none';
+    setStatus('Camera off', '');
+}
+
+// ── Start ─────────────────────────────────────────────────────────────────────
+async function startCamera() {
+    if (scanning || camStarting) return;
+    camStarting = true;
+    clearErr();
+    setStatus('Starting camera…', '');
+
+    if (typeof jsQR === 'undefined') {
+        showErr('QR library not loaded. Refresh the page.');
+        camStarting = false; return;
+    }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        showErr('Your browser does not support camera access. Use Manual Entry below.');
+        camStarting = false; return;
+    }
+
+    // Check permission state (Chrome 80+)
+    try {
+        const perm = await navigator.permissions.query({ name: 'camera' });
+        if (perm.state === 'denied') {
+            showErr(
+                '<strong>Camera is blocked.</strong> Click the 🔒 icon in the address bar → ' +
+                'Site settings → Camera → Allow, then refresh the page.'
+            );
+            camStarting = false; return;
+        }
+    } catch(e) { /* permissions API unavailable — continue */ }
+
+    // Try to get stream
+    let stream = null, lastErr = null;
+    for (const c of [
+        { video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 } } },
+        { video: { width: { ideal: 640 } } },
+        { video: true }
+    ]) {
+        try { stream = await navigator.mediaDevices.getUserMedia(c); break; }
+        catch(e) { lastErr = e; }
+    }
+
+    if (!stream) {
+        camStarting = false;
+        if (!lastErr) { showErr('Could not access camera. Use Manual Entry below.'); return; }
+        switch (lastErr.name) {
+            case 'NotAllowedError':
+            case 'PermissionDeniedError':
+                showErr('<strong>Permission denied.</strong> Allow camera in the browser address bar, then click Start Camera again.');
+                break;
+            case 'NotFoundError':
+            case 'DevicesNotFoundError':
+                showErr('<strong>No camera found.</strong> This device has no camera. Use Manual Entry below.');
+                break;
+            case 'NotReadableError':
+                showErr('<strong>Camera busy.</strong> Another app is using the camera. Close it and try again.');
+                break;
+            default:
+                showErr('<strong>Camera error:</strong> ' + (lastErr.message || lastErr.name) + '. Use Manual Entry below.');
+        }
+        return;
+    }
+
+    // Got stream — switch to live view BEFORE attaching to video
+    activeStream = stream;
+    camIdle.style.display = 'none';
+    camLive.style.display = 'block';
+    btnStop.style.display = '';
+    setStatus('Camera loading…', '');
+
+    video.srcObject = stream;
+
+    try {
+        await video.play();
+        scanning    = true;
+        camStarting = false;
+        setStatus('● Live — scanning…', 'live');
+        rafId = requestAnimationFrame(tick);
+    } catch(e) {
+        showErr('Could not play video: ' + e.message + '. Try refreshing.');
+        stopCamera();
+        camStarting = false;
+    }
+}
+
+// Pause/resume on tab visibility change
+document.addEventListener('visibilitychange', () => {
+    if (!activeStream || !scanning) return;
+    if (document.hidden) {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    } else {
+        rafId = requestAnimationFrame(tick);
+    }
+});
+
+// Focus manual input
+document.getElementById('manualId').focus();
+</script>
+}

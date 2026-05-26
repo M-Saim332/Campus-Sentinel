@@ -1,0 +1,268 @@
+@using Microsoft.AspNetCore.Http
+@{
+    string ActiveClass(string pageName)
+    {
+        return ViewContext.RouteData.Values["page"]?.ToString()?.Contains(pageName, StringComparison.OrdinalIgnoreCase) == true ? "active" : "";
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/&#64;tabler/icons-webfont@latest/tabler-icons.min.css">
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+</head>
+<body>
+
+  <aside class="cs-sidebar" id="csSidebar">
+
+    <!-- Logo: image only, no text siblings -->
+    <div class="cs-sidebar-logo">
+      <a asp-page="/Index" class="cs-logo-link">
+        <img src="~/images/logo.png"
+             alt="Campus Sentinel"
+             class="cs-logo-full"
+             onerror="this.onerror=null; this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'180\' height=\'44\'%3E%3Ctext x=\'0\' y=\'30\' font-family=\'sans-serif\' font-size=\'22\' font-weight=\'bold\' fill=\'%23F0F4FF\'%3ECampus Sentinel%3C/text%3E%3C/svg%3E';" />
+        <img src="~/favicon.ico"
+             alt="CS Icon"
+             aria-hidden="true"
+             class="cs-logo-icon"
+             onerror="this.onerror=null; this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2300C9A7\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/%3E%3C/svg%3E';" />
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="cs-nav" role="navigation" aria-label="Main navigation">
+      <div class="cs-nav-section">Main</div>
+      <a asp-page="/Dashboard" class="cs-nav-item @ActiveClass("Dashboard")">
+        <i class="ti ti-layout-dashboard" aria-hidden="true"></i>
+        <span class="cs-nav-label">Dashboard</span>
+      </a>
+      <a asp-page="/Scan" class="cs-nav-item @ActiveClass("Scan")">
+        <i class="ti ti-qrcode" aria-hidden="true"></i>
+        <span class="cs-nav-label">Scan QR</span>
+      </a>
+
+      <div class="cs-nav-section">People</div>
+      <a asp-page="/Admin/Students/Index" class="cs-nav-item @ActiveClass("Students")">
+        <i class="ti ti-school" aria-hidden="true"></i>
+        <span class="cs-nav-label">Students</span>
+      </a>
+      <a asp-page="/Admin/Staff/Index" class="cs-nav-item @ActiveClass("Staff")">
+        <i class="ti ti-id-badge" aria-hidden="true"></i>
+        <span class="cs-nav-label">Staff</span>
+      </a>
+      <a asp-page="/Admin/Visitors/Index" class="cs-nav-item @ActiveClass("Visitors")">
+        <i class="ti ti-user-plus" aria-hidden="true"></i>
+        <span class="cs-nav-label">Visitors</span>
+      </a>
+      @if (User.IsInRole("Admin"))
+      {
+          <a asp-page="/Admin/Guards/Index" class="cs-nav-item @ActiveClass("Guards")">
+            <i class="ti ti-shield-half" aria-hidden="true"></i>
+            <span class="cs-nav-label">Guards</span>
+          </a>
+      }
+
+      <div class="cs-nav-section">Security</div>
+      <a asp-page="/Incidents/Index" class="cs-nav-item @ActiveClass("Incidents")">
+        <i class="ti ti-shield-exclamation" aria-hidden="true"></i>
+        <span class="cs-nav-label">Incidents</span>
+        @inject CampusSentinel.Data.ApplicationDbContext DbContext
+        @{ var openIncidents = DbContext.Incidents.Count(i => i.Status == CampusSentinel.Models.IncidentStatus.Open); }
+        @if (openIncidents > 0)
+        {
+            <span class="cs-nav-badge" id="incidentBadge">@openIncidents</span>
+        }
+      </a>
+      @if (User.IsInRole("Admin"))
+      {
+          @* ── Challans (Admin-only) ── *@
+          <a asp-page="/Admin/Challans/Index" class="cs-nav-item @ActiveClass("Challans")">
+            <i class="ti ti-file-invoice" aria-hidden="true"></i>
+            <span class="cs-nav-label">Challans</span>
+            @{
+                var pendingChallans = DbContext.Challans.Count(c => c.Status == CampusSentinel.Models.ChallanStatus.Pending);
+            }
+            @if (pendingChallans > 0)
+            {
+                <span class="cs-nav-badge" id="challanBadge">@pendingChallans</span>
+            }
+          </a>
+      }
+      @if (User.IsInRole("Admin"))
+      {
+          <a asp-page="/Schedule/Index" class="cs-nav-item @ActiveClass("Schedule")">
+            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+            <span class="cs-nav-label">Schedule</span>
+          </a>
+      }
+      else
+      {
+          <a asp-page="/Schedule/MySchedule" class="cs-nav-item @ActiveClass("Schedule")">
+            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+            <span class="cs-nav-label">Schedule</span>
+          </a>
+      }
+      <a asp-page="/Reports" class="cs-nav-item @ActiveClass("Reports")">
+        <i class="ti ti-file-analytics" aria-hidden="true"></i>
+        <span class="cs-nav-label">Reports</span>
+      </a>
+
+      <div class="cs-nav-section">System</div>
+      @if (User.IsInRole("Admin"))
+      {
+          <a asp-page="/Auth/Register" class="cs-nav-item @ActiveClass("Register")">
+            <i class="ti ti-user-plus" aria-hidden="true"></i>
+            <span class="cs-nav-label">Add System User</span>
+          </a>
+      }
+      <a asp-page="/Settings" class="cs-nav-item @ActiveClass("Settings")">
+        <i class="ti ti-settings" aria-hidden="true"></i>
+        <span class="cs-nav-label">Settings</span>
+      </a>
+    </nav>
+
+    <!-- Sidebar footer: user info -->
+    <div class="cs-sidebar-footer">
+      <div class="cs-user-row">
+        <div class="cs-avatar" aria-hidden="true">@(User.Identity?.Name?.Substring(0, 2).ToUpper() ?? "U")</div>
+        <div class="cs-user-info">
+          <div class="cs-user-name">@User.Identity?.Name</div>
+          <div class="cs-user-role">@(User.IsInRole("Admin") ? "Administrator" : "Guard")</div>
+        </div>
+        <a asp-page="/Auth/Logout" class="cs-logout-btn" aria-label="Sign out">
+          <i class="ti ti-logout" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="cs-main" id="csMain">
+
+    <header class="cs-topbar">
+      <!-- Left: breadcrumb -->
+      <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+        <a asp-page="/Index" class="cs-bc-home" aria-label="Home">
+          <i class="ti ti-home" style="font-size: 20px; display: flex; align-items: center;"></i>
+        </a>
+        <span class="cs-bc-sep" aria-hidden="true"></span>
+        <span class="cs-bc-current">@ViewData["Title"]</span>
+      </nav>
+
+      <!-- Center: global search -->
+      <div class="cs-topbar-search" role="search">
+        <i class="ti ti-search" aria-hidden="true"></i>
+        <input type="text"
+               id="globalSearch"
+               placeholder="Search people, logs, incidents..."
+               class="cs-search-input"
+               aria-label="Global search" />
+        <span class="cs-kbd" aria-hidden="true">⌘K</span>
+      </div>
+
+      <!-- Right: actions -->
+      <div class="cs-topbar-actions">
+        <!-- Theme Switcher -->
+        <div class="cs-theme-wrapper" style="position: relative; display: flex; align-items: center; margin-right: 4px;">
+          <i class="ti ti-palette" style="position: absolute; left: 12px; font-size: 16px; color: var(--cs-text-secondary); pointer-events: none;" aria-hidden="true"></i>
+          <select id="themeSwitcher" aria-label="Select theme" style="padding: 0 24px 0 32px; height: 40px; border-radius: var(--cs-radius-md); font-size: 0.85rem; font-weight: 500; min-width: 110px; width: 110px; background: var(--cs-bg-elevated); border: 1px solid var(--cs-border); color: var(--cs-text-secondary); cursor: pointer; appearance: none; transition: var(--cs-transition); outline: none;">
+            <option value="custom">Custom</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+          </select>
+          <i class="ti ti-chevron-down" style="position: absolute; right: 10px; font-size: 12px; color: var(--cs-text-secondary); pointer-events: none;" aria-hidden="true"></i>
+        </div>
+
+        <a asp-page="/Notifications/Index" class="cs-icon-btn" aria-label="Notifications" id="notifBtn">
+          <i class="ti ti-bell" aria-hidden="true"></i>
+          @inject CampusSentinel.Services.INotificationService NotificationService
+          @{
+              var currentUsername = User.Identity?.Name;
+              var currentUser = currentUsername != null ? DbContext.Users.FirstOrDefault(u => u.Username == currentUsername) : null;
+              int unreadCount = currentUser != null ? await NotificationService.GetUnreadCountAsync(currentUser.Id) : 0;
+          }
+          @if (unreadCount > 0)
+          {
+              <span class="cs-notif-dot unread" id="notifDot" aria-hidden="true"></span>
+          }
+        </a>
+        <button class="cs-icon-btn" aria-label="Toggle sidebar" id="sidebarToggle">
+          <i class="ti ti-layout-sidebar" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="cs-page-content">
+      @RenderBody()
+    </div>
+
+    <!-- Premium Footer -->
+    <footer class="cs-footer">
+      <div class="cs-footer-container">
+        
+        <!-- Top row: Branding & Links -->
+        <div class="cs-footer-top">
+          
+          <!-- Left: Brand & Tagline -->
+          <div class="cs-footer-brand-section">
+            <div class="cs-footer-brand-title">
+              <i class="ti ti-shield-check" style="font-size: 1.5rem; color: var(--cs-accent);"></i>
+              <span class="cs-footer-brand-name">Campus Sentinel</span>
+            </div>
+            <p class="cs-footer-text">
+              The next-generation security and access management platform. Securing campuses, empowering administration.
+            </p>
+          </div>
+
+          <!-- Right: System Links -->
+          <div class="cs-footer-links-wrapper">
+            <div>
+              <h4 class="cs-footer-title">System</h4>
+              <ul class="cs-footer-links-list">
+                <li><a href="#" class="cs-footer-link">Documentation</a></li>
+                <li><a href="#" class="cs-footer-link">Release Notes</a></li>
+                <li><a href="#" class="cs-footer-link">API Status</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="cs-footer-title">Support</h4>
+              <ul class="cs-footer-links-list">
+                <li><a href="#" class="cs-footer-link">Help Center</a></li>
+                <li><a href="#" class="cs-footer-link">Contact IT</a></li>
+                <li><a href="#" class="cs-footer-link">Report Issue</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="cs-footer-divider"></div>
+
+        <!-- Bottom row: Copyright & Made with love -->
+        <div class="cs-footer-bottom">
+          <div class="cs-footer-copyright">
+            &copy; 2026 Campus Sentinel. All rights reserved.
+          </div>
+          <div class="cs-footer-badge">
+            <span>Made with</span>
+            <span style="color: #ef4444; font-size: 1rem; animation: pulse 2s infinite; line-height: 1;">❤️</span>
+            <span>by the Campus Sentinel Team</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast container -->
+    <div class="cs-toast-container" id="toastContainer" aria-live="polite"></div>
+
+  </main>
+
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

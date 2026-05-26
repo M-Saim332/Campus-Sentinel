@@ -1,0 +1,39 @@
+@page
+@model CampusSentinel.Pages.Admin.Students.DeleteModel
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<div class="animate-fade-in" style="max-width: 600px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <h2>Delete Student</h2>
+        <h3 class="text-danger" style="font-size: 1rem; margin-top: 0.5rem;">
+            ⚠️ Are you sure you want to permanently delete this student record?
+        </h3>
+    </div>
+
+    <div class="glass-card">
+        <dl style="display: grid; grid-template-columns: 160px 1fr; gap: 0.75rem 1rem; margin-bottom: 1.5rem;">
+            <dt style="color: var(--text-muted, #94a3b8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Barcode / QR ID</dt>
+            <dd style="font-family: monospace; color: #7dd3fc; font-weight: 700; margin: 0;">@Model.Student.QrCodeId</dd>
+
+            <dt style="color: var(--text-muted, #94a3b8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Full Name</dt>
+            <dd style="margin: 0; font-weight: 600;">@Model.Student.FullName</dd>
+
+            <dt style="color: var(--text-muted, #94a3b8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Department</dt>
+            <dd style="margin: 0;">@Model.Student.Department</dd>
+
+            <dt style="color: var(--text-muted, #94a3b8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Registration No.</dt>
+            <dd style="margin: 0;">@Model.Student.RegistrationNo</dd>
+
+            <dt style="color: var(--text-muted, #94a3b8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;">Session</dt>
+            <dd style="margin: 0;">@Model.Student.Session</dd>
+        </dl>
+
+        <form method="post" style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+            <input type="hidden" asp-for="Student.Id" />
+            <input type="submit" value="Yes, Delete" class="btn btn-danger" />
+            <a asp-page="./Index" style="color: var(--text-muted, #94a3b8); font-size: 0.9rem;">Cancel</a>
+        </form>
+    </div>
+</div>

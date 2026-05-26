@@ -1,0 +1,298 @@
+@page
+@model CampusSentinel.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "Add System User";
+}
+
+<style>
+    /* ── Duplicate Warning Modal ─────────────────────── */
+    .warn-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+    }
+    .warn-modal-overlay.active { display: flex; }
+    .warn-modal {
+        background: var(--cs-bg-surface);
+        border: 1.5px solid var(--cs-danger);
+        border-radius: 1.2rem;
+        padding: 2rem 2.5rem;
+        max-width: 420px;
+        width: 90%;
+        text-align: center;
+        animation: popIn 0.3s cubic-bezier(.34,1.56,.64,1);
+        box-shadow: var(--cs-shadow-md);
+    }
+    .warn-modal .warn-icon { font-size: 3rem; line-height: 1; margin-bottom: 0.75rem; }
+    .warn-modal h3 { color: var(--cs-danger); font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .warn-modal p { color: var(--cs-text-secondary); font-size: 0.9rem; line-height: 1.55; margin-bottom: 1.5rem; }
+    .warn-modal .warn-username { color: var(--cs-danger); font-weight: 700; font-family: monospace; }
+    .btn-warn-ok {
+        background: linear-gradient(135deg, #dc2626, #991b1b);
+        color: #fff; border: none; border-radius: 0.6rem;
+        padding: 0.6rem 2rem; font-size: 0.95rem; font-weight: 600;
+        cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-warn-ok:hover { opacity: 0.85; }
+    @@keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to   { transform: scale(1);  opacity: 1; }
+    }
+
+    /* ── Password strength ─────────────────────────── */
+    .pw-wrap { position: relative; }
+    .pw-wrap .cs-input { padding-right: 44px; }
+    .pw-toggle {
+        position: absolute; right: 12px; top: 50%;
+        transform: translateY(-50%);
+        background: none; border: none;
+        color: var(--cs-text-muted); cursor: pointer;
+        font-size: 18px; padding: 0; line-height: 1;
+        transition: color .15s;
+    }
+    .pw-toggle:hover { color: var(--cs-accent); }
+
+    .pw-strength-bar {
+        height: 4px;
+        border-radius: 4px;
+        margin-top: 6px;
+        background: var(--cs-bg-elevated);
+        overflow: hidden;
+    }
+    .pw-strength-fill {
+        height: 100%;
+        border-radius: 4px;
+        width: 0%;
+        transition: width 0.3s ease, background 0.3s ease;
+    }
+    .pw-reqs {
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 12px;
+        font-size: 0.78rem;
+    }
+    .pw-req {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--cs-text-muted);
+        transition: color 0.2s;
+    }
+    .pw-req.met { color: var(--cs-success); }
+    .pw-req i { font-size: 13px; }
+
+    /* ── Inline Error Banner ─────────────────────────── */
+    .error-banner {
+        background: rgba(239,68,68,0.1);
+        border: 1px solid rgba(239,68,68,0.35);
+        border-radius: 0.6rem;
+        color: #f87171;
+        padding: 0.65rem 1rem;
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+</style>
+
+@* ── Duplicate-user Warning Popup ─────────────────────────────── *@
+@if (Model.ShowDuplicateWarning)
+{
+    <div class="warn-modal-overlay active" id="warnOverlay">
+        <div class="warn-modal">
+            <div class="warn-icon">⚠️</div>
+            <h3>Username Already Taken</h3>
+            <p>
+                An account with the username
+                <span class="warn-username">"@Model.Input.Username"</span>
+                already exists in the system.<br /><br />
+                Please choose a <strong>different username</strong> and try again.
+            </p>
+            <button class="btn-warn-ok" onclick="closeWarn()">OK, Got It</button>
+        </div>
+    </div>
+}
+
+<div class="cs-card cs-animate" style="max-width: 480px; margin: 2rem auto;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <i class="ti ti-user-shield" style="font-size: 3rem; color: var(--cs-accent); margin-bottom: 0.5rem; display: block;"></i>
+        <h2 style="margin: 0; color: var(--cs-text-primary);">Add System User</h2>
+        <p style="color: var(--cs-text-muted); font-size: 0.85rem; margin-top: 0.2rem;">Create a new Administrator or Security Guard account.</p>
+    </div>
+
+    <form method="post" id="registerForm" novalidate>
+        @Html.AntiForgeryToken()
+
+        @if (ViewContext.ModelState.ErrorCount > 0 && !Model.ShowDuplicateWarning)
+        {
+            <div class="error-banner">
+                <i class="ti ti-alert-circle" style="flex-shrink:0; margin-top:1px;"></i>
+                <div asp-validation-summary="ModelOnly"></div>
+            </div>
+        }
+
+        @* Username *@
+        <div class="cs-form-group">
+            <label asp-for="Input.Username" class="cs-label">
+                <i class="ti ti-at" style="font-size:12px;"></i> Username
+            </label>
+            <input asp-for="Input.Username"
+                   class="cs-input"
+                   id="usernameField"
+                   placeholder="e.g. john_doe (4–30 chars)"
+                   autocomplete="off"
+                   spellcheck="false" />
+            <span asp-validation-for="Input.Username" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+            <div style="font-size:0.75rem; color:var(--cs-text-muted); margin-top:4px;">
+                Letters, numbers, underscores and dots only.
+            </div>
+        </div>
+
+        @* Password *@
+        <div class="cs-form-group">
+            <label asp-for="Input.Password" class="cs-label">
+                <i class="ti ti-lock" style="font-size:12px;"></i> Password
+            </label>
+            <div class="pw-wrap">
+                <input asp-for="Input.Password"
+                       class="cs-input"
+                       id="pwField"
+                       type="password"
+                       placeholder="8–16 chars, mixed case + number + symbol"
+                       autocomplete="new-password" />
+                <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show/hide password">
+                    <i class="ti ti-eye" id="pwEyeIcon"></i>
+                </button>
+            </div>
+            <span asp-validation-for="Input.Password" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+
+            @* Strength bar *@
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwStrengthFill"></div></div>
+
+            @* Requirements checklist *@
+            <div class="pw-reqs">
+                <div class="pw-req" id="req-len"><i class="ti ti-circle-check"></i> 8–16 characters</div>
+                <div class="pw-req" id="req-upper"><i class="ti ti-circle-check"></i> Uppercase letter</div>
+                <div class="pw-req" id="req-lower"><i class="ti ti-circle-check"></i> Lowercase letter</div>
+                <div class="pw-req" id="req-digit"><i class="ti ti-circle-check"></i> Number (0–9)</div>
+                <div class="pw-req" id="req-special"><i class="ti ti-circle-check"></i> Special character</div>
+            </div>
+        </div>
+
+        @* Role *@
+        <div class="cs-form-group">
+            <label asp-for="Input.Role" class="cs-label">
+                <i class="ti ti-shield" style="font-size:12px;"></i> Role
+            </label>
+            <select asp-for="Input.Role" class="cs-select"
+                    style="appearance: none; background-color: var(--cs-bg-elevated);">
+                <option value="SecurityGuard">Security Guard</option>
+                <option value="Admin">Administrator</option>
+            </select>
+            <span asp-validation-for="Input.Role" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+        </div>
+
+        <button type="submit" class="cs-btn cs-btn-primary" id="submitBtn"
+                style="margin-top: 1rem; width: 100%; justify-content: center; font-size: 1rem; padding: 11px 16px;">
+            <i class="ti ti-user-plus"></i> Create User
+        </button>
+    </form>
+
+    <div style="text-align: center; margin-top: 1.5rem;">
+        <a asp-page="/Dashboard" class="cs-btn cs-btn-ghost" style="width: 100%; justify-content: center;">
+            <i class="ti ti-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        /* ── Warning modal ── */
+        function closeWarn() {
+            var el = document.getElementById('warnOverlay');
+            if (el) { el.classList.remove('active'); }
+            var u = document.getElementById('usernameField') || document.getElementById('Input_Username');
+            if (u) { u.focus(); u.select(); }
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var overlay = document.getElementById('warnOverlay');
+            if (overlay) {
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) closeWarn();
+                });
+            }
+        });
+
+        /* ── Password visibility toggle ── */
+        const pwToggle = document.getElementById('pwToggle');
+        const pwField  = document.getElementById('pwField');
+        const pwIcon   = document.getElementById('pwEyeIcon');
+        if (pwToggle) {
+            pwToggle.addEventListener('click', () => {
+                const show = pwField.type === 'password';
+                pwField.type = show ? 'text' : 'password';
+                pwIcon.className = show ? 'ti ti-eye-off' : 'ti ti-eye';
+            });
+        }
+
+        /* ── Live password strength checker ── */
+        const fill   = document.getElementById('pwStrengthFill');
+        const reqLen = document.getElementById('req-len');
+        const reqUpper   = document.getElementById('req-upper');
+        const reqLower   = document.getElementById('req-lower');
+        const reqDigit   = document.getElementById('req-digit');
+        const reqSpecial = document.getElementById('req-special');
+
+        function checkReq(el, met) {
+            if (!el) return;
+            el.classList.toggle('met', met);
+            const icon = el.querySelector('i');
+            if (icon) icon.className = met ? 'ti ti-circle-check-filled' : 'ti ti-circle-check';
+        }
+
+        function updateStrength(pw) {
+            const len     = pw.length >= 8 && pw.length <= 16;
+            const upper   = /[A-Z]/.test(pw);
+            const lower   = /[a-z]/.test(pw);
+            const digit   = /[0-9]/.test(pw);
+            const special = /[^a-zA-Z0-9]/.test(pw);
+
+            checkReq(reqLen,     len);
+            checkReq(reqUpper,   upper);
+            checkReq(reqLower,   lower);
+            checkReq(reqDigit,   digit);
+            checkReq(reqSpecial, special);
+
+            const score = [len, upper, lower, digit, special].filter(Boolean).length;
+            const pct   = (score / 5) * 100;
+            const colors = ['', '#ef4444', '#f97316', '#eab308', '#22c55e', '#00C9A7'];
+            if (fill) {
+                fill.style.width = pct + '%';
+                fill.style.background = colors[score] || '#ef4444';
+            }
+        }
+
+        if (pwField) {
+            pwField.addEventListener('input', () => updateStrength(pwField.value));
+            updateStrength(pwField.value); // initialize on load
+        }
+
+        /* ── Username uniqueness hint (live, client-side format check) ── */
+        const unField = document.getElementById('usernameField') || document.getElementById('Input_Username');
+        if (unField) {
+            unField.addEventListener('input', () => {
+                const val = unField.value;
+                const valid = /^[a-zA-Z0-9_\.]{4,30}$/.test(val);
+                unField.style.borderColor = val.length === 0 ? '' : (valid ? 'var(--cs-success)' : 'var(--cs-danger)');
+            });
+        }
+    </script>
+}

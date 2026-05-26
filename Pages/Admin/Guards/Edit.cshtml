@@ -1,0 +1,61 @@
+@page
+@model CampusSentinel.Pages.Admin.Guards.EditModel
+@{
+    ViewData["Title"] = "Edit Guard";
+}
+
+<div class="cs-animate" style="max-width: 600px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+            <i class="ti ti-edit" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Edit Guard
+        </h1>
+        <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Modify security guard credentials and status.</p>
+    </div>
+
+    <div class="cs-card">
+        <form method="post">
+            <input type="hidden" asp-for="Guard.Id" />
+            
+            <div class="cs-form-group">
+                <label asp-for="Guard.Username" class="cs-label">Username</label>
+                <input asp-for="Guard.Username" class="cs-input" placeholder="Guard username" />
+                <span asp-validation-for="Guard.Username" style="color: var(--cs-danger); font-size: 0.85rem;"></span>
+            </div>
+
+            <div class="cs-form-group">
+                <label class="cs-label">Reset Password (Optional)</label>
+                <input asp-for="NewPassword" type="password" class="cs-input" placeholder="Leave blank to keep current password" />
+                <p style="color: var(--cs-text-tertiary); font-size: 0.75rem; margin-top: 0.4rem;">
+                    Enter a new password only if you wish to change it.
+                </p>
+            </div>
+
+            <div class="cs-form-group" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--cs-bg-elevated); border-radius: 8px; border: 1px solid var(--cs-border);">
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex: 1;">
+                    <i class="ti ti-toggle-right" style="font-size: 1.2rem; color: var(--cs-accent);"></i>
+                    <div>
+                        <div style="font-size: 0.9rem; font-weight: 600; color: var(--cs-text-primary);">Account Status</div>
+                        <div style="font-size: 0.75rem; color: var(--cs-text-muted);">Enable or disable access for this guard.</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="checkbox" asp-for="Guard.IsActive" id="isActive" style="width: 1.2rem; height: 1.2rem; accent-color: var(--cs-accent);" />
+                    <label for="isActive" class="cs-label" style="margin-bottom: 0; cursor: pointer;">Active</label>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="cs-btn cs-btn-primary" style="flex: 1; justify-content: center;">
+                    <i class="ti ti-device-floppy"></i> Save Changes
+                </button>
+                <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

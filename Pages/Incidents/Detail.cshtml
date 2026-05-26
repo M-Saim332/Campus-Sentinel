@@ -1,0 +1,227 @@
+@page "{id:int}"
+@model CampusSentinel.Pages.Incidents.DetailModel
+@using CampusSentinel.Models
+
+@{
+    ViewData["Title"] = "Incident Details";
+    var incident = Model.Incident;
+}
+
+<div class="cs-animate" style="max-width: 1000px; margin: 0 auto;">
+    
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+                <i class="ti ti-shield-alert" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Incident #@incident.Id.ToString("D4")
+            </h1>
+            <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Viewing full report metadata, logged updates, and activity notes.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-page-handler="DownloadPdf" asp-route-id="@incident.Id" class="cs-btn cs-btn-secondary" style="border-color: rgba(34, 197, 94, 0.3); color: var(--cs-success);">
+                    <i class="ti ti-download"></i> PDF Report
+                </a>
+            }
+            <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+                <i class="ti ti-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+
+    <!-- Feedback messages -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div style="background: var(--cs-success-bg); border-left: 3px solid var(--cs-success); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center;">
+            <i class="ti ti-circle-check" style="color: var(--cs-success); flex-shrink: 0;"></i>
+            <span style="color: var(--cs-success); font-size: 0.875rem;">@TempData["SuccessMessage"]</span>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div style="background: var(--cs-danger-bg); border-left: 3px solid var(--cs-danger); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center;">
+            <i class="ti ti-alert-triangle" style="color: var(--cs-danger); flex-shrink: 0;"></i>
+            <span style="color: var(--cs-danger); font-size: 0.875rem;">@TempData["ErrorMessage"]</span>
+        </div>
+    }
+
+    <!-- Detail Layout Grid -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+        
+        <!-- Left Column: Details & Notes -->
+        <div>
+            <!-- Details Card -->
+            <div class="cs-card" style="margin-bottom: 2rem;">
+                <div class="cs-card-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
+                    <h3 style="margin: 0; font-size: 1.3rem; font-weight: 600; color: var(--cs-text-primary);">@incident.Title</h3>
+                </div>
+                <div style="color: var(--cs-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; padding-left: 1px;">
+                    Reported by <strong>@(incident.ReportedBy?.Username ?? "Unknown")</strong> on @incident.ReportedAt.ToString("f")
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--cs-text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Description</h4>
+                    <p style="white-space: pre-wrap; line-height: 1.6; color: var(--cs-text-primary); margin: 0;">@incident.Description</p>
+                </div>
+
+                @if (incident.LinkedAccessLogId.HasValue)
+                {
+                    <div style="background: var(--cs-bg-elevated); padding: 1.25rem; border-radius: var(--cs-radius-md); border: 1px solid var(--cs-border); margin-top: 1.5rem;">
+                        <h4 style="color: var(--cs-text-secondary); margin: 0 0 0.75rem; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="ti ti-link" style="color: var(--cs-accent);"></i> Linked Access Attempt
+                        </h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-family: var(--cs-font-mono); font-size: 0.85rem;">
+                            <div>Log ID: <span style="color: var(--cs-text-primary);">#@incident.LinkedAccessLogId</span></div>
+                            @if (incident.LinkedAccessLog != null)
+                            {
+                                <div>Target: <span style="color: var(--cs-text-primary);">@incident.LinkedAccessLog.TargetId (@incident.LinkedAccessLog.TargetType)</span></div>
+                                <div>Status: <span style="color: var(--cs-danger);">@incident.LinkedAccessLog.Status</span></div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Notes Section Card -->
+            <div class="cs-card">
+                <div class="cs-card-header">
+                    <span class="cs-card-title"><i class="ti ti-messages" style="margin-right: 6px;"></i> Activity & Notes</span>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem; max-height: 400px; overflow-y: auto; padding-right: 0.5rem;">
+                    @foreach (var note in incident.Notes.OrderBy(n => n.AddedAt))
+                    {
+                        <div style="background: var(--cs-bg-elevated); padding: 1rem; border-radius: var(--cs-radius-md); margin-bottom: 1rem; border-left: 3px solid var(--cs-accent); border-top: 1px solid var(--cs-border); border-right: 1px solid var(--cs-border); border-bottom: 1px solid var(--cs-border);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.825rem;">
+                                <strong style="color: var(--cs-text-primary);">@(note.AddedBy?.Username ?? "System")</strong>
+                                <span style="color: var(--cs-text-muted);">@note.AddedAt.ToString("MMM dd, HH:mm")</span>
+                            </div>
+                            <div style="white-space: pre-wrap; font-size: 0.9rem; color: var(--cs-text-secondary);">@note.Note</div>
+                        </div>
+                    }
+                    @if (!incident.Notes.Any())
+                    {
+                        <div style="color: var(--cs-text-muted); font-style: italic; text-align: center; padding: 2rem 0;">
+                            <i class="ti ti-notes-off" style="font-size: 2rem; display: block; margin-bottom: 0.5rem; opacity: 0.5;"></i>
+                            No notes added yet.
+                        </div>
+                    }
+                </div>
+
+                <!-- Add Note Form -->
+                <form method="post" asp-page-handler="AddNote" style="border-top: 1px solid var(--cs-border); padding-top: 1.25rem;">
+                    <div class="cs-form-group">
+                        <label asp-for="NewNote" class="cs-label">Add Note / Comment</label>
+                        <textarea asp-for="NewNote" class="cs-textarea" rows="3" placeholder="Add a new note or update..."></textarea>
+                        <span asp-validation-for="NewNote" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                    </div>
+                    <button type="submit" class="cs-btn cs-btn-primary">
+                        <i class="ti ti-message-plus"></i> Post Note
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column: Status & Meta Info -->
+        <div>
+            <div class="cs-card">
+                <div class="cs-card-header">
+                    <span class="cs-card-title"><i class="ti ti-info-circle" style="margin-right: 6px;"></i> Status & Info</span>
+                </div>
+                
+                <!-- Status Badge -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="color: var(--cs-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Current Status</div>
+                    @{
+                        var statColor = incident.Status switch {
+                            IncidentStatus.Open => "rgba(239, 68, 68, 0.2)",
+                            IncidentStatus.UnderReview => "rgba(59, 130, 246, 0.2)",
+                            IncidentStatus.Resolved => "rgba(16, 185, 129, 0.2)",
+                            IncidentStatus.Closed => "rgba(156, 163, 175, 0.2)",
+                            _ => "rgba(255, 255, 255, 0.1)"
+                        };
+                        var statText = incident.Status switch {
+                            IncidentStatus.Open => "#ef4444",
+                            IncidentStatus.UnderReview => "#3b82f6",
+                            IncidentStatus.Resolved => "#10b981",
+                            IncidentStatus.Closed => "#9ca3af",
+                            _ => "#fff"
+                        };
+                    }
+                    <span class="cs-badge" style="background: @statColor; color: @statText; font-size: 0.9rem; padding: 4px 12px;">@incident.Status</span>
+                </div>
+
+                <!-- Severity Badge -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="color: var(--cs-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Severity</div>
+                    @{
+                        var sevColor = incident.Severity switch {
+                            IncidentSeverity.Low => "rgba(16, 185, 129, 0.2)",
+                            IncidentSeverity.Medium => "rgba(245, 158, 11, 0.2)",
+                            IncidentSeverity.High => "rgba(249, 115, 22, 0.2)",
+                            IncidentSeverity.Critical => "rgba(239, 68, 68, 0.2)",
+                            _ => "rgba(255, 255, 255, 0.1)"
+                        };
+                        var sevText = incident.Severity switch {
+                            IncidentSeverity.Low => "#10b981",
+                            IncidentSeverity.Medium => "#f59e0b",
+                            IncidentSeverity.High => "#f97316",
+                            IncidentSeverity.Critical => "#ef4444",
+                            _ => "#fff"
+                        };
+                    }
+                    <span class="cs-badge" style="background: @sevColor; color: @sevText; font-size: 0.9rem; padding: 4px 12px;">@incident.Severity</span>
+                </div>
+
+                <!-- Location -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="color: var(--cs-text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;">Location</div>
+                    <div style="font-weight: 500; color: var(--cs-text-primary);">
+                        <i class="ti ti-map-pin" style="color: var(--cs-accent); margin-right: 4px;"></i> @incident.Location
+                    </div>
+                </div>
+
+                <!-- Resolved Date -->
+                @if (incident.ResolvedAt.HasValue)
+                {
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="color: var(--cs-text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;">Resolved At</div>
+                        <div style="font-weight: 500; color: var(--cs-success);">
+                            <i class="ti ti-calendar-check" style="margin-right: 4px;"></i> @incident.ResolvedAt.Value.ToString("f")
+                        </div>
+                    </div>
+                }
+
+                <!-- Status Update Form (Admin only, unless closed) -->
+                @if (User.IsInRole("Admin") && incident.Status != IncidentStatus.Closed)
+                {
+                    <hr style="border-color: var(--cs-border); margin: 1.5rem 0;" />
+                    <form method="post" asp-page-handler="UpdateStatus">
+                        <div class="cs-form-group">
+                            <label class="cs-label">Update Status</label>
+                            <select asp-for="NewStatus" class="cs-select" asp-items="Html.GetEnumSelectList<IncidentStatus>()"></select>
+                        </div>
+                        <button type="submit" class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="ti ti-refresh"></i> Change Status
+                        </button>
+                    </form>
+                }
+
+                <!-- Edit Shortcut (Admin only) -->
+                @if (User.IsInRole("Admin"))
+                {
+                    <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a asp-page="./Edit" asp-route-id="@incident.Id" class="cs-btn cs-btn-secondary" style="width: 100%; justify-content: center; border-color: rgba(245, 158, 11, 0.3); color: var(--cs-warning);">
+                            <i class="ti ti-edit"></i> Edit Report Details
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

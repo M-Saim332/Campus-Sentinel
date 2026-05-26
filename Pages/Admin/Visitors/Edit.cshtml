@@ -1,0 +1,59 @@
+@page "{id:int}"
+@model CampusSentinel.Pages.Admin.Visitors.EditModel
+@{
+    ViewData["Title"] = "Edit Visitor";
+}
+
+<div class="glass-card animate-fade-in" style="max-width: 600px; margin: 0 auto;">
+    <h2 style="margin-bottom: 2rem;">Edit Visitor</h2>
+    
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Visitor.Id" />
+        <input type="hidden" asp-for="Visitor.CreatedAt" />
+        
+        <div class="form-group">
+            <label asp-for="Visitor.TemporaryQrCodeId" class="form-label">QR Code ID</label>
+            <input asp-for="Visitor.TemporaryQrCodeId" class="form-control" readonly style="opacity: 0.7;" />
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Visitor.FullName" class="form-label">Full Name</label>
+            <input asp-for="Visitor.FullName" class="form-control" />
+            <span asp-validation-for="Visitor.FullName" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Visitor.Role" class="form-label">Role</label>
+            <select asp-for="Visitor.Role" class="form-control" style="appearance: none; background-color: rgba(15, 23, 42, 0.5);">
+                <option value="Guest">Guest</option>
+                <option value="Student">Student</option>
+                <option value="Faculty">Faculty</option>
+                <option value="Worker">Worker</option>
+            </select>
+            <span asp-validation-for="Visitor.Role" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Visitor.Purpose" class="form-label">Purpose</label>
+            <input asp-for="Visitor.Purpose" class="form-control" />
+            <span asp-validation-for="Visitor.Purpose" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Visitor.ExpirationTime" class="form-label">Expiration Time</label>
+            <input asp-for="Visitor.ExpirationTime" class="form-control" type="datetime-local" />
+            <span asp-validation-for="Visitor.ExpirationTime" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
+            <input asp-for="Visitor.IsBlacklisted" type="checkbox" style="width: 20px; height: 20px;" />
+            <label asp-for="Visitor.IsBlacklisted" class="form-label" style="margin: 0; color: var(--danger);">Blacklist User</label>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a asp-page="./Index" class="btn" style="background: rgba(255,255,255,0.1); color: white;">Cancel</a>
+        </div>
+    </form>
+</div>

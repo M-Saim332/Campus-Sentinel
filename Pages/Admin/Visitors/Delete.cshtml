@@ -1,0 +1,24 @@
+@page "{id:int}"
+@model CampusSentinel.Pages.Admin.Visitors.DeleteModel
+@{
+    ViewData["Title"] = "Delete Visitor";
+}
+
+<div class="glass-card animate-fade-in" style="max-width: 600px; margin: 0 auto; text-align: center;">
+    <h2 class="text-danger" style="margin-bottom: 1rem;">Delete Visitor</h2>
+    <p style="margin-bottom: 2rem;">Are you sure you want to completely delete this user? This action cannot be undone.</p>
+    
+    <div style="background: rgba(15, 23, 42, 0.5); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
+        <p><strong>Name:</strong> @Model.Visitor.FullName</p>
+        <p><strong>Role:</strong> @Model.Visitor.Role</p>
+        <p><strong>QR Code:</strong> @Model.Visitor.TemporaryQrCodeId</p>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Visitor.Id" />
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <button type="submit" class="btn btn-primary" style="background: var(--danger);">Yes, Delete</button>
+            <a asp-page="./Index" class="btn" style="background: rgba(255,255,255,0.1); color: white;">Cancel</a>
+        </div>
+    </form>
+</div>

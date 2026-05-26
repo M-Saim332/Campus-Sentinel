@@ -1,0 +1,391 @@
+@page
+@model CampusSentinel.Pages.Admin.Challans.IndexModel
+@using CampusSentinel.Models
+@{
+    ViewData["Title"] = "Challans";
+}
+
+<style>
+    /* ── Animations system ───────────────────────────────────────────────── */
+    @@keyframes chFadeInUp {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @@keyframes chPulsePending {
+        0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+        70% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+    @@keyframes chInputGlow {
+        0% { border-color: var(--cs-border); box-shadow: none; }
+        100% { border-color: var(--cs-accent); box-shadow: 0 0 10px rgba(0, 201, 167, 0.25); }
+    }
+
+    /* ── Stats strip ─────────────────────────────────────────────────────── */
+    .ch-stats-strip {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    @@media (max-width: 700px) { .ch-stats-strip { grid-template-columns: repeat(2,1fr); } }
+    
+    .ch-stats-strip > div {
+        opacity: 0;
+        animation: chFadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    .ch-stats-strip > div:nth-child(1) { animation-delay: 0.05s; }
+    .ch-stats-strip > div:nth-child(2) { animation-delay: 0.12s; }
+    .ch-stats-strip > div:nth-child(3) { animation-delay: 0.19s; }
+    .ch-stats-strip > div:nth-child(4) { animation-delay: 0.26s; }
+
+    .ch-stat-card {
+        background: var(--cs-bg-elevated); border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg); padding: 1.1rem 1.3rem;
+        display: flex; flex-direction: column; gap: 0.25rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s, border-color 0.3s;
+    }
+    .ch-stat-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--cs-accent);
+        box-shadow: 0 8px 30px rgba(0, 201, 167, 0.15);
+    }
+    .ch-stat-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cs-text-muted); }
+    .ch-stat-value { font-size: 1.8rem; font-weight: 800; color: var(--cs-text-primary); transition: color 0.3s; }
+    
+    .ch-stat-card.pending:hover  .ch-stat-value { color: #fbbf24; }
+    .ch-stat-card.paid:hover     .ch-stat-value { color: #34d399; }
+    .ch-stat-card.disputed:hover .ch-stat-value { color: #93c5fd; }
+    
+    .ch-stat-card.pending .ch-stat-value  { color: #f59e0b; }
+    .ch-stat-card.paid    .ch-stat-value  { color: #10b981; }
+    .ch-stat-card.disputed .ch-stat-value { color: #60a5fa; }
+    .ch-stat-card.cancelled .ch-stat-value{ color: #6b7280; }
+
+    /* ── Toolbar ─────────────────────────────────────────────────────────── */
+    .ch-toolbar {
+        display: flex; align-items: center; justify-content: space-between;
+        flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;
+        opacity: 0; animation: chFadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s forwards;
+    }
+    .ch-filter-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .ch-pill {
+        padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+        border: 1px solid var(--cs-border); background: var(--cs-bg-elevated);
+        color: var(--cs-text-secondary); cursor: pointer; text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .ch-pill:hover {
+        transform: scale(1.04);
+        background: var(--cs-accent-glow); color: var(--cs-accent); border-color: var(--cs-accent);
+    }
+    .ch-pill.active {
+        transform: scale(1.02);
+        background: var(--cs-accent-glow); color: var(--cs-accent); border-color: var(--cs-accent);
+    }
+    .ch-pill.pill-pending.active  { background: rgba(245,158,11,0.12); color:#f59e0b; border-color:#f59e0b; }
+    .ch-pill.pill-paid.active     { background: rgba(16,185,129,0.12); color:#10b981; border-color:#10b981; }
+    .ch-pill.pill-disputed.active { background: rgba(96,165,250,0.12); color:#60a5fa; border-color:#60a5fa; }
+    .ch-pill.pill-cancelled.active{ background: rgba(107,114,128,0.12);color:#9ca3af; border-color:#9ca3af; }
+
+    /* ── Table ───────────────────────────────────────────────────────────── */
+    .ch-table-wrap {
+        background: var(--cs-bg-elevated); border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg); overflow: hidden;
+        opacity: 0; animation: chFadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s forwards;
+    }
+    .ch-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .ch-table thead th {
+        padding: 0.85rem 1rem; text-align: left;
+        font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+        color: var(--cs-text-muted); background: var(--cs-bg-card);
+        border-bottom: 1px solid var(--cs-border); white-space: nowrap;
+    }
+    
+    .ch-table tbody tr {
+        border-bottom: 1px solid var(--cs-border);
+        transition: background 0.25s, transform 0.2s;
+        opacity: 0;
+        animation: chFadeInUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    .ch-table tbody tr:nth-child(1) { animation-delay: 0.15s; }
+    .ch-table tbody tr:nth-child(2) { animation-delay: 0.22s; }
+    .ch-table tbody tr:nth-child(3) { animation-delay: 0.29s; }
+    .ch-table tbody tr:nth-child(4) { animation-delay: 0.36s; }
+    .ch-table tbody tr:nth-child(n+5) { animation-delay: 0.42s; }
+
+    .ch-table tbody tr:last-child { border-bottom: none; }
+    .ch-table tbody tr:hover {
+        background: var(--cs-bg-overlay);
+    }
+    .ch-table tbody td { padding: 0.85rem 1rem; vertical-align: middle; }
+    .ch-id    { font-family: var(--cs-font-mono); font-size: 0.78rem; color: var(--cs-text-muted); }
+    .ch-name  { font-weight: 600; color: var(--cs-text-primary); }
+    .ch-qr    { font-family: var(--cs-font-mono); font-size: 0.75rem; color: var(--cs-accent); }
+    .ch-amount{ font-weight: 700; color: var(--cs-text-primary); }
+
+    /* Status badges */
+    .ch-status {
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 4px 12px; border-radius: 20px;
+        font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em;
+        white-space: nowrap;
+        transition: transform 0.2s;
+    }
+    .ch-status:hover { transform: scale(1.05); }
+    
+    .st-Pending   { background:rgba(245,158,11,0.12); color:#f59e0b; position: relative; }
+    .st-Pending::before {
+        content: ''; display: inline-block; width: 6px; height: 6px;
+        background-color: #f59e0b; border-radius: 50%;
+        animation: chPulsePending 1.8s infinite;
+    }
+    
+    .st-Paid      { background:rgba(16,185,129,0.12); color:#10b981; }
+    .st-Disputed  { background:rgba(96,165,250,0.12); color:#60a5fa; }
+    .st-Cancelled { background:rgba(107,114,128,0.12);color:#9ca3af; }
+
+    /* Type badge */
+    .ch-type {
+        font-size: 0.7rem; font-weight: 700; padding: 2px 8px;
+        border-radius: 12px; text-transform: uppercase;
+        display: inline-block; margin-top: 0.25rem;
+    }
+    .ct-Student  { background:rgba(59,130,246,0.12); color:#60a5fa; }
+    .ct-Staff    { background:rgba(168,85,247,0.12); color:#c084fc; }
+    .ct-Visitor  { background:rgba(245,158,11,0.12); color:#fbbf24; }
+
+    /* ── Actions dropdown ────────────────────────────────────────────────── */
+    .ch-actions { display:flex; gap:0.4rem; flex-wrap:nowrap; }
+    .ch-actions .cs-btn {
+        transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s, border-color 0.2s;
+    }
+    .ch-actions .cs-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* ── Empty state ─────────────────────────────────────────────────────── */
+    .ch-empty {
+        text-align:center; padding:3.5rem 1.5rem;
+        color:var(--cs-text-muted); font-size:0.875rem;
+    }
+    .ch-empty i { font-size:2.8rem; display:block; margin-bottom:0.75rem; opacity:0.4; }
+
+    /* ── Feedback banner ─────────────────────────────────────────────────── */
+    .ch-feedback {
+        padding: 0.8rem 1.1rem; border-radius: var(--cs-radius-md);
+        margin-bottom: 1rem; font-size: 0.875rem; display:flex; align-items:center; gap:0.5rem;
+        animation: chFadeInUp 0.35s ease-out;
+    }
+    .ch-feedback.ok  { background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; }
+    .ch-feedback.err { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); color:#f87171; }
+
+    /* ── Search ──────────────────────────────────────────────────────────── */
+    .ch-search-row { display:flex; gap:0.6rem; }
+    .ch-search-row .cs-input {
+        width:220px; font-size:0.85rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .ch-search-row .cs-input:focus {
+        border-color: var(--cs-accent);
+        box-shadow: 0 0 10px rgba(0, 201, 167, 0.2);
+    }
+</style>adius: var(--cs-radius-md);
+        margin-bottom: 1rem; font-size: 0.875rem; display:flex; align-items:center; gap:0.5rem;
+        animation: slideIn 0.3s ease-out;
+    }
+    .ch-feedback.ok  { background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; }
+    .ch-feedback.err { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); color:#f87171; }
+    @@keyframes slideIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
+
+    /* ── Search ──────────────────────────────────────────────────────────── */
+    .ch-search-row { display:flex; gap:0.6rem; }
+    .ch-search-row .cs-input { width:220px; font-size:0.85rem; }
+</style>
+
+<div>
+    <!-- ── Page header ────────────────────────────────────────────────────── -->
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <div>
+            <h1 style="font-size:1.45rem; font-weight:700; color:var(--cs-text-primary); margin:0 0 0.2rem; display:flex; align-items:center; gap:0.5rem;">
+                <i class="ti ti-file-invoice" style="color:var(--cs-accent);"></i> Challans
+            </h1>
+            <p style="font-size:0.875rem; color:var(--cs-text-muted); margin:0;">All issued digital fines and penalties.</p>
+        </div>
+        <a asp-page="./Issue" class="cs-btn cs-btn-primary">
+            <i class="ti ti-plus"></i> Issue Challan
+        </a>
+    </div>
+
+    <!-- ── Feedback banner (after status update) ──────────────────────────── -->
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="ch-feedback @(Model.IsStatusError ? "err" : "ok")">
+            <i class="ti @(Model.IsStatusError ? "ti-alert-circle" : "ti-circle-check")"></i>
+            @Model.StatusMessage
+        </div>
+    }
+
+    <!-- ── Stats strip ────────────────────────────────────────────────────── -->
+    @{
+        var allList   = Model.Challans.ToList();
+        // Compute from full set regardless of filter — use Enumerable from the service
+        int totalAll  = Model.Challans.Count();
+        int cntPend   = Model.Challans.Count(c => c.Status == ChallanStatus.Pending);
+        int cntPaid   = Model.Challans.Count(c => c.Status == ChallanStatus.Paid);
+        int cntDisp   = Model.Challans.Count(c => c.Status == ChallanStatus.Disputed);
+        int cntCanc   = Model.Challans.Count(c => c.Status == ChallanStatus.Cancelled);
+    }
+    <div class="ch-stats-strip">
+        <div class="ch-stat-card">
+            <span class="ch-stat-label"><i class="ti ti-list"></i> Total</span>
+            <span class="ch-stat-value">@totalAll</span>
+        </div>
+        <div class="ch-stat-card pending">
+            <span class="ch-stat-label"><i class="ti ti-clock"></i> Pending</span>
+            <span class="ch-stat-value">@cntPend</span>
+        </div>
+        <div class="ch-stat-card paid">
+            <span class="ch-stat-label"><i class="ti ti-circle-check"></i> Paid</span>
+            <span class="ch-stat-value">@cntPaid</span>
+        </div>
+        <div class="ch-stat-card disputed">
+            <span class="ch-stat-label"><i class="ti ti-alert-triangle"></i> Disputed</span>
+            <span class="ch-stat-value">@cntDisp</span>
+        </div>
+    </div>
+
+    <!-- ── Toolbar: filter pills + search ─────────────────────────────────── -->
+    <div class="ch-toolbar">
+        <div class="ch-filter-pills">
+            <a asp-page="./Index" class="ch-pill @(Model.FilterStatus == null ? "active" : "")">
+                All (@Model.Challans.Count())
+            </a>
+            <a asp-page="./Index" asp-route-filterStatus="Pending"
+               class="ch-pill pill-pending @(Model.FilterStatus == ChallanStatus.Pending ? "active" : "")">
+                Pending
+            </a>
+            <a asp-page="./Index" asp-route-filterStatus="Paid"
+               class="ch-pill pill-paid @(Model.FilterStatus == ChallanStatus.Paid ? "active" : "")">
+                Paid
+            </a>
+            <a asp-page="./Index" asp-route-filterStatus="Disputed"
+               class="ch-pill pill-disputed @(Model.FilterStatus == ChallanStatus.Disputed ? "active" : "")">
+                Disputed
+            </a>
+            <a asp-page="./Index" asp-route-filterStatus="Cancelled"
+               class="ch-pill pill-cancelled @(Model.FilterStatus == ChallanStatus.Cancelled ? "active" : "")">
+                Cancelled
+            </a>
+        </div>
+        <div class="ch-search-row">
+            <input type="text" id="chSearch" class="cs-input" placeholder="Search name or QR…" oninput="chFilterTable(this.value)" />
+        </div>
+    </div>
+
+    <!-- ── Challans table ─────────────────────────────────────────────────── -->
+    <div class="ch-table-wrap">
+        @if (!Model.Challans.Any())
+        {
+            <div class="ch-empty">
+                <i class="ti ti-file-invoice"></i>
+                <strong>No challans found</strong>
+                <p style="margin:0.4rem 0 0; color:var(--cs-text-muted);">
+                    @(Model.FilterStatus.HasValue ? $"No {Model.FilterStatus} challans on record." : "No challans have been issued yet.")
+                </p>
+                <a asp-page="./Issue" class="cs-btn cs-btn-primary" style="margin-top:1rem; display:inline-flex;">
+                    <i class="ti ti-plus"></i> Issue First Challan
+                </a>
+            </div>
+        }
+        else
+        {
+            <table class="ch-table" id="chTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>QR Code</th>
+                        <th>Violation</th>
+                        <th>Amount</th>
+                        <th>Issued</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="chTableBody">
+                @foreach (var c in Model.Challans)
+                {
+                    <tr data-search="@c.SubjectName.ToLower() @c.QrCodeId.ToLower()">
+                        <td class="ch-id">@c.Id</td>
+                        <td>
+                            <div class="ch-name">@c.SubjectName</div>
+                            <span class="ch-type ct-@c.SubjectType">@c.SubjectType</span>
+                        </td>
+                        <td class="ch-qr">@c.QrCodeId</td>
+                        <td style="max-width:180px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="@c.ViolationType">
+                            @c.ViolationType
+                        </td>
+                        <td class="ch-amount">PKR @c.Amount.ToString("N0")</td>
+                        <td style="font-size:0.8rem; color:var(--cs-text-muted); white-space:nowrap;">
+                            @c.IssueDate.ToLocalTime().ToString("dd MMM yyyy")<br/>
+                            <span style="font-size:0.72rem;">@c.IssueDate.ToLocalTime().ToString("HH:mm")</span>
+                        </td>
+                        <td>
+                            <span class="ch-status st-@c.Status">
+                                @if (c.Status == ChallanStatus.Pending)   { <text>⏳</text> }
+                                @if (c.Status == ChallanStatus.Paid)      { <text>✅</text> }
+                                @if (c.Status == ChallanStatus.Disputed)  { <text>⚠️</text> }
+                                @if (c.Status == ChallanStatus.Cancelled) { <text>🚫</text> }
+                                @c.Status
+                            </span>
+                        </td>
+                        <td>
+                            <div class="ch-actions">
+                                <a asp-page="./Detail" asp-route-id="@c.Id"
+                                   class="cs-btn cs-btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.78rem;"
+                                   title="View Detail">
+                                    <i class="ti ti-eye"></i>
+                                </a>
+                                @if (c.Status == ChallanStatus.Pending)
+                                {
+                                    <form method="post" asp-page-handler="UpdateStatus" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="challanId" value="@c.Id" />
+                                        <input type="hidden" name="newStatus" value="@ChallanStatus.Paid" />
+                                        <button type="submit" class="cs-btn" title="Mark Paid"
+                                                style="padding:0.3rem 0.65rem; font-size:0.78rem; background:rgba(16,185,129,0.1); color:#10b981; border:1px solid #10b981;">
+                                            <i class="ti ti-check"></i>
+                                        </button>
+                                    </form>
+                                    <form method="post" asp-page-handler="UpdateStatus" style="display:inline;"
+                                          onsubmit="return confirm('Cancel challan #@c.Id?')">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="challanId" value="@c.Id" />
+                                        <input type="hidden" name="newStatus" value="@ChallanStatus.Cancelled" />
+                                        <button type="submit" class="cs-btn cs-btn-danger" title="Cancel"
+                                                style="padding:0.3rem 0.65rem; font-size:0.78rem;">
+                                            <i class="ti ti-x"></i>
+                                        </button>
+                                    </form>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+@section Scripts {
+<script>
+// Client-side instant search across name + QR code columns
+function chFilterTable(query) {
+    const q = query.toLowerCase().trim();
+    document.querySelectorAll('#chTableBody tr').forEach(row => {
+        const haystack = (row.dataset.search || '').toLowerCase();
+        row.style.display = (!q || haystack.includes(q)) ? '' : 'none';
+    });
+}
+</script>
+}

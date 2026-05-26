@@ -1,0 +1,80 @@
+@page
+@model CampusSentinel.Pages.Schedule.IndexModel
+@{
+    ViewData["Title"] = "Weekly Schedule";
+}
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="color: var(--cs-text-primary); margin: 0;">Weekly Guard Schedule</h2>
+        <div>
+            <a asp-page="./Create" class="cs-btn cs-btn-primary" style="margin-right: 1rem;"><i class="ti ti-plus"></i> Assign Shift</a>
+            <a asp-page="./WeeklyReport" asp-route-date="@Model.WeekStartDate.ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">Report View</a>
+        </div>
+    </div>
+
+    <div class="cs-card" style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a asp-page="./Index" asp-route-date="@Model.WeekStartDate.AddDays(-7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">⬅ Previous Week</a>
+        <h3 style="margin: 0; color: var(--cs-text-primary);">@Model.WeekStartDate.ToString("MMM dd, yyyy") - @Model.WeekStartDate.AddDays(6).ToString("MMM dd, yyyy")</h3>
+        <a asp-page="./Index" asp-route-date="@Model.WeekStartDate.AddDays(7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">Next Week ➡</a>
+    </div>
+
+    <div class="cs-table-wrap" style="overflow-x: auto;">
+        <table class="cs-table" style="min-width: 1000px;">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Zone</th>
+                    @for (int i = 0; i < 7; i++)
+                    {
+                        var day = Model.WeekStartDate.AddDays(i);
+                        <th>
+                            <div style="text-align: center;">
+                                <div style="font-weight: 800;">@day.DayOfWeek</div>
+                                <div style="font-size: 0.8rem; color: var(--cs-text-muted);">@day.ToString("MMM dd")</div>
+                            </div>
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var zone in Model.Zones)
+                {
+                    <tr>
+                        <td style="font-weight: 600; border-right: 1px solid var(--cs-border);">@zone.Name</td>
+                        @for (int i = 0; i < 7; i++)
+                        {
+                            var day = Model.WeekStartDate.AddDays(i);
+                            var shiftsForDayAndZone = Model.Shifts.Where(s => s.ZoneId == zone.Id && s.ShiftDate == day).ToList();
+                            
+                            <td style="border-right: 1px solid var(--cs-border); padding: 0.5rem; vertical-align: top;">
+                                @if (shiftsForDayAndZone.Any())
+                                {
+                                    foreach (var shift in shiftsForDayAndZone)
+                                    {
+                                        var bg = "rgba(59, 130, 246, 0.1)"; // Scheduled
+                                        var color = "#60a5fa";
+                                        
+                                        if (shift.Status == CampusSentinel.Models.ShiftStatus.Active) { bg = "rgba(16, 185, 129, 0.1)"; color = "#10b981"; }
+                                        else if (shift.Status == CampusSentinel.Models.ShiftStatus.Completed) { bg = "rgba(255, 255, 255, 0.05)"; color = "#94a3b8"; }
+                                        else if (shift.Status == CampusSentinel.Models.ShiftStatus.Missed) { bg = "rgba(239, 68, 68, 0.1)"; color = "#f87171"; }
+                                        else if (shift.Status == CampusSentinel.Models.ShiftStatus.Swapped) { bg = "rgba(245, 158, 11, 0.1)"; color = "#fbbf24"; }
+
+                                        <div style="background: @bg; border: 1px solid @color; border-radius: 8px; padding: 0.5rem; margin-bottom: 0.5rem;">
+                                            <div style="font-size: 0.8rem; font-weight: 600; color: #fff;">@shift.GuardUser?.Username</div>
+                                            <div style="font-size: 0.75rem; color: #94a3b8;">@shift.StartTime.ToString("HH:mm") - @shift.EndTime.ToString("HH:mm")</div>
+                                            <div style="font-size: 0.7rem; color: @color; margin-top: 4px; text-transform: uppercase;">@shift.Status</div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div style="text-align: center; color: #475569; font-size: 0.8rem; padding: 1rem 0;">No shift</div>
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

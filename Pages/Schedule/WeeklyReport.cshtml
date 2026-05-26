@@ -1,0 +1,60 @@
+@page
+@model CampusSentinel.Pages.Schedule.WeeklyReportModel
+@{
+    ViewData["Title"] = "Weekly Schedule Report";
+}
+
+<div class="cs-animate" style="max-width: 800px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="color: var(--cs-text-primary); margin: 0;">Weekly Schedule Report</h2>
+        <div>
+            <a asp-page-handler="DownloadPdf" asp-route-date="@Model.WeekStartDate.ToString("yyyy-MM-dd")" class="cs-btn cs-btn-primary" style="margin-right: 1rem;"><i class="ti ti-download"></i> Export PDF</a>
+            <a asp-page="./Index" class="cs-btn cs-btn-secondary">Back to Schedule</a>
+        </div>
+    </div>
+
+    <div class="cs-card" style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a asp-page="./WeeklyReport" asp-route-date="@Model.WeekStartDate.AddDays(-7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">⬅ Previous Week</a>
+        <h3 style="margin: 0; color: var(--cs-text-primary);">@Model.WeekStartDate.ToString("MMM dd, yyyy") - @Model.WeekStartDate.AddDays(6).ToString("MMM dd, yyyy")</h3>
+        <a asp-page="./WeeklyReport" asp-route-date="@Model.WeekStartDate.AddDays(7).ToString("yyyy-MM-dd")" class="cs-btn cs-btn-secondary">Next Week ➡</a>
+    </div>
+
+    <div class="cs-table-wrap">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>Guard Name</th>
+                    <th>Shifts Scheduled</th>
+                    <th>Shifts Completed</th>
+                    <th>Shifts Missed</th>
+                    <th>Completion Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.GuardSummaries != null && Model.GuardSummaries.Any())
+                {
+                    foreach (var summary in Model.GuardSummaries)
+                    {
+                        var totalAssigned = summary.Scheduled + summary.Completed + summary.Missed;
+                        var rate = totalAssigned > 0 ? (summary.Completed * 100 / totalAssigned) : 0;
+                        var rateColor = rate >= 90 ? "var(--cs-success)" : (rate >= 75 ? "var(--cs-warning)" : "var(--cs-danger)");
+
+                        <tr>
+                            <td style="font-weight: 600;">@summary.GuardName</td>
+                            <td style="color: var(--cs-info);">@summary.Scheduled</td>
+                            <td style="color: var(--cs-success);">@summary.Completed</td>
+                            <td style="color: var(--cs-danger);">@summary.Missed</td>
+                            <td style="font-weight: 600; color: @rateColor;">@rate%</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 2rem; color: var(--cs-text-muted);">No schedule data available for this week.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

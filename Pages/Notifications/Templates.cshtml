@@ -1,0 +1,91 @@
+@page
+@model CampusSentinel.Pages.Notifications.TemplatesModel
+@{
+    ViewData["Title"] = "Notification Templates";
+}
+
+<div class="animate-fade-in">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Global Notification Templates</h2>
+        <button onclick="document.getElementById('addTemplateModal').style.display='flex'" class="btn btn-primary">+ Create Template</button>
+    </div>
+
+    <div class="glass-card table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Type</th>
+                    <th>Channel</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Templates)
+                {
+                    <tr>
+                        <td style="font-weight: 600;">@item.EventType</td>
+                        <td>
+                            <span class="badge" style="background: rgba(255,255,255,0.1); color: #fff;">@item.Channel</span>
+                        </td>
+                        <td style="color: var(--text-muted); font-size: 0.9rem;">@(item.Subject ?? "-")</td>
+                        <td>
+                            <span class="badge" style="background: @(item.IsActive ? "rgba(16, 185, 129, 0.2)" : "rgba(239, 68, 68, 0.2)"); color: @(item.IsActive ? "#10b981" : "#ef4444");">
+                                @(item.IsActive ? "Active" : "Inactive")
+                            </span>
+                        </td>
+                        <td>
+                            <form method="post" asp-page-handler="Toggle" asp-route-id="@item.Id" style="display: inline;">
+                                <button type="submit" class="btn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: rgba(59, 130, 246, 0.2); color: #3b82f6;">Toggle</button>
+                            </form>
+                            <button onclick="previewTemplate('@item.BodyTemplate')" class="btn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: rgba(255, 255, 255, 0.1); color: #fff; margin-left: 0.5rem;">Preview</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Add Template Modal (Simplified for brevity) -->
+<div id="addTemplateModal" class="modal-overlay" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+    <div class="glass-card" style="width: 500px; padding: 2rem;">
+        <h3 style="margin-bottom: 1.5rem;">Create New Template</h3>
+        <form method="post" asp-page-handler="Add">
+            <div class="form-group">
+                <label class="form-label">Event Type</label>
+                <select asp-for="NewTemplate.EventType" class="form-control" asp-items="Html.GetEnumSelectList<CampusSentinel.Models.NotificationEventType>()"></select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Channel</label>
+                <select asp-for="NewTemplate.Channel" class="form-control" asp-items="Html.GetEnumSelectList<CampusSentinel.Models.NotificationChannel>()"></select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Subject (Email Only)</label>
+                <input asp-for="NewTemplate.Subject" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Body Template</label>
+                <textarea asp-for="NewTemplate.BodyTemplate" class="form-control" rows="4"></textarea>
+                <small style="color: var(--text-muted);">Use tokens like {{PersonName}}, {{Location}}, {{Time}}</small>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="btn btn-primary" style="flex:1;">Create</button>
+                <button type="button" onclick="document.getElementById('addTemplateModal').style.display='none'" class="btn" style="flex:1; background: rgba(255,255,255,0.1); color: white;">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function previewTemplate(body) {
+        const sample = body
+            .replace('{{PersonName}}', 'John Doe')
+            .replace('{{Location}}', 'Main Gate')
+            .replace('{{Time}}', '14:30')
+            .replace('{{SeverityLevel}}', 'High')
+            .replace('{{Occupancy}}', '85.5');
+        alert("LIVE PREVIEW:\n\n" + sample);
+    }
+</script>

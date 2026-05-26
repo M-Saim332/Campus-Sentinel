@@ -1,0 +1,262 @@
+@page
+@model CampusSentinel.Pages.ReportsModel
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="cs-animate">
+
+    <!-- Page Header -->
+    <div style="margin-bottom: 2.5rem;">
+        <h1 style="font-size: 1.75rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.4rem;">
+            Reports Center
+        </h1>
+        <p style="color: var(--cs-text-secondary); margin: 0; font-size: 0.93rem;">
+            Generate and download official PDF reports for campus security, access, and personnel.
+        </p>
+    </div>
+
+    <!-- Date Range Filter -->
+    <div class="cs-card" style="margin-bottom: 2rem;">
+        <form method="get" style="display: flex; gap: 1.5rem; align-items: flex-end; flex-wrap: wrap;">
+            <div class="cs-form-group" style="margin-bottom: 0; flex: 1; min-width: 160px;">
+                <label class="cs-label">From Date</label>
+                <input type="date" name="from" class="cs-input" value="@Model.From.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="cs-form-group" style="margin-bottom: 0; flex: 1; min-width: 160px;">
+                <label class="cs-label">To Date</label>
+                <input type="date" name="to" class="cs-input" value="@Model.To.ToString("yyyy-MM-dd")" />
+            </div>
+            <button type="submit" class="cs-btn cs-btn-primary" style="flex-shrink: 0;">
+                <i class="ti ti-filter"></i> Apply Filter
+            </button>
+            <a asp-page="./Reports" class="cs-btn cs-btn-secondary" style="flex-shrink: 0;">
+                <i class="ti ti-refresh"></i> Reset
+            </a>
+        </form>
+    </div>
+
+    <!-- Report Summary Stats -->
+    <div class="cs-animate-stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Access Events</div>
+            <div class="cs-stat-value" data-count="@Model.TotalAccessLogs">@Model.TotalAccessLogs</div>
+            <div class="cs-stat-delta">in selected range</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Incidents</div>
+            <div class="cs-stat-value" data-count="@Model.TotalIncidents">@Model.TotalIncidents</div>
+            <div class="cs-stat-delta">in selected range</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Students</div>
+            <div class="cs-stat-value" data-count="@Model.TotalStudents">@Model.TotalStudents</div>
+            <div class="cs-stat-delta">registered</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Staff Members</div>
+            <div class="cs-stat-value" data-count="@Model.TotalStaff">@Model.TotalStaff</div>
+            <div class="cs-stat-delta">registered</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Guard Shifts</div>
+            <div class="cs-stat-value" data-count="@Model.TotalShifts">@Model.TotalShifts</div>
+            <div class="cs-stat-delta">in selected range</div>
+        </div>
+    </div>
+
+    <!-- Report Cards Grid -->
+    <div style="margin-bottom: 1.2rem;">
+        <h2 style="font-size: 1rem; font-weight: 600; color: var(--cs-text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin: 0;">
+            Available Reports
+        </h2>
+    </div>
+
+    <div class="cs-animate-stagger" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem;">
+
+        <!-- 1. Access Log Report -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(59, 130, 246, 0.12); color: var(--cs-info);">
+                <i class="ti ti-door-enter"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Access Log Report</h3>
+                <p class="cs-report-desc">Full entry/exit log showing all QR scan events, access status, gate location, and guard on duty.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalAccessLogs records</span>
+                    <span><i class="ti ti-clock"></i> @Model.From.ToString("MMM dd") – @Model.To.ToString("MMM dd")</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="AccessLogPdf" asp-route-from="@Model.From.ToString("yyyy-MM-dd")" asp-route-to="@Model.To.ToString("yyyy-MM-dd")"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. Incident Report -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(239, 68, 68, 0.12); color: var(--cs-danger);">
+                <i class="ti ti-shield-exclamation"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Incident Report</h3>
+                <p class="cs-report-desc">Detailed summary of all security incidents including severity, location, status, and resolution time.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalIncidents records</span>
+                    <span><i class="ti ti-clock"></i> @Model.From.ToString("MMM dd") – @Model.To.ToString("MMM dd")</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="IncidentPdf" asp-route-from="@Model.From.ToString("yyyy-MM-dd")" asp-route-to="@Model.To.ToString("yyyy-MM-dd")"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. Student Directory -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(0, 201, 167, 0.12); color: var(--cs-accent);">
+                <i class="ti ti-school"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Student Directory</h3>
+                <p class="cs-report-desc">Complete list of all registered students with their QR codes, departments, and blacklist status.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalStudents students</span>
+                    <span><i class="ti ti-user-x"></i> @Model.BlacklistedStudents blacklisted</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="StudentPdf"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- 4. Staff Directory -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(245, 158, 11, 0.12); color: var(--cs-warning);">
+                <i class="ti ti-id-badge"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Staff Directory</h3>
+                <p class="cs-report-desc">Full staff registry including department, designation, contact info, and access credentials.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalStaff staff members</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="StaffPdf"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- 5. Guard Schedule Report -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">
+                <i class="ti ti-calendar-event"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Guard Schedule Report</h3>
+                <p class="cs-report-desc">Breakdown of all guard shifts, assigned zones, attendance status, and completion rates for the selected period.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalShifts shifts</span>
+                    <span><i class="ti ti-clock"></i> @Model.From.ToString("MMM dd") – @Model.To.ToString("MMM dd")</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="ShiftPdf" asp-route-from="@Model.From.ToString("yyyy-MM-dd")" asp-route-to="@Model.To.ToString("yyyy-MM-dd")"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- 6. Visitor Log Report -->
+        <div class="cs-report-card">
+            <div class="cs-report-icon" style="background: rgba(20, 184, 166, 0.12); color: #14b8a6;">
+                <i class="ti ti-user-plus"></i>
+            </div>
+            <div class="cs-report-body">
+                <h3 class="cs-report-title">Visitor Log Report</h3>
+                <p class="cs-report-desc">All visitor records including host information, visit purpose, approval status, and entry/exit times.</p>
+                <div class="cs-report-meta">
+                    <span><i class="ti ti-database"></i> @Model.TotalVisitors visitors</span>
+                </div>
+            </div>
+            <div class="cs-report-footer">
+                <a asp-page-handler="VisitorPdf"
+                   class="cs-btn cs-btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="ti ti-file-type-pdf"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.cs-report-card {
+    background: var(--cs-bg-surface);
+    border: 1px solid var(--cs-border);
+    border-radius: var(--cs-radius-lg);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s var(--cs-ease);
+    overflow: hidden;
+}
+.cs-report-card:hover {
+    border-color: var(--cs-border-accent);
+    box-shadow: var(--cs-shadow-glow);
+    transform: translateY(-3px);
+}
+.cs-report-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--cs-border);
+    flex-shrink: 0;
+}
+.cs-report-body {
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+}
+.cs-report-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cs-text-primary);
+    margin: 0 0 0.5rem;
+}
+.cs-report-desc {
+    font-size: 0.85rem;
+    color: var(--cs-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+.cs-report-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.cs-report-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: var(--cs-text-muted);
+}
+.cs-report-meta i { font-size: 13px; }
+.cs-report-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--cs-border);
+    background: var(--cs-bg-elevated);
+}
+</style>

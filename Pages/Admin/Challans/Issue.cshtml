@@ -1,0 +1,662 @@
+﻿@page
+@model CampusSentinel.Pages.Admin.Challans.IssueModel
+@{
+    ViewData["Title"] = "Issue Challan";
+}
+
+<style>
+    /* â”€â”€ Page layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .challan-issue-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    @@media (max-width: 820px) {
+        .challan-issue-grid { grid-template-columns: 1fr; }
+    }
+
+    /* â”€â”€ Section header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-section-title {
+        font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--cs-text-muted);
+        margin: 0 0 0.9rem;
+    }
+
+    /* â”€â”€ Scanner card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-scan-card {
+        background: var(--cs-bg-elevated);
+        border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg);
+        padding: 1.5rem;
+    }
+
+    /* Camera idle */
+    #ch-cam-idle {
+        width: 100%; border-radius: 0.8rem; overflow: hidden;
+        border: 2px dashed var(--cs-border);
+        background: var(--cs-bg-card);
+        padding: 2rem 1rem;
+        display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+        /* Camera live */
+    #ch-cam-live {
+        display: none; position: relative;    #ch-cam-live::before {
+        content: '';
+        position: absolute; left: 10px; right: 10px; height: 3px; z-index: 5;
+        background: linear-gradient(90deg, transparent, var(--cs-accent), #38bdf8, var(--cs-accent), transparent);
+        box-shadow: 0 0 15px var(--cs-accent), 0 0 5px #38bdf8;
+        animation: chScanMove 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; pointer-events: none;
+    }
+    @@keyframes chScanMove {
+        0% { top: 8%; opacity: 0.3; }
+        15% { opacity: 1; }
+        50% { top: 92%; opacity: 1; }
+        85% { opacity: 1; }
+        100% { top: 8%; opacity: 0.3; }
+    }
+    @@keyframes chPulseBorder {
+        0% { box-shadow: 0 0 15px rgba(0,201,167,0.2), border-color: rgba(0,201,167,0.7); }
+        50% { box-shadow: 0 0 35px rgba(0,201,167,0.55), border-color: rgba(56,189,248,1); }
+        100% { box-shadow: 0 0 15px rgba(0,201,167,0.2), border-color: rgba(0,201,167,0.7); }
+    }
+    .ch-corner { position: absolute; width: 22px; height: 22px; border-color: var(--cs-accent); border-style: solid; z-index: 6; pointer-events: none; }
+    .ch-tl { top:10px; left:10px; border-width:3px 0 0 3px; border-radius:4px 0 0 0; }
+    .ch-tr { top:10px; right:10px; border-width:3px 3px 0 0; border-radius:0 4px 0 0; }
+    .ch-bl { bottom:10px; left:10px; border-width:0 0 3px 3px; border-radius:0 0 0 4px; }
+    .ch-br { bottom:10px; right:10px; border-width:0 3px 3px 0; border-radius:0 0 4px 0; }
+
+    /* Manual entry */
+    .ch-manual { margin-top: 1rem; }
+    .ch-manual-row { display: flex; gap: 0.6rem; }
+    .ch-manual-row .cs-input {
+        flex: 1; font-family: var(--cs-font-mono); font-size: 0.85rem;
+        transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .ch-manual-row .cs-input:focus {
+        border-color: var(--cs-accent);
+        box-shadow: 0 0 10px rgba(0, 201, 167, 0.2);
+    }
+
+    /* Camera status */
+    .ch-cam-status {
+        font-size: 0.75rem; font-weight: 600; color: var(--cs-text-muted);
+        margin: 0.5rem 0; display: flex; align-items: center; gap: 0.4rem;
+        transition: color 0.3s;
+    }
+    .ch-cam-status.live { color: #10b981; }
+    .ch-cam-status.err  { color: #ef4444; }
+    .ch-status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .ch-cam-status.live .ch-status-dot {
+        animation: chStatusPulse 1.5s infinite ease-in-out;
+    }
+    @@keyframes chStatusPulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.3); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* â”€â”€ Subject profile card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-subject-card {
+        border-radius: var(--cs-radius-lg);
+        border: 1.5px solid var(--cs-border);
+        overflow: hidden;
+        transition: border-color 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin-top: 1.25rem;
+    }
+    
+    @@keyframes chSpringBounce {
+        0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+        55% { opacity: 0.85; transform: scale(1.03) translateY(-4px); }
+        80% { transform: scale(0.98) translateY(2px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .ch-subject-card.found {
+        border-color: var(--cs-accent);
+        box-shadow: 0 10px 30px rgba(0,201,167,0.18);
+        animation: chSpringBounce 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+    }
+    .ch-subject-card.not-found {
+        border-color: #ef4444;
+        box-shadow: 0 8px 24px rgba(239,68,68,0.15);
+        animation: chSpringBounce 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+    }
+    .ch-subject-header {
+        padding: 1.1rem 1.3rem 0.8rem;
+        background: var(--cs-bg-card);
+        display: flex; align-items: center; gap: 1rem;
+    }
+    .ch-subject-avatar {
+        width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+        background: linear-gradient(135deg, var(--cs-accent), #7c3aed);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.3rem; font-weight: 700; color: #fff;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .ch-subject-card:hover .ch-subject-avatar {
+        transform: scale(1.08) rotate(5deg);
+    }
+    .ch-subject-name { font-size: 1.05rem; font-weight: 700; color: var(--cs-text-primary); margin: 0; }
+    .ch-subject-meta { font-size: 0.78rem; color: var(--cs-text-muted); margin-top: 2px; }
+    .ch-subject-type-badge {
+        display: inline-flex; align-items: center; gap: 0.3rem;
+        padding: 2px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+        transition: transform 0.2s;
+    }
+    .ch-subject-type-badge:hover { transform: scale(1.05); }
+    .badge-student  { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .badge-staff    { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .badge-visitor  { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .ch-subject-qr {
+        padding: 0.5rem 1.3rem 0.9rem;
+        background: var(--cs-bg-card);
+        font-family: var(--cs-font-mono); font-size: 0.78rem; color: var(--cs-text-muted);
+        border-top: 1px solid var(--cs-border);
+    }
+    .ch-not-found-body {
+        padding: 1.25rem; display: flex; align-items: center; gap: 0.75rem;
+        color: #f87171; font-size: 0.875rem;
+    }
+
+    /* â”€â”€ Challan form card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-form-card {
+        background: var(--cs-bg-elevated);
+        border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg);
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ch-form-group { margin-bottom: 1.1rem; }
+    .ch-form-group label {
+        display: block; font-size: 0.8rem; font-weight: 600;
+        color: var(--cs-text-secondary); margin-bottom: 0.4rem;
+    }
+    .ch-form-group label span.required { color: #f87171; margin-left: 2px; }
+    .ch-amount-row { display: flex; align-items: center; gap: 0; }
+    .ch-amount-prefix {
+        background: var(--cs-bg-card); border: 1px solid var(--cs-border);
+        border-right: none; border-radius: var(--cs-radius-md) 0 0 var(--cs-radius-md);
+        padding: 0 0.85rem; height: 42px; display: flex; align-items: center;
+        font-size: 0.85rem; font-weight: 700; color: var(--cs-text-muted);
+        transition: border-color 0.25s;
+    }
+    .ch-amount-row .cs-input { border-radius: 0 var(--cs-radius-md) var(--cs-radius-md) 0; }
+    .ch-form-group .cs-input {
+        transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .ch-form-group .cs-input:focus {
+        border-color: var(--cs-accent);
+        box-shadow: 0 0 10px rgba(0, 201, 167, 0.2);
+    }
+    .ch-form-group .cs-input:focus + .ch-amount-prefix {
+        border-color: var(--cs-accent);
+    }
+
+    /* â”€â”€ Confirmation banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #ch-success-banner {
+        display: none; margin-top: 1rem;
+        background: rgba(16,185,129,0.1); border: 1.5px solid #10b981;
+        border-radius: var(--cs-radius-lg); padding: 1.25rem 1.5rem;
+        animation: chScaleUpBurst 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+    }
+    @@keyframes chScaleUpBurst {
+        0% { opacity: 0; transform: scale(0.9) rotate3d(1, 0, 0, -20deg); }
+        100% { opacity: 1; transform: scale(1) rotate3d(0, 0, 0, 0deg); }
+    }
+    #ch-success-banner h3 { color: #10b981; margin: 0 0 0.4rem; font-size: 1.05rem; }
+    #ch-success-banner p  { color: var(--cs-text-secondary); font-size: 0.875rem; margin: 0; }
+
+    /* Error banner */
+    #ch-error-banner {
+        display: none; margin-top: 1rem;
+        background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3);
+        border-radius: var(--cs-radius-lg); padding: 1rem 1.25rem;
+        color: #f87171; font-size: 0.875rem;
+        animation: chSpringBounce 0.4s ease-out;
+    }
+
+    /* Submit btn loading state */
+    .ch-spin { display: inline-block; animation: spin 0.8s linear infinite; }
+    @@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<div style="max-width:1100px; margin: 0 auto;">
+    <!-- Page header -->
+    <div style="margin-bottom:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div>
+            <h1 style="font-size:1.45rem; font-weight:700; color:var(--cs-text-primary); margin:0 0 0.2rem; display:flex; align-items:center; gap:0.5rem;">
+                <i class="ti ti-file-invoice" style="color:var(--cs-accent);"></i> Issue Digital Challan
+            </h1>
+            <p style="font-size:0.875rem; color:var(--cs-text-muted); margin:0;">Scan a QR code, verify the subject, then submit the penalty.</p>
+        </div>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+            <i class="ti ti-list"></i> View All Challans
+        </a>
+    </div>
+
+    <div class="challan-issue-grid">
+
+        <!-- â•â•â• LEFT COLUMN: Scanner + Subject card â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <div>
+            <!-- Scanner card -->
+            <div class="ch-scan-card">
+                <p class="ch-section-title"><i class="ti ti-qrcode" style="margin-right:4px;"></i>QR Code Scanner</p>
+
+                <!-- Camera status -->
+                <div class="ch-cam-status" id="chCamStatus">
+                    <span class="ch-status-dot"></span>
+                    <span id="chCamStatusText">Camera off</span>
+                </div>
+
+                <!-- Idle placeholder -->
+                <div id="ch-cam-idle" onclick="chStartCamera()">
+                    <i class="ti ti-camera-off"></i>
+                    <span>Click to activate camera</span>
+                    <button type="button" class="cs-btn cs-btn-primary" onclick="event.stopPropagation();chStartCamera()">
+                        <i class="ti ti-video"></i> Start Camera
+                    </button>
+                </div>
+
+                <!-- Live camera -->
+                <div id="ch-cam-live">
+                    <video id="ch-cam-video" playsinline muted></video>
+                    <canvas id="ch-cam-canvas" style="display:none;"></canvas>
+                    <div class="ch-corner ch-tl"></div>
+                    <div class="ch-corner ch-tr"></div>
+                    <div class="ch-corner ch-bl"></div>
+                    <div class="ch-corner ch-br"></div>
+                </div>
+
+                <div style="display:flex; gap:0.6rem; margin-top:0.5rem;">
+                    <button type="button" class="cs-btn cs-btn-secondary" id="chBtnStop"
+                            onclick="chStopCamera()" style="display:none; flex:1;">
+                        <i class="ti ti-video-off"></i> Stop Camera
+                    </button>
+                </div>
+
+                <!-- Manual entry -->
+                <div class="ch-manual">
+                    <label style="font-size:0.78rem;font-weight:600;color:var(--cs-text-muted);display:block;margin-bottom:0.4rem;">
+                        <i class="ti ti-keyboard"></i> Manual ID Entry
+                    </label>
+                    <div class="ch-manual-row">
+                        <input type="text" id="chManualId" class="cs-input"
+                               placeholder="e.g. 2026-CS-001 or FR-1-CS"
+                               autocomplete="off" spellcheck="false" />
+                        <button type="button" class="cs-btn cs-btn-primary" onclick="chResolveCode(document.getElementById('chManualId').value)">
+                            <i class="ti ti-search"></i> Lookup
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject profile card (hidden until a code is resolved) -->
+            <div id="ch-subject-card" class="ch-subject-card" style="display:none;">
+                <!-- Found state -->
+                <div id="ch-found-body">
+                    <div class="ch-subject-header">
+                        <div class="ch-subject-avatar" id="chAvatarInitials">?</div>
+                        <div>
+                            <p class="ch-subject-name" id="chSubjectName">â€”</p>
+                            <div id="chSubjectTypeBadge"></div>
+                            <p class="ch-subject-meta" id="chSubjectDetail">â€”</p>
+                        </div>
+                    </div>
+                    <div class="ch-subject-qr">
+                        <i class="ti ti-qrcode" style="margin-right:4px;"></i>
+                        <span id="chSubjectQr" style="color:var(--cs-accent);"></span>
+                    </div>
+                </div>
+                <!-- Not-found state -->
+                <div id="ch-notfound-body" class="ch-not-found-body" style="display:none;">
+                    <i class="ti ti-user-off" style="font-size:1.5rem;flex-shrink:0;"></i>
+                    <span id="chNotFoundMsg">No person found for this QR code.</span>
+                </div>
+            </div>
+
+            @* Pre-resolved subject (when navigated from Scan page via ?qr=) *@
+            @if (Model.ResolvedSubject != null)
+            {
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        chShowSubject({
+                            success:     true,
+                            qrCodeId:    '@Html.Raw(Model.ResolvedSubject.QrCodeId)',
+                            name:        '@Html.Raw(Model.ResolvedSubject.FullName)',
+                            subjectType: '@Html.Raw(Model.ResolvedSubject.SubjectType)',
+                            detail:      '@Html.Raw(Model.ResolvedSubject.Detail ?? "")'
+                        });
+                    });
+                </script>
+            }
+        </div>
+
+        <!-- â•â•â• RIGHT COLUMN: Challan form â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <div>
+            <div class="ch-form-card">
+                <p class="ch-section-title"><i class="ti ti-file-invoice" style="margin-right:4px;"></i>Challan Details</p>
+
+                <form id="ch-challan-form">
+                    @Html.AntiForgeryToken()
+
+                    <!-- Hidden: QR code (populated by scanner) -->
+                    <input type="hidden" asp-for="ChallanInput.QrCodeId" id="chQrInput" />
+
+                    <!-- Violation Type -->
+                    <div class="ch-form-group">
+                        <label for="chViolationType">Violation Type <span class="required">*</span></label>
+                        <select id="chViolationType" name="ChallanInput.ViolationType" class="cs-input" required>
+                            <option value="" disabled selected>â€” Select violation â€”</option>
+                            @foreach (var v in IssueModel.ViolationTypes)
+                            {
+                                <option value="@v">@v</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="ch-form-group">
+                        <label for="chAmount">Fine Amount <span class="required">*</span></label>
+                        <div class="ch-amount-row">
+                            <span class="ch-amount-prefix">PKR</span>
+                            <input type="number" id="chAmount" name="ChallanInput.Amount"
+                                   class="cs-input" placeholder="e.g. 500"
+                                   min="1" max="1000000" step="1" required />
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="ch-form-group">
+                        <label for="chDescription">Additional Notes <span style="font-weight:400;color:var(--cs-text-muted);">(optional)</span></label>
+                        <textarea id="chDescription" name="ChallanInput.Description"
+                                  class="cs-input" rows="3"
+                                  placeholder="Evidence details, witness names, location specificsâ€¦"
+                                  maxlength="2000"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="button" id="chSubmitBtn" class="cs-btn cs-btn-primary"
+                            onclick="chSubmitChallan()" style="width:100%; margin-top:0.5rem;"
+                            disabled>
+                        <i class="ti ti-file-check" id="chSubmitIcon"></i>
+                        <span id="chSubmitLabel">Issue Challan</span>
+                    </button>
+                    <p id="chFormHint" style="font-size:0.75rem;color:var(--cs-text-muted);text-align:center;margin-top:0.6rem;">
+                        Scan a QR code first to enable the form.
+                    </p>
+                </form>
+
+                <!-- Success banner -->
+                <div id="ch-success-banner">
+                    <h3><i class="ti ti-circle-check"></i> Challan Issued Successfully</h3>
+                    <p id="chSuccessMsg">Challan has been recorded in the system.</p>
+                    <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+                        <a id="chDetailLink" href="#" class="cs-btn cs-btn-secondary" style="flex:1;">
+                            <i class="ti ti-eye"></i> View Challan
+                        </a>
+                        <button type="button" class="cs-btn cs-btn-primary" onclick="chReset()" style="flex:1;">
+                            <i class="ti ti-plus"></i> Issue Another
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error banner -->
+                <div id="ch-error-banner">
+                    <i class="ti ti-alert-circle"></i>
+                    <span id="chErrorMsg"></span>
+                </div>
+            </div>
+
+            <!-- Quick stats hint card -->
+            <div style="margin-top:1rem; background:var(--cs-bg-elevated); border:1px solid var(--cs-border); border-radius:var(--cs-radius-lg); padding:1rem 1.25rem;">
+                <p style="font-size:0.78rem; font-weight:700; color:var(--cs-text-muted); margin:0 0 0.6rem; text-transform:uppercase; letter-spacing:0.08em;">
+                    <i class="ti ti-info-circle"></i> Issuing Guidelines
+                </p>
+                <ul style="font-size:0.8rem; color:var(--cs-text-secondary); margin:0; padding-left:1.2rem; line-height:1.8;">
+                    <li>Always scan the <strong>original ID card</strong> â€” do not accept screenshots.</li>
+                    <li>Set Amount in <strong>PKR</strong> as per the campus fine schedule.</li>
+                    <li>For recurring violations, add context in the description field.</li>
+                    <li>The subject will be notified automatically upon issuance.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div><!-- /grid -->
+</div>
+
+@section Scripts {
+<script src="~/lib/jsqr/jsqr.js"></script>
+<script>
+// â”€â”€ Camera & scan state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let chStream    = null;
+let chScanning  = false;
+let chRafId     = null;
+let chLocked    = false;
+const chVideo   = document.getElementById('ch-cam-video');
+const chCanvas  = document.getElementById('ch-cam-canvas');
+const chCtx     = chCanvas.getContext('2d', { willReadFrequently: true });
+
+// â”€â”€ Camera controls â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+async function chStartCamera() {
+    if (chScanning) return;
+    chSetStatus('Starting cameraâ€¦', '');
+
+    if (typeof jsQR === 'undefined') {
+        chSetStatus('QR library not loaded.', 'err'); return;
+    }
+    let stream = null, lastErr = null;
+    for (const cfg of [
+        { video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 } } },
+        { video: { width: { ideal: 640 } } },
+        { video: true }
+    ]) {
+        try { stream = await navigator.mediaDevices.getUserMedia(cfg); break; }
+        catch(e) { lastErr = e; }
+    }
+    if (!stream) { chSetStatus('Camera unavailable â€” use manual entry.', 'err'); return; }
+
+    chStream = stream;
+    document.getElementById('ch-cam-idle').style.display = 'none';
+    document.getElementById('ch-cam-live').style.display = 'block';
+    document.getElementById('chBtnStop').style.display   = '';
+    chVideo.srcObject = stream;
+    await chVideo.play();
+    chScanning = true;
+    chSetStatus('â— Live â€” scanningâ€¦', 'live');
+    chRafId = requestAnimationFrame(chTick);
+}
+
+function chStopCamera() {
+    chScanning = false;
+    if (chRafId) { cancelAnimationFrame(chRafId); chRafId = null; }
+    if (chStream) { chStream.getTracks().forEach(t => t.stop()); chStream = null; }
+    chVideo.srcObject = null;
+    document.getElementById('ch-cam-live').style.display = 'none';
+    document.getElementById('ch-cam-idle').style.display = 'flex';
+    document.getElementById('chBtnStop').style.display   = 'none';
+    chSetStatus('Camera off', '');
+}
+
+function chSetStatus(msg, cls) {
+    const el = document.getElementById('chCamStatus');
+    el.className = 'ch-cam-status' + (cls ? ' '+cls : '');
+    document.getElementById('chCamStatusText').textContent = msg;
+}
+
+// â”€â”€ Scan loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function chTick() {
+    if (!chScanning || chLocked) return;
+    if (chVideo.readyState >= 2 && chVideo.videoWidth > 0) {
+        chCanvas.width  = chVideo.videoWidth;
+        chCanvas.height = chVideo.videoHeight;
+        chCtx.drawImage(chVideo, 0, 0);
+        const img  = chCtx.getImageData(0, 0, chCanvas.width, chCanvas.height);
+        const code = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
+        if (code && code.data) {
+            chLocked = true;
+            chStopCamera();
+            chResolveCode(code.data);
+            return;
+        }
+    }
+    chRafId = requestAnimationFrame(chTick);
+}
+
+// â”€â”€ Manual entry keydown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+document.getElementById('chManualId').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); chResolveCode(this.value); }
+});
+
+// â”€â”€ Resolve QR code via AJAX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+async function chResolveCode(qrCode) {
+    if (!qrCode || !qrCode.trim()) return;
+    qrCode = qrCode.trim();
+    chLocked = false;
+
+    // Show loading state on subject card
+    const card = document.getElementById('ch-subject-card');
+    card.style.display = 'block';
+    card.className     = 'ch-subject-card';
+    document.getElementById('ch-found-body').style.display    = 'none';
+    document.getElementById('ch-notfound-body').style.display = 'none';
+    document.getElementById('chSubjectName').textContent      = 'Resolvingâ€¦';
+
+    try {
+        const resp = await fetch(`?handler=Resolve&qrCode=${encodeURIComponent(qrCode)}`, {
+            headers: { 'Accept': 'application/json' }
+        });
+        const data = await resp.json();
+        chShowSubject(data);
+    } catch(err) {
+        chShowSubject({ success: false, error: 'Network error. Please try again.' });
+    }
+}
+
+// â”€â”€ Render subject card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function chShowSubject(data) {
+    const card         = document.getElementById('ch-subject-card');
+    const foundBody    = document.getElementById('ch-found-body');
+    const notFoundBody = document.getElementById('ch-notfound-body');
+    const submitBtn    = document.getElementById('chSubmitBtn');
+    const hint         = document.getElementById('chFormHint');
+
+    card.style.display = 'block';
+
+    if (data.success) {
+        card.className = 'ch-subject-card found';
+        foundBody.style.display    = 'block';
+        notFoundBody.style.display = 'none';
+
+        // Avatar initials
+        const initials = data.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+        document.getElementById('chAvatarInitials').textContent = initials;
+        document.getElementById('chSubjectName').textContent    = data.name;
+        document.getElementById('chSubjectDetail').textContent  = data.detail || 'â€”';
+        document.getElementById('chSubjectQr').textContent      = data.qrCodeId;
+
+        // Type badge
+        const typeMap = {
+            'Student': ['badge-student', 'ti-school'],
+            'Staff':   ['badge-staff',   'ti-id-badge'],
+            'Visitor': ['badge-visitor', 'ti-user']
+        };
+        const [badgeCls, icon] = typeMap[data.subjectType] || ['badge-visitor', 'ti-user'];
+        document.getElementById('chSubjectTypeBadge').innerHTML =
+            `<span class="ch-subject-type-badge ${badgeCls}"><i class="ti ${icon}"></i>${data.subjectType}</span>`;
+
+        // Set hidden QR input and enable form
+        document.getElementById('chQrInput').value = data.qrCodeId;
+        submitBtn.disabled = false;
+        hint.textContent   = `Ready to issue a challan against ${data.name}.`;
+    } else {
+        card.className = 'ch-subject-card not-found';
+        foundBody.style.display    = 'none';
+        notFoundBody.style.display = 'flex';
+        document.getElementById('chNotFoundMsg').textContent = data.error || 'No person found.';
+        document.getElementById('chQrInput').value = '';
+        submitBtn.disabled = true;
+        hint.textContent   = 'Scan a valid QR code to enable the form.';
+    }
+}
+
+// â”€â”€ Submit the challan form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+async function chSubmitChallan() {
+    const qr        = document.getElementById('chQrInput').value.trim();
+    const violation = document.getElementById('chViolationType').value.trim();
+    const amount    = document.getElementById('chAmount').value.trim();
+
+    // Client-side guard (server repeats these checks)
+    if (!qr)        { chShowError('Please scan a QR code first.'); return; }
+    if (!violation) { chShowError('Please select a violation type.'); return; }
+    if (!amount || parseFloat(amount) <= 0) { chShowError('Amount must be greater than PKR 0.'); return; }
+
+    // Loading state
+    document.getElementById('chSubmitIcon').className  = 'ti ti-loader-2 ch-spin';
+    document.getElementById('chSubmitLabel').textContent = 'Issuingâ€¦';
+    document.getElementById('chSubmitBtn').disabled    = true;
+    document.getElementById('ch-error-banner').style.display = 'none';
+
+    // Build form data
+    const form    = document.getElementById('ch-challan-form');
+    const payload = new FormData(form);
+    // Ensure the hidden QR input value is included
+    payload.set('ChallanInput.QrCodeId', qr);
+
+    try {
+        const resp = await fetch('', {
+            method: 'POST',
+            body:   payload
+        });
+        const data = await resp.json();
+
+        if (data.success) {
+            // Show confirmation banner
+            document.getElementById('ch-challan-form').style.display = 'none';
+            document.getElementById('ch-success-banner').style.display = 'block';
+            document.getElementById('chSuccessMsg').textContent =
+                `Challan #${data.challanId} has been recorded. The subject has been notified.`;
+            document.getElementById('chDetailLink').href = `/Admin/Challans/Detail?id=${data.challanId}`;
+        } else {
+            chShowError(data.error || 'Failed to issue challan.');
+            resetSubmitBtn();
+        }
+    } catch(err) {
+        chShowError('A network error occurred. Please try again.');
+        resetSubmitBtn();
+    }
+}
+
+function chShowError(msg) {
+    const el = document.getElementById('ch-error-banner');
+    document.getElementById('chErrorMsg').textContent = msg;
+    el.style.display = 'block';
+}
+
+function resetSubmitBtn() {
+    document.getElementById('chSubmitIcon').className    = 'ti ti-file-check';
+    document.getElementById('chSubmitLabel').textContent = 'Issue Challan';
+    document.getElementById('chSubmitBtn').disabled      = false;
+}
+
+function chReset() {
+    document.getElementById('ch-challan-form').style.display    = 'block';
+    document.getElementById('ch-success-banner').style.display  = 'none';
+    document.getElementById('ch-error-banner').style.display    = 'none';
+    document.getElementById('ch-subject-card').style.display    = 'none';
+    document.getElementById('chQrInput').value = '';
+    document.getElementById('chManualId').value = '';
+    document.getElementById('chViolationType').value = '';
+    document.getElementById('chAmount').value = '';
+    document.getElementById('chDescription').value = '';
+    document.getElementById('chSubmitBtn').disabled = true;
+    document.getElementById('chFormHint').textContent = 'Scan a QR code first to enable the form.';
+    resetSubmitBtn();
+    chLocked = false;
+}
+
+// Focus manual input on load
+document.getElementById('chManualId').focus();
+</script>
+}

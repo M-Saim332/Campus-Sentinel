@@ -1,0 +1,236 @@
+@page
+@model CampusSentinel.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0.5rem 0;
+        background: linear-gradient(135deg, #7dd3fc 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+    }
+    .occupancy-pulse {
+        display: inline-block;
+        width: 10px; height: 10px;
+        background: #10b981;
+        border-radius: 50%;
+        margin-right: 8px;
+        box-shadow: 0 0 10px #10b981;
+        animation: pulse 1.5s infinite;
+    }
+    @@keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .chart-container {
+        height: 300px;
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Campus Command Center</h2>
+        <div>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-page-handler="DownloadReport" class="cs-btn cs-btn-primary">⬇ Download Weekly Report</a>
+            }
+            <span style="color: #94a3b8; margin-left: 1rem; font-size: 0.9rem;">
+                <span class="occupancy-pulse"></span> Live System Active
+            </span>
+        </div>
+    </div>
+    
+    @inject CampusSentinel.Data.ApplicationDbContext DbContext
+    @{ var hasCritical = DbContext.Incidents.Any(i => i.Status == CampusSentinel.Models.IncidentStatus.Open && i.Severity == CampusSentinel.Models.IncidentSeverity.Critical); }
+    @if (hasCritical)
+    {
+        <div class="glass-card" style="margin-bottom: 2rem; border-color: #ef4444; background: rgba(239, 68, 68, 0.1); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="occupancy-pulse" style="background: #ef4444; box-shadow: 0 0 10px #ef4444;"></div>
+                <h3 style="color: #ef4444; margin: 0;">CRITICAL INCIDENT ALERT</h3>
+                <span style="color: #fca5a5;">There are active critical incidents requiring immediate attention.</span>
+            </div>
+            <a asp-page="/Incidents/Index" asp-route-FilterSeverity="Critical" asp-route-FilterStatus="Open" class="btn btn-primary" style="background: #ef4444;">View Critical</a>
+        </div>
+    }
+
+    <div class="stats-grid cs-animate-stagger">
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">On Campus Now</div>
+            <div class="cs-stat-value" id="occupancyCounter" data-target="@Model.Stats.CurrentOccupancy">@Model.Stats.CurrentOccupancy</div>
+            <div style="font-size: 0.75rem; color: var(--cs-success);">Updating every 60s</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Total Students</div>
+            <div class="cs-stat-value" data-target="@Model.Stats.TotalStudents">@Model.Stats.TotalStudents</div>
+            <div style="font-size: 0.75rem; color: var(--cs-info);">Registered Database</div>
+        </div>
+        <div class="cs-stat-card">
+            <div class="cs-stat-label">Visitors Today</div>
+            <div class="cs-stat-value" data-target="@Model.Stats.TotalVisitorsToday">@Model.Stats.TotalVisitorsToday</div>
+            <div style="font-size: 0.75rem; color: var(--cs-info);">Security Clearances</div>
+        </div>
+        <div class="cs-stat-card" style="border-color: rgba(239, 68, 68, 0.2);">
+            <div class="cs-stat-label">Blacklisted</div>
+            <div class="cs-stat-value" style="color: var(--cs-danger);" data-target="@Model.Stats.BlacklistedCount">@Model.Stats.BlacklistedCount</div>
+            <div style="font-size: 0.75rem; color: var(--cs-danger);">Denied Entry Access</div>
+        </div>
+        <div class="cs-stat-card" style="border-color: rgba(245, 158, 11, 0.2);">
+            <div class="cs-stat-label">Open Incidents</div>
+            <div class="cs-stat-value" style="color: var(--cs-warning);" data-target="@Model.Stats.OpenIncidentsToday">@Model.Stats.OpenIncidentsToday</div>
+            <div style="font-size: 0.75rem; color: var(--cs-warning);">Reported Today</div>
+        </div>
+        <div class="cs-stat-card" style="border-color: rgba(16, 185, 129, 0.2);">
+            <div class="cs-stat-label">Active Guards</div>
+            <div class="cs-stat-value" style="color: var(--cs-success);" data-target="@Model.Stats.ActiveGuardsCount">@Model.Stats.ActiveGuardsCount</div>
+            <div style="font-size: 0.75rem; color: var(--cs-success);">On Duty Now</div>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem;">
+        <div class="cs-card">
+            <h3>Student Flow Trend (Peak Hours)</h3>
+            <div class="chart-container">
+                <canvas id="flowChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="cs-card">
+            <h3>Recent Activity</h3>
+            <div style="max-height: 300px; overflow-y: auto;">
+                <table style="font-size: 0.85rem; width: 100%;">
+                    <tbody>
+                        @foreach (var log in Model.RecentLogs)
+                        {
+                            <tr>
+                                <td style="padding: 0.5rem 0;">
+                                    <div style="color: #fff;">@log.TargetId</div>
+                                    <div style="font-size: 0.7rem; color: #94a3b8;">@log.Timestamp.ToString("HH:mm:ss")</div>
+                                </td>
+                                <td style="text-align: right;">
+                                    <span class="badge" style="background: @(log.Direction == "Entry" ? "rgba(16, 185, 129, 0.1)" : "rgba(239, 68, 68, 0.1)"); color: @(log.Direction == "Entry" ? "#10b981" : "#f87171"); font-size: 0.65rem;">
+                                        @log.Direction.ToUpper()
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cs-card">
+            <h3>Guards On Duty</h3>
+            <div style="max-height: 300px; overflow-y: auto;">
+                @if (Model.Stats.ActiveGuardsList != null && Model.Stats.ActiveGuardsList.Any())
+                {
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        @foreach (var guard in Model.Stats.ActiveGuardsList)
+                        {
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 0.5rem;">
+                                <div class="occupancy-pulse" style="margin: 0;"></div>
+                                <span style="color: #e2e8f0; font-size: 0.9rem;">@guard</span>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p style="color: #94a3b8; font-size: 0.85rem; padding-top: 1rem;">No guards currently assigned to active shifts.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Real-Time Occupancy Logic (Updates every 60 seconds)
+        async function updateOccupancy() {
+            try {
+                const response = await fetch('/Dashboard?handler=Occupancy');
+                const data = await response.json();
+                const counter = document.getElementById('occupancyCounter');
+                
+                // Animation effect
+                counter.style.opacity = '0.4';
+                setTimeout(() => {
+                    counter.textContent = data.occupancy;
+                    counter.style.opacity = '1';
+                }, 300);
+            } catch (e) { console.error('Occupancy sync failed', e); }
+        }
+
+        // Run every 60 seconds
+        setInterval(updateOccupancy, 60000);
+
+        // Time-Series Trend Analysis Chart
+        const ctx = document.getElementById('flowChart').getContext('2d');
+        const flowChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 24}, (_, i) => i + ':00'),
+                datasets: [{
+                    label: 'Entries per Hour',
+                    data: @Json.Serialize(Model.PeakHoursData),
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#7dd3fc'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { color: '#8B95A8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#8B95A8', maxRotation: 0 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#162033',
+                        titleColor: '#F0F4FF',
+                        bodyColor: '#8B95A8',
+                        borderColor: 'rgba(255,255,255,0.06)',
+                        borderWidth: 1,
+                        padding: 12
+                    }
+                }
+            }
+        });
+    </script>
+}

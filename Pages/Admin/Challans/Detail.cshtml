@@ -1,0 +1,426 @@
+﻿@page
+@model CampusSentinel.Pages.Admin.Challans.DetailModel
+@using CampusSentinel.Models
+@{
+    ViewData["Title"] = $"Challan #{Model.Challan?.Id}";
+    var c = Model.Challan!;
+
+    // Status colour map
+    var statusColor = c.Status switch
+    {
+        ChallanStatus.Pending   => "#f59e0b",
+        ChallanStatus.Paid      => "#10b981",
+        ChallanStatus.Disputed  => "#60a5fa",
+        ChallanStatus.Cancelled => "#6b7280",
+        _ => "var(--cs-text-muted)"
+    };
+    var statusIcon = c.Status switch
+    {
+        ChallanStatus.Pending   => "ti-clock",
+        ChallanStatus.Paid      => "ti-circle-check",
+        ChallanStatus.Disputed  => "ti-alert-triangle",
+        ChallanStatus.Cancelled => "ti-ban",
+        _ => "ti-file"
+    };
+    var typeBadge = c.SubjectType switch
+    {
+        "Student" => "ct-Student",
+        "Staff"   => "ct-Staff",
+        _         => "ct-Visitor"
+    };
+}
+
+<style>
+    /* Animations system */
+    @@keyframes chFadeInLeft {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @@keyframes chFadeInRight {
+        from { opacity: 0; transform: translateX(20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @@keyframes chStampStamp {
+        0% { opacity: 0; transform: scale(3.5) rotate(-35deg); filter: blur(4px); }
+        75% { opacity: 0.9; transform: scale(0.95) rotate(-15deg); filter: blur(0); }
+        90% { transform: scale(1.03) rotate(-10deg); }
+        100% { opacity: 0.16; transform: scale(1) rotate(-12deg); }
+    }
+
+    .ch-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 1.5rem;
+        max-width: 1050px;
+        margin: 0 auto;
+    }
+    @@media (max-width: 820px) { .ch-detail-grid { grid-template-columns: 1fr; } }
+
+    /* Left panel fade-in */
+    .ch-detail-grid > div:first-child {
+        opacity: 0; animation: chFadeInLeft 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    /* Right panel fade-in */
+    .ch-detail-grid > div:last-child {
+        opacity: 0; animation: chFadeInRight 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.15s forwards;
+    }
+
+    /* â”€â”€ Challan card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-card {
+        background: var(--cs-bg-elevated); border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg); overflow: hidden;
+        position: relative;
+    }
+    
+    /* Premium Rubber Stamp effect */
+    .ch-stamp {
+        position: absolute; right: 2rem; top: 5.5rem;
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em;
+        text-transform: uppercase; border: 4px dashed currentColor;
+        border-radius: 8px; padding: 0.35rem 1.1rem;
+        transform: rotate(-12deg); opacity: 0;
+        pointer-events: none; user-select: none;
+        z-index: 10;
+        animation: chStampStamp 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.25) 0.5s forwards;
+    }
+
+    .ch-card-header {
+        padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--cs-border);
+        display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+    }
+    .ch-card-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cs-text-muted); }
+    .ch-card-body  { padding: 1.5rem; }
+ 
+    /* â”€â”€ Field rows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-field { margin-bottom: 1.25rem; }
+    .ch-field:last-child { margin-bottom: 0; }
+    .ch-field-label {
+        font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.08em; color: var(--cs-text-muted); margin-bottom: 0.3rem;
+    }
+    .ch-field-value { font-size: 0.95rem; color: var(--cs-text-primary); font-weight: 500; }
+    .ch-field-value.mono { font-family: var(--cs-font-mono); color: var(--cs-accent); font-size: 0.88rem; }
+    .ch-field-value.amount {
+        font-size: 1.65rem; font-weight: 800;
+        background: linear-gradient(135deg, var(--cs-accent), #7c3aed);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .ch-divider { border: none; border-top: 1px solid var(--cs-border); margin: 1.25rem 0; }
+ 
+    /* â”€â”€ Subject block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-subject-block {
+        display: flex; align-items: center; gap: 1rem;
+        background: var(--cs-bg-card); border-radius: var(--cs-radius-md);
+        padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+        border: 1px solid var(--cs-border);
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+    }
+    .ch-subject-block:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    .ch-avatar {
+        width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
+        background: linear-gradient(135deg, var(--cs-accent), #7c3aed);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.3rem; font-weight: 800; color: #fff;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+    }
+    .ch-subject-block:hover .ch-avatar {
+        transform: scale(1.06) rotate(6deg);
+    }
+    .ch-sub-name { font-size: 1.05rem; font-weight: 700; color: var(--cs-text-primary); margin: 0; }
+    .ch-sub-meta { font-size: 0.78rem; color: var(--cs-text-muted); margin-top: 3px; }
+    .ch-type-pill {
+        display: inline-flex; align-items: center; gap: 0.3rem;
+        padding: 2px 9px; border-radius: 20px;
+        font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-top: 4px;
+        transition: transform 0.2s;
+    }
+    .ch-type-pill:hover { transform: scale(1.05); }
+    .ct-Student { background:rgba(59,130,246,0.12); color:#60a5fa; }
+    .ct-Staff   { background:rgba(168,85,247,0.12); color:#c084fc; }
+    .ct-Visitor { background:rgba(245,158,11,0.12); color:#fbbf24; }
+ 
+    /* â”€â”€ Status badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-status-badge {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        padding: 0.4rem 1rem; border-radius: 20px; font-weight: 700;
+        font-size: 0.9rem; border: 1.5px solid currentColor;
+        transition: transform 0.2s;
+    }
+    .ch-status-badge:hover { transform: scale(1.06); }
+ 
+    /* â”€â”€ Timeline-style issued info â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-issued-by {
+        display: flex; align-items: center; gap: 0.75rem;
+        font-size: 0.83rem; color: var(--cs-text-secondary);
+    }
+    .ch-issued-avatar {
+        width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+        background: var(--cs-bg-overlay); border: 1px solid var(--cs-border);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.75rem; font-weight: 700; color: var(--cs-text-secondary);
+    }
+ 
+    /* â”€â”€ Update status form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-update-card {
+        background: var(--cs-bg-elevated); border: 1px solid var(--cs-border);
+        border-radius: var(--cs-radius-lg); padding: 1.25rem;
+    }
+    .ch-update-title {
+        font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.08em; color: var(--cs-text-muted); margin-bottom: 1rem;
+    }
+    .ch-status-btns { display:flex; flex-direction:column; gap:0.5rem; }
+    .ch-status-btn {
+        display: flex; align-items: center; gap: 0.6rem;
+        padding: 0.65rem 1rem; border-radius: var(--cs-radius-md);
+        border: 1.5px solid var(--cs-border); background: var(--cs-bg-card);
+        color: var(--cs-text-secondary); font-size: 0.875rem; font-weight: 600;
+        cursor: pointer; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; text-align: left;
+    }
+    .ch-status-btn:hover { border-color: currentColor; transform: translateY(-2px); }
+    .ch-status-btn.paid     { --c:#10b981; } .ch-status-btn.paid:hover     { color:#10b981; background:rgba(16,185,129,0.08); box-shadow: 0 4px 12px rgba(16,185,129,0.1); }
+    .ch-status-btn.disputed { --c:#60a5fa; } .ch-status-btn.disputed:hover { color:#60a5fa; background:rgba(96,165,250,0.08); box-shadow: 0 4px 12px rgba(96,165,250,0.1); }
+    .ch-status-btn.cancelled{ --c:#ef4444; } .ch-status-btn.cancelled:hover{ color:#ef4444; background:rgba(239,68,68,0.08); box-shadow: 0 4px 12px rgba(239,68,68,0.15); }
+ 
+    /* â”€â”€ Feedback â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .ch-feedback {
+        padding: 0.8rem 1rem; border-radius: var(--cs-radius-md);
+        font-size: 0.875rem; display:flex; align-items:center; gap:0.5rem;
+        margin-bottom: 1rem; animation: chFadeInLeft 0.35s ease;
+    }
+    .ch-feedback.ok  { background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; }
+    .ch-feedback.err { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); color:#f87171; }
+
+    /* Print styles */
+    @@media print {
+        .ch-update-card, .cs-btn, .ch-card-header a, .ch-stamp { display: none !important; }
+        .ch-detail-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div style="max-width:1050px; margin:0 auto;">
+
+    <!-- â”€â”€ Page header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <div>
+            <h1 style="font-size:1.45rem; font-weight:700; color:var(--cs-text-primary); margin:0 0 0.2rem; display:flex; align-items:center; gap:0.5rem;">
+                <i class="ti ti-file-invoice" style="color:var(--cs-accent);"></i>
+                Challan <span style="color:var(--cs-text-muted); font-weight:500;">#@c.Id</span>
+            </h1>
+            <p style="font-size:0.875rem; color:var(--cs-text-muted); margin:0;">
+                Issued @c.IssueDate.ToLocalTime().ToString("dddd, dd MMMM yyyy 'at' HH:mm")
+            </p>
+        </div>
+        <div style="display:flex; gap:0.6rem;">
+            <button onclick="window.print()" class="cs-btn cs-btn-secondary">
+                <i class="ti ti-printer"></i> Print
+            </button>
+            <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+                <i class="ti ti-arrow-left"></i> All Challans
+            </a>
+        </div>
+    </div>
+
+    <!-- â”€â”€ Feedback banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="ch-feedback @(Model.IsStatusError ? "err" : "ok")">
+            <i class="ti @(Model.IsStatusError ? "ti-alert-circle" : "ti-circle-check")"></i>
+            @Model.StatusMessage
+        </div>
+    }
+
+    <div class="ch-detail-grid">
+
+        <!-- â•â•â• LEFT: Challan full record â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <div>
+            <!-- Subject block -->
+            <div class="ch-subject-block">
+                <div class="ch-avatar">
+                    @(string.Concat(c.SubjectName.Split(' ').Take(2).Select(w => w[0])).ToUpper())
+                </div>
+                <div>
+                    <p class="ch-sub-name">@c.SubjectName</p>
+                    <span class="ch-type-pill @typeBadge">
+                        @if (c.SubjectType == "Student") { <i class="ti ti-school"></i> }
+                        @if (c.SubjectType == "Staff")   { <i class="ti ti-id-badge"></i> }
+                        @if (c.SubjectType == "Visitor") { <i class="ti ti-user"></i> }
+                        @c.SubjectType
+                    </span>
+                    <p class="ch-sub-meta">
+                        <i class="ti ti-qrcode"></i>&nbsp;
+                        <span style="font-family:monospace; color:var(--cs-accent);">@c.QrCodeId</span>
+                    </p>
+                </div>
+                <div style="margin-left:auto; text-align:right;">
+                    <span class="ch-status-badge" style="color:@statusColor;">
+                        <i class="ti @statusIcon"></i> @c.Status
+                    </span>
+                </div>
+            </div>
+
+            <!-- Challan details card -->
+            <div class="ch-card">
+                <div class="ch-card-header">
+                    <span class="ch-card-title"><i class="ti ti-file-text"></i> Challan Details</span>
+                    <span style="font-family:var(--cs-font-mono); font-size:0.78rem; color:var(--cs-text-muted);">
+                        ID: @c.Id
+                    </span>
+                </div>
+                <div class="ch-card-body">
+
+                    <!-- Amount â€” hero field -->
+                    <div class="ch-field" style="text-align:center; padding:1.5rem 0; border-radius:var(--cs-radius-md); background:var(--cs-bg-card); margin-bottom:1.5rem;">
+                        <p class="ch-field-label" style="margin-bottom:0.5rem;">Fine Amount</p>
+                        <p class="ch-field-value amount">PKR @c.Amount.ToString("N2")</p>
+                    </div>
+
+                    <!-- Two-column fields -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+                        <div class="ch-field">
+                            <p class="ch-field-label">Violation Type</p>
+                            <p class="ch-field-value">@c.ViolationType</p>
+                        </div>
+                        <div class="ch-field">
+                            <p class="ch-field-label">Issue Date</p>
+                            <p class="ch-field-value">@c.IssueDate.ToLocalTime().ToString("dd MMM yyyy, HH:mm")</p>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    @if (!string.IsNullOrWhiteSpace(c.Description))
+                    {
+                        <div class="ch-field">
+                            <p class="ch-field-label">Description / Notes</p>
+                            <div class="ch-field-value"
+                                 style="background:var(--cs-bg-card); border:1px solid var(--cs-border); border-radius:var(--cs-radius-md); padding:0.85rem 1rem; font-size:0.875rem; line-height:1.6; white-space:pre-wrap;">@c.Description</div>
+                        </div>
+                    }
+
+                    <!-- Notes (from status updates) -->
+                    @if (!string.IsNullOrWhiteSpace(c.Notes))
+                    {
+                        <div class="ch-field">
+                            <p class="ch-field-label"><i class="ti ti-note"></i> Status Notes</p>
+                            <div class="ch-field-value"
+                                 style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.25); border-radius:var(--cs-radius-md); padding:0.85rem 1rem; font-size:0.875rem; white-space:pre-wrap;">@c.Notes</div>
+                        </div>
+                    }
+
+                    <hr class="ch-divider" />
+
+                    <!-- Issued by -->
+                    <div class="ch-field">
+                        <p class="ch-field-label">Issued By</p>
+                        <div class="ch-issued-by">
+                            <div class="ch-issued-avatar">
+                                @(c.IssuedBy?.Username?.Substring(0, Math.Min(2, c.IssuedBy.Username.Length)).ToUpper() ?? "?")
+                            </div>
+                            <div>
+                                <span style="font-weight:600; color:var(--cs-text-primary);">@(c.IssuedBy?.Username ?? "Unknown")</span>
+                                <span style="color:var(--cs-text-muted);">&nbsp;Â·&nbsp;@(c.IssuedBy?.Role ?? "â€”")</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- â•â•â• RIGHT: Actions sidebar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <div>
+            <div class="ch-update-card">
+                <p class="ch-update-title"><i class="ti ti-settings"></i> Update Status</p>
+
+                @if (c.Status == ChallanStatus.Pending)
+                {
+                    <!-- Mark Paid -->
+                    <form method="post" asp-page-handler="UpdateStatus" class="ch-status-btns" style="margin-bottom:0.5rem;">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id"        value="@c.Id" />
+                        <input type="hidden" name="newStatus" value="@ChallanStatus.Paid" />
+                        <div style="margin-bottom:0.4rem;">
+                            <label style="font-size:0.75rem; font-weight:600; color:var(--cs-text-muted);">Payment Reference (optional)</label>
+                            <input type="text" name="notes" class="cs-input" placeholder="e.g. Receipt #1234" style="margin-top:0.25rem;" />
+                        </div>
+                        <button type="submit" class="ch-status-btn paid">
+                            <i class="ti ti-circle-check" style="color:#10b981;"></i>
+                            Mark as Paid
+                        </button>
+                    </form>
+
+                    <!-- Mark Disputed -->
+                    <form method="post" asp-page-handler="UpdateStatus" class="ch-status-btns" style="margin-bottom:0.5rem;">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id"        value="@c.Id" />
+                        <input type="hidden" name="newStatus" value="@ChallanStatus.Disputed" />
+                        <div style="margin-bottom:0.4rem;">
+                            <label style="font-size:0.75rem; font-weight:600; color:var(--cs-text-muted);">Dispute Reason</label>
+                            <input type="text" name="notes" class="cs-input" placeholder="Reason for disputeâ€¦" style="margin-top:0.25rem;" />
+                        </div>
+                        <button type="submit" class="ch-status-btn disputed">
+                            <i class="ti ti-alert-triangle" style="color:#60a5fa;"></i>
+                            Mark as Disputed
+                        </button>
+                    </form>
+
+                    <!-- Cancel -->
+                    <form method="post" asp-page-handler="UpdateStatus"
+                          onsubmit="return confirm('Cancel challan #@c.Id permanently?')">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id"        value="@c.Id" />
+                        <input type="hidden" name="newStatus" value="@ChallanStatus.Cancelled" />
+                        <button type="submit" class="ch-status-btn cancelled" style="width:100%;">
+                            <i class="ti ti-ban" style="color:#ef4444;"></i>
+                            Cancel Challan
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <div style="text-align:center; padding:1.5rem; color:var(--cs-text-muted); font-size:0.875rem;">
+                        <i class="ti ti-lock" style="font-size:1.5rem; display:block; margin-bottom:0.5rem; opacity:0.4;"></i>
+                        Status is <strong>@c.Status</strong> â€” no further transitions available.
+                    </div>
+                }
+            </div>
+
+            <!-- Quick info card -->
+            <div style="margin-top:1rem; background:var(--cs-bg-elevated); border:1px solid var(--cs-border); border-radius:var(--cs-radius-lg); padding:1.1rem 1.25rem;">
+                <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--cs-text-muted); margin:0 0 0.75rem;">
+                    <i class="ti ti-file-info"></i> Record Summary
+                </p>
+                <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.82rem;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--cs-text-muted);">Challan ID</span>
+                        <span style="font-family:monospace; color:var(--cs-text-primary);">#@c.Id</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--cs-text-muted);">Type</span>
+                        <span style="color:var(--cs-text-primary); font-weight:600;">@c.SubjectType</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--cs-text-muted);">Amount</span>
+                        <span style="color:var(--cs-accent); font-weight:700;">PKR @c.Amount.ToString("N0")</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--cs-text-muted);">Status</span>
+                        <span style="font-weight:700; color:@statusColor;">@c.Status</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue another challan for same person -->
+            <a asp-page="./Issue" asp-route-qr="@c.QrCodeId"
+               class="cs-btn cs-btn-secondary"
+               style="width:100%; margin-top:1rem; justify-content:center;">
+                <i class="ti ti-plus"></i> Issue Another for Same Person
+            </a>
+        </div>
+
+    </div><!-- /grid -->
+</div>

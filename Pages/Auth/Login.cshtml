@@ -1,0 +1,107 @@
+@page
+@model CampusSentinel.Pages.Auth.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Sentinel – Sign In</title>
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/&#64;tabler/icons-webfont@latest/tabler-icons.min.css">
+  <script src="~/js/theme.js" asp-append-version="true"></script>
+  <style>
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; background: radial-gradient(ellipse at 20% 50%, rgba(0,201,167,0.06) 0%, transparent 60%), var(--cs-bg-base); }
+    .login-wrap { width: 100%; max-width: 420px; padding: 1rem; }
+    .login-card { background: var(--cs-bg-surface); border: 1px solid var(--cs-border); border-radius: 20px; padding: 2.5rem 2.5rem 2rem; box-shadow: var(--cs-shadow-md); }
+    .login-logo { text-align:center; margin-bottom: 2rem; }
+    .login-logo img { height: 72px; width: auto; }
+    .login-logo h2 { margin: 0.75rem 0 0.25rem; font-size: 1.4rem; color: var(--cs-text-primary); }
+    .login-logo p  { margin:0; font-size:0.85rem; color: var(--cs-text-muted); }
+    .pw-wrap { position: relative; }
+    .pw-wrap .cs-input { padding-right: 44px; }
+    .pw-toggle { position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--cs-text-muted); cursor:pointer; font-size:18px; padding:0; line-height:1; transition:color .15s; }
+    .pw-toggle:hover { color: var(--cs-accent); }
+    .error-box { background: var(--cs-danger-bg); border:1px solid rgba(239,68,68,.35); border-radius: var(--cs-radius-md); padding:.7rem 1rem; margin-bottom:1rem; color: var(--cs-danger); font-size:.875rem; display:flex; gap:.5rem; align-items:center; }
+    .login-footer { text-align:center; margin-top:1.5rem; font-size:0.85rem; color:var(--cs-text-muted); }
+  </style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-card cs-animate">
+    <div class="login-logo">
+      <img src="~/images/logo.png" alt="Campus Sentinel Logo" onerror="this.style.display='none'" />
+      <h2>Welcome Back</h2>
+      <p>Sign in to Campus Sentinel</p>
+    </div>
+
+    <form method="post" autocomplete="on" novalidate>
+      @Html.AntiForgeryToken()
+
+      @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+      {
+          <div class="error-box">
+            <i class="ti ti-alert-circle"></i>
+            <div asp-validation-summary="ModelOnly"></div>
+          </div>
+      }
+
+      <div class="cs-form-group">
+        <label asp-for="Input.Username" class="cs-label">
+          <i class="ti ti-user" style="font-size:13px;"></i> Username
+        </label>
+        <input asp-for="Input.Username"
+               class="cs-input"
+               placeholder="Enter your username"
+               autocomplete="username"
+               autofocus />
+        <span asp-validation-for="Input.Username" style="color:var(--cs-danger);font-size:.8rem;"></span>
+      </div>
+
+      <div class="cs-form-group">
+        <label asp-for="Input.Password" class="cs-label">
+          <i class="ti ti-lock" style="font-size:13px;"></i> Password
+        </label>
+        <div class="pw-wrap">
+          <input asp-for="Input.Password"
+                 class="cs-input"
+                 id="pwField"
+                 type="password"
+                 placeholder="Enter your password"
+                 autocomplete="current-password" />
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Toggle password visibility">
+            <i class="ti ti-eye" id="pwEyeIcon"></i>
+          </button>
+        </div>
+        <span asp-validation-for="Input.Password" style="color:var(--cs-danger);font-size:.8rem;"></span>
+      </div>
+
+      <button type="submit" class="cs-btn cs-btn-primary" style="margin-top:1.25rem;width:100%;justify-content:center;font-size:1rem;padding:11px 16px;">
+        <i class="ti ti-login"></i> Sign In
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <i class="ti ti-shield-check" style="color:var(--cs-accent);"></i>
+      Secured by Campus Sentinel &mdash; Contact admin for account access.
+    </div>
+  </div>
+</div>
+<script>
+  // Password visibility toggle
+  const pwToggle = document.getElementById('pwToggle');
+  const pwField  = document.getElementById('pwField');
+  const pwIcon   = document.getElementById('pwEyeIcon');
+  if (pwToggle) {
+    pwToggle.addEventListener('click', () => {
+      const show = pwField.type === 'password';
+      pwField.type  = show ? 'text' : 'password';
+      pwIcon.className = show ? 'ti ti-eye-off' : 'ti ti-eye';
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+@page
+@model CampusSentinel.Pages.Admin.Guards.IndexModel
+@{
+    ViewData["Title"] = "Manage Guards";
+}
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+                <i class="ti ti-shield-half" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Security Guards
+            </h1>
+            <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Manage and monitor system security personnel.</p>
+        </div>
+        <a asp-page="Create" class="cs-btn cs-btn-primary">
+            <i class="ti ti-user-plus"></i> Add Guard
+        </a>
+    </div>
+
+    <div class="cs-card" style="overflow-x: auto; padding: 0;">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Created At</th>
+                    <th>Status</th>
+                    <th style="text-align: right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Guards != null && Model.Guards.Any())
+                {
+                    @foreach (var item in Model.Guards)
+                    {
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div class="cs-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                                        @(item.Username?.Substring(0, 1).ToUpper() ?? "G")
+                                    </div>
+                                    <span style="font-weight: 500; color: var(--cs-text-primary);">@item.Username</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">
+                                    @item.Role
+                                </span>
+                            </td>
+                            <td style="color: var(--cs-text-muted);">@item.CreatedAt.ToString("MMM dd, yyyy")</td>
+                            <td>
+                                @if (item.IsActive)
+                                {
+                                    <span style="display: inline-flex; align-items: center; gap: 0.3rem; color: var(--cs-success); font-size: 0.85rem; font-weight: 500;">
+                                        <span style="width: 6px; height: 6px; border-radius: 50%; background: currentColor;"></span> Active
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span style="display: inline-flex; align-items: center; gap: 0.3rem; color: var(--cs-danger); font-size: 0.85rem; font-weight: 500;">
+                                        <span style="width: 6px; height: 6px; border-radius: 50%; background: currentColor;"></span> Inactive
+                                    </span>
+                                }
+                            </td>
+                            <td style="text-align: right;">
+                                <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                    <a asp-page="./Edit" asp-route-id="@item.Id" class="cs-btn cs-btn-secondary" style="padding: 0.4rem 0.6rem;">
+                                        <i class="ti ti-edit"></i>
+                                    </a>
+                                    <a asp-page="./Delete" asp-route-id="@item.Id" class="cs-btn cs-btn-ghost" style="padding: 0.4rem 0.6rem; color: var(--cs-danger);">
+                                        <i class="ti ti-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 3rem; color: var(--cs-text-muted);">
+                            No security guards found.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

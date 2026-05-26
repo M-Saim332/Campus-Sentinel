@@ -1,0 +1,82 @@
+@page
+@model CampusSentinel.Pages.Notifications.LogModel
+@{
+    ViewData["Title"] = "Notification Delivery Log";
+}
+
+<div class="animate-fade-in">
+    <div style="margin-bottom: 2rem;">
+        <h2>Delivery Log</h2>
+        <p style="color: var(--text-muted);">Track all outgoing notifications across all channels.</p>
+    </div>
+
+    <div class="glass-card" style="margin-bottom: 2rem;">
+        <form method="get" style="display: flex; gap: 1rem; align-items: flex-end;">
+            <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Channel</label>
+                <select asp-for="FilterChannel" class="form-control" asp-items="Html.GetEnumSelectList<CampusSentinel.Models.NotificationChannel>()">
+                    <option value="">All Channels</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Status</label>
+                <select asp-for="FilterStatus" class="form-control" asp-items="Html.GetEnumSelectList<CampusSentinel.Models.NotificationStatus>()">
+                    <option value="">All Statuses</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a asp-page="./Log" class="btn" style="background: rgba(255,255,255,0.1); color: white;">Clear</a>
+        </form>
+    </div>
+
+    <div class="glass-card table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Recipient</th>
+                    <th>Channel</th>
+                    <th>Event</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Logs)
+                {
+                    <tr>
+                        <td style="font-size: 0.85rem; color: var(--text-muted);">@item.SentAt.ToString("MM/dd HH:mm")</td>
+                        <td>
+                            <div style="font-weight: 500;">@(item.RecipientUser?.Username ?? "Unknown")</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">@item.RecipientContact</div>
+                        </td>
+                        <td><span class="badge" style="background: rgba(255,255,255,0.05);">@item.Channel</span></td>
+                        <td style="font-size: 0.9rem;">@item.EventType</td>
+                        <td>
+                            @{
+                                var statusColor = item.Status switch {
+                                    CampusSentinel.Models.NotificationStatus.Sent => "#10b981",
+                                    CampusSentinel.Models.NotificationStatus.Failed => "#ef4444",
+                                    _ => "#f59e0b"
+                                };
+                            }
+                            <span style="color: @statusColor; font-weight: 600;">● @item.Status</span>
+                            @if (item.Status == CampusSentinel.Models.NotificationStatus.Failed)
+                            {
+                                <div style="font-size: 0.7rem; color: #ef4444; max-width: 200px; overflow: hidden; text-overflow: ellipsis;">@item.ErrorMessage</div>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Status == CampusSentinel.Models.NotificationStatus.Failed)
+                            {
+                                <form method="post" asp-page-handler="Resend" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: rgba(16, 185, 129, 0.2); color: #10b981;">Retry</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

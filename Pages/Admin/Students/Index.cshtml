@@ -1,0 +1,245 @@
+@page
+@model CampusSentinel.Pages.Admin.Students.IndexModel
+@{
+    ViewData["Title"] = "Manage Students";
+}
+
+<style>
+    .qr-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.65);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+    }
+    .qr-modal-overlay.active { display: flex; }
+    .qr-modal {
+        background: #0f172a;
+        border: 1px solid rgba(125,211,252,0.25);
+        border-radius: 1.2rem;
+        padding: 2rem;
+        max-width: 360px;
+        width: 90%;
+        text-align: center;
+        animation: popIn 0.28s cubic-bezier(.34,1.56,.64,1);
+        position: relative;
+    }
+    .qr-modal h4 { color: #7dd3fc; margin-bottom: 0.25rem; font-size: 1.05rem; }
+    .qr-modal .sub { color: #94a3b8; font-size: 0.8rem; margin-bottom: 1rem; }
+    .qr-modal img { width: 200px; height: 200px; background: #fff; padding: 8px; border-radius: 0.6rem; }
+    .qr-barcode-tag {
+        display: inline-block;
+        margin-top: 0.8rem;
+        font-family: monospace;
+        font-size: 0.95rem;
+        letter-spacing: 0.07em;
+        color: #7dd3fc;
+        background: rgba(125,211,252,0.08);
+        border: 1px solid rgba(125,211,252,0.2);
+        border-radius: 0.4rem;
+        padding: 0.2rem 0.6rem;
+    }
+    .download-group {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .btn-dl {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .btn-png { background: #10b981; }
+    .btn-png:hover { background: #059669; }
+    .btn-jpg { background: #3b82f6; }
+    .btn-jpg:hover { background: #2563eb; }
+    
+    .modal-close {
+        position: absolute;
+        top: 0.75rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: #94a3b8;
+        font-size: 1.4rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .modal-close:hover { color: #fff; }
+    @@keyframes popIn {
+        from { transform: scale(0.82); opacity: 0; }
+        to   { transform: scale(1);    opacity: 1; }
+    }
+    .btn-qr {
+        background: linear-gradient(90deg, #1e3a5f, #0c4a6e);
+        color: #7dd3fc;
+        border: 1px solid rgba(125,211,252,0.25);
+        border-radius: 0.4rem;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.78rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s;
+        margin-right: 4px;
+    }
+    .btn-qr:hover { background: #0369a1; color: #fff; border-color: #7dd3fc; }
+    .btn-id {
+        background: rgba(59, 130, 246, 0.1);
+        color: #60a5fa;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 0.4rem;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.78rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+        margin-right: 4px;
+    }
+    .btn-id:hover { background: #2563eb; color: #fff; }
+</style>
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <input type="text" class="cs-input" placeholder="Search students..." style="max-width: 300px;" />
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="Create" class="cs-btn cs-btn-primary"><i class="ti ti-plus"></i> Add Student</a>
+        }
+    </div>
+
+    <div class="cs-table-wrap">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>Barcode / QR ID</th>
+                    <th>Full Name</th>
+                    <th>Dept</th>
+                    <th>Reg No.</th>
+                    <th>Gender</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Students != null)
+                {
+                    @foreach (var item in Model.Students)
+                    {
+                        <tr>
+                            <td style="font-family: monospace; color: #7dd3fc;">@item.QrCodeId</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Department</td>
+                            <td>@item.RegistrationNo</td>
+                            <td>@item.Gender</td>
+                            <td>
+                                <span class="cs-badge" style="background: @(item.ResidencyType == "Hostelite" ? "rgba(16, 185, 129, 0.15)" : "rgba(59, 130, 246, 0.15)"); color: @(item.ResidencyType == "Hostelite" ? "var(--cs-success)" : "var(--cs-info)");">
+                                    @item.ResidencyType
+                                </span>
+                            </td>
+                            <td>
+                                @if (item.IsBlacklisted)
+                                {
+                                    <span class="cs-badge cs-badge-danger">Blacklisted</span>
+                                }
+                                else
+                                {
+                                    <span class="cs-badge cs-badge-success">Active</span>
+                                }
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <button type="button"
+                                            class="btn-qr"
+                                            onclick="showQr('@item.QrCodeId', '@item.FullName')">
+                                        &#x2317; QR
+                                    </button>
+                                    
+                                    <a asp-page="./DownloadId" asp-route-id="@item.Id" class="btn-id">
+                                        📇 ID
+                                    </a>
+
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <form method="post" asp-page-handler="ToggleBlacklist" style="display:inline;">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button type="submit"
+                                                    class="cs-btn @(item.IsBlacklisted ? "cs-btn-primary" : "cs-btn-danger")"
+                                                    style="padding: 0.25rem 0.5rem; font-size: 0.78rem; margin-right: 4px;">
+                                                @(item.IsBlacklisted ? "X" : "!")
+                                            </button>
+                                        </form>
+
+                                        <a asp-page="./Delete" asp-route-id="@item.Id"
+                                           class="text-danger" style="font-size: 0.85rem;">Delete</a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* QR Code Modal *@
+<div class="qr-modal-overlay" id="qrModalOverlay" onclick="closeQrModal(event)">
+    <div class="qr-modal">
+        <button class="modal-close" onclick="closeQrModalBtn()">&#x2715;</button>
+        <h4 id="qrModalName">Student Name</h4>
+        <p class="sub">Scan to verify identity at the gate</p>
+        <img id="qrModalImg" src="" alt="QR Code" crossorigin="anonymous" />
+        <div><span class="qr-barcode-tag" id="qrModalId"></span></div>
+        
+        @* QR Download Buttons Removed as per request *@
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        async function showQr(barcodeId, studentName) {
+            const overlay = document.getElementById('qrModalOverlay');
+            document.getElementById('qrModalName').textContent = studentName;
+            document.getElementById('qrModalId').textContent   = barcodeId;
+            const qrImg = document.getElementById('qrModalImg');
+            qrImg.src = '';
+
+            overlay.classList.add('active');
+
+            try {
+                const url = '/Admin/Students?handler=QrImage&barcodeId=' + encodeURIComponent(barcodeId);
+                qrImg.src = url;
+            } catch (e) {
+                console.error('QR load failed', e);
+            }
+        }
+
+        function closeQrModal(e) {
+            if (e.target === document.getElementById('qrModalOverlay')) {
+                document.getElementById('qrModalOverlay').classList.remove('active');
+            }
+        }
+        function closeQrModalBtn() {
+            document.getElementById('qrModalOverlay').classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeQrModalBtn();
+        });
+    </script>
+}

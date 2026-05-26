@@ -1,0 +1,116 @@
+@page
+@model CampusSentinel.Pages.Incidents.CreateModel
+@using CampusSentinel.Models
+
+@{
+    ViewData["Title"] = "Report Incident";
+}
+
+<div class="cs-animate" style="max-width: 700px; margin: 0 auto;">
+    
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+                <i class="ti ti-alert-triangle" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Report New Incident
+            </h1>
+            <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Log security alerts, maintenance issues, or unauthorized access attempts.</p>
+        </div>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+            <i class="ti ti-arrow-left"></i> Back to List
+        </a>
+    </div>
+
+    <!-- Validation errors -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="background: var(--cs-danger-bg); border-left: 3px solid var(--cs-danger); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: flex-start;">
+            <i class="ti ti-alert-triangle" style="color: var(--cs-danger); margin-top: 1px; flex-shrink: 0;"></i>
+            <div asp-validation-summary="All" style="color: var(--cs-danger); font-size: 0.875rem;"></div>
+        </div>
+    }
+
+    <!-- Form card -->
+    <div class="cs-card">
+        <div class="cs-card-header">
+            <span class="cs-card-title"><i class="ti ti-clipboard-list" style="margin-right: 6px;"></i> Incident Details</span>
+            <span style="font-size: 0.78rem; color: var(--cs-text-muted);">All fields marked * are required</span>
+        </div>
+
+        <form method="post" style="padding-top: 0.5rem;">
+            <!-- Title -->
+            <div class="cs-form-group">
+                <label asp-for="Input.Title" class="cs-label">
+                    <i class="ti ti-type" style="font-size: 12px; margin-right: 2px;"></i> Incident Title *
+                </label>
+                <input asp-for="Input.Title" class="cs-input" placeholder="e.g., Unauthorized Access Attempt" />
+                <span asp-validation-for="Input.Title" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+            </div>
+
+            <!-- Description -->
+            <div class="cs-form-group">
+                <label asp-for="Input.Description" class="cs-label">
+                    <i class="ti ti-align-left" style="font-size: 12px; margin-right: 2px;"></i> Detailed Description *
+                </label>
+                <textarea asp-for="Input.Description" class="cs-textarea" rows="5" placeholder="Provide as much detail as possible..."></textarea>
+                <span asp-validation-for="Input.Description" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+            </div>
+
+            <!-- Severity & Location Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+                <div class="cs-form-group" style="margin-bottom: 0;">
+                    <label asp-for="Input.Severity" class="cs-label">
+                        <i class="ti ti-shield-alert" style="font-size: 12px; margin-right: 2px;"></i> Severity Level *
+                    </label>
+                    <select asp-for="Input.Severity" class="cs-select" asp-items="Html.GetEnumSelectList<IncidentSeverity>()">
+                    </select>
+                    <span asp-validation-for="Input.Severity" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                </div>
+
+                <div class="cs-form-group" style="margin-bottom: 0;">
+                    <label asp-for="Input.Location" class="cs-label">
+                        <i class="ti ti-map-pin" style="font-size: 12px; margin-right: 2px;"></i> Location *
+                    </label>
+                    <input asp-for="Input.Location" class="cs-input" placeholder="e.g., Main Gate, Library Block" list="campusZones" />
+                    <datalist id="campusZones">
+                        <option value="Main Gate"></option>
+                        <option value="Gate A"></option>
+                        <option value="Gate B"></option>
+                        <option value="Library Block"></option>
+                        <option value="Cafeteria"></option>
+                        <option value="Hostel Area"></option>
+                        <option value="Admin Block"></option>
+                    </datalist>
+                    <span asp-validation-for="Input.Location" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                </div>
+            </div>
+
+            <!-- Linked Access Log Banner -->
+            @if (Model.Input.LinkedAccessLogId.HasValue)
+            {
+                <div class="cs-form-group" style="margin-top: 1.5rem;">
+                    <label class="cs-label">
+                        <i class="ti ti-link" style="font-size: 12px; margin-right: 2px;"></i> Linked Access Log
+                    </label>
+                    <input type="hidden" asp-for="Input.LinkedAccessLogId" />
+                    <div style="background: var(--cs-info-bg); border-left: 3px solid var(--cs-info); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; color: var(--cs-info); font-size: 0.875rem; display: flex; gap: 0.5rem; align-items: center;">
+                        <i class="ti ti-info-circle"></i>
+                        <span>Log ID #@Model.Input.LinkedAccessLogId is automatically linked to this report.</span>
+                    </div>
+                </div>
+            }
+
+            <!-- Form Actions -->
+            <div style="display: flex; gap: 0.75rem; border-top: 1px solid var(--cs-border); padding-top: 1.25rem; margin-top: 1.5rem;">
+                <button type="submit" class="cs-btn cs-btn-primary" style="flex: 1; justify-content: center;">
+                    <i class="ti ti-send"></i> Submit Incident Report
+                </button>
+                <a asp-page="./Index" class="cs-btn cs-btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

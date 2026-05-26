@@ -1,0 +1,109 @@
+@page
+@model CampusSentinel.Pages.Notifications.PreferencesModel
+@{
+    ViewData["Title"] = "Notification Preferences";
+}
+
+<div class="animate-fade-in" style="max-width: 900px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <h2>Notification Settings</h2>
+        <p style="color: var(--text-muted);">Configure how you want to receive alerts for different system events.</p>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="glass-card" style="margin-bottom: 2rem; border-color: #10b981; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 1rem;">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form method="post">
+        <div class="glass-card" style="margin-bottom: 2rem; padding: 2rem;">
+            <h3 style="margin-bottom: 1.5rem;">Channel Preferences</h3>
+            
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0 1rem;">
+                <thead>
+                    <tr style="text-align: left; color: var(--text-muted); font-size: 0.85rem;">
+                        <th style="padding-bottom: 0.5rem;">EVENT TYPE</th>
+                        <th style="padding-bottom: 0.5rem; text-align: center;">IN-APP</th>
+                        <th style="padding-bottom: 0.5rem; text-align: center;">EMAIL</th>
+                        <th style="padding-bottom: 0.5rem; text-align: center;">SMS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Preferences.Count; i++)
+                    {
+                        <tr>
+                            <td style="font-weight: 500;">
+                                @Model.Preferences[i].EventType.ToString().Replace("Alert", " Alert")
+                                <input type="hidden" asp-for="Preferences[i].EventType" />
+                            </td>
+                            <td style="text-align: center;">
+                                <div class="switch">
+                                    <input type="checkbox" asp-for="Preferences[i].InApp" id="inapp_@i" />
+                                    <label for="inapp_@i"></label>
+                                </div>
+                            </td>
+                            <td style="text-align: center;">
+                                <div class="switch">
+                                    <input type="checkbox" asp-for="Preferences[i].Email" id="email_@i" />
+                                    <label for="email_@i"></label>
+                                </div>
+                            </td>
+                            <td style="text-align: center;">
+                                <div class="switch">
+                                    <input type="checkbox" asp-for="Preferences[i].Sms" id="sms_@i" onchange="togglePhoneVisibility()" />
+                                    <label for="sms_@i"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div id="phoneSection" class="glass-card" style="margin-bottom: 2rem; padding: 2rem; display: @(Model.Preferences.Any(p => p.Sms) ? "block" : "none");">
+            <h3 style="margin-bottom: 1rem;">Contact Details</h3>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="form-label">Phone Number for SMS</label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="+1 234 567 8900" />
+                <small style="color: var(--text-muted);">Required if SMS alerts are enabled for any event.</small>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+            <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem;">Save Preferences</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* Custom Switch Styling */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 46px;
+        height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .switch label {
+        position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(255,255,255,0.1); border-radius: 24px; transition: .4s;
+    }
+    .switch label:before {
+        position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px;
+        background-color: white; border-radius: 50%; transition: .4s;
+    }
+    .switch input:checked + label { background-color: #3b82f6; }
+    .switch input:checked + label:before { transform: translateX(22px); }
+</style>
+
+<script>
+    function togglePhoneVisibility() {
+        const checkboxes = document.querySelectorAll('input[id^="sms_"]');
+        const phoneSection = document.getElementById('phoneSection');
+        let anySms = false;
+        checkboxes.forEach(cb => { if (cb.checked) anySms = true; });
+        phoneSection.style.display = anySms ? 'block' : 'none';
+    }
+</script>

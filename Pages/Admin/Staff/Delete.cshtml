@@ -1,0 +1,23 @@
+@page "{id:int}"
+@model CampusSentinel.Pages.Admin.Staff.DeleteModel
+@{
+    ViewData["Title"] = "Delete Staff Member";
+}
+
+<div class="form-container" style="max-width: 500px; margin: 4rem auto;">
+    <div class="glass-card animate-fade-in" style="border-color: rgba(239, 68, 68, 0.3);">
+        <h2 class="text-danger" style="margin-bottom: 1rem;">Confirm Deletion</h2>
+        <p style="color: #94a3b8; margin-bottom: 2rem;">
+            Are you sure you want to remove <strong>@Model.Staff.FullName</strong> (@Model.Staff.StaffId) from the system? 
+            This action cannot be undone.
+        </p>
+
+        <form method="post">
+            <input type="hidden" asp-for="Staff.Id" />
+            <div style="display: flex; gap: 1rem;">
+                <button type="submit" class="btn btn-danger" style="flex: 1;">Delete Permanently</button>
+                <a asp-page="./Index" class="btn" style="background: rgba(255,255,255,0.1); flex: 1; text-align: center;">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

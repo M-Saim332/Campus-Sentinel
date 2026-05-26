@@ -1,0 +1,186 @@
+@page
+@model CampusSentinel.Pages.Admin.Visitors.CreateModel
+@{
+    ViewData["Title"] = "Add Visitor";
+}
+
+<div class="cs-animate" style="max-width: 700px; margin: 0 auto;">
+
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+                <i class="ti ti-user-plus" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Register Visitor
+            </h1>
+            <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Create a temporary access pass with a scoped expiration time.</p>
+        </div>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+            <i class="ti ti-arrow-left"></i> Back to List
+        </a>
+    </div>
+
+    <!-- Validation errors -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="background: var(--cs-danger-bg); border-left: 3px solid var(--cs-danger); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: flex-start;">
+            <i class="ti ti-alert-triangle" style="color: var(--cs-danger); margin-top: 1px; flex-shrink: 0;"></i>
+            <div asp-validation-summary="All" style="color: var(--cs-danger); font-size: 0.875rem;"></div>
+        </div>
+    }
+
+    <!-- Success card after creation -->
+    @if (Model.GeneratedBarcodeId != null)
+    {
+        <div class="cs-card cs-animate" style="margin-bottom: 1.5rem; border-color: var(--cs-border-accent); text-align: center; padding: 2.5rem;">
+            <div style="width: 56px; height: 56px; background: var(--cs-accent-glow); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <i class="ti ti-check" style="font-size: 1.8rem; color: var(--cs-accent);"></i>
+            </div>
+            <h3 style="color: var(--cs-accent); margin: 0 0 0.5rem;">Visitor Registered Successfully!</h3>
+            <p style="color: var(--cs-text-secondary); margin: 0 0 1.5rem;">
+                QR Code ID: <code style="background: var(--cs-bg-overlay); padding: 3px 10px; border-radius: 6px; font-family: var(--cs-font-mono); color: var(--cs-text-primary);">@Model.GeneratedBarcodeId</code>
+            </p>
+
+            <div style="display: inline-block; background: #fff; padding: 12px; border-radius: 12px; margin-bottom: 1.5rem; box-shadow: var(--cs-shadow-md);">
+                <img src="data:image/png;base64,@Model.GeneratedQrCodeBase64"
+                     id="finalQrImg" alt="QR Code"
+                     style="width: 200px; height: 200px; display: block;" />
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                <button type="button" onclick="downloadResultAsPng()" class="cs-btn cs-btn-primary">
+                    <i class="ti ti-download"></i> Download PNG
+                </button>
+                <button type="button" onclick="downloadResultAsJpg()" class="cs-btn cs-btn-secondary">
+                    <i class="ti ti-file-type-jpg"></i> Download JPEG
+                </button>
+                <a asp-page="./Create" class="cs-btn cs-btn-secondary">
+                    <i class="ti ti-plus"></i> Register Another
+                </a>
+            </div>
+        </div>
+    }
+
+    <!-- Form card -->
+    <div class="cs-card">
+        <div class="cs-card-header">
+            <span class="cs-card-title"><i class="ti ti-clipboard-list" style="margin-right: 6px;"></i>Visitor Details</span>
+            <span style="font-size: 0.78rem; color: var(--cs-text-muted);">All fields marked * are required</span>
+        </div>
+
+        <form method="post" style="padding-top: 0.5rem;">
+
+            <!-- Full Name -->
+            <div class="cs-form-group">
+                <label asp-for="Visitor.FullName" class="cs-label">
+                    <i class="ti ti-user" style="font-size: 12px;"></i> Full Name *
+                </label>
+                <input asp-for="Visitor.FullName" class="cs-input" placeholder="e.g. John Smith" />
+                <span asp-validation-for="Visitor.FullName" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+            </div>
+
+            <!-- Row: Role + Purpose -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+                <div class="cs-form-group" style="margin-bottom: 0;">
+                    <label asp-for="Visitor.Role" class="cs-label">
+                        <i class="ti ti-tag" style="font-size: 12px;"></i> Role *
+                    </label>
+                    <select asp-for="Visitor.Role" class="cs-select">
+                        <option value="Guest">Guest</option>
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Worker">Worker</option>
+                        <option value="Contractor">Contractor</option>
+                        <option value="Parent">Parent / Guardian</option>
+                    </select>
+                    <span asp-validation-for="Visitor.Role" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                </div>
+                <div class="cs-form-group" style="margin-bottom: 0;">
+                    <label asp-for="Visitor.Purpose" class="cs-label">
+                        <i class="ti ti-notes" style="font-size: 12px;"></i> Purpose of Visit
+                    </label>
+                    <input asp-for="Visitor.Purpose" class="cs-input" placeholder="e.g. Meeting, Delivery" />
+                    <span asp-validation-for="Visitor.Purpose" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                </div>
+            </div>
+
+            <!-- Expiration Time -->
+            <div class="cs-form-group">
+                <label asp-for="Visitor.ExpirationTime" class="cs-label">
+                    <i class="ti ti-clock" style="font-size: 12px;"></i> Access Expiration *
+                </label>
+                <input asp-for="Visitor.ExpirationTime" class="cs-input" type="datetime-local" />
+                <span asp-validation-for="Visitor.ExpirationTime" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
+                <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 4px;">
+                    After this time the QR code will be denied at all gates automatically.
+                </div>
+            </div>
+
+            <!-- Access expiry quick-set buttons -->
+            <div style="margin-bottom: 1.5rem;">
+                <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-bottom: 0.5rem;">Quick set expiry:</div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(2)">+2 hrs</button>
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(4)">+4 hrs</button>
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(8)">+8 hrs</button>
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(24)">+1 day</button>
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(72)">+3 days</button>
+                    <button type="button" class="cs-btn cs-btn-ghost" style="font-size: 0.78rem; padding: 4px 12px;" onclick="setExpiry(168)">+1 week</button>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div style="display: flex; gap: 0.75rem; border-top: 1px solid var(--cs-border); padding-top: 1.25rem;">
+                <button type="submit" class="cs-btn cs-btn-primary" style="flex: 1; justify-content: center;">
+                    <i class="ti ti-user-check"></i> Register Visitor
+                </button>
+                <a asp-page="./Index" class="cs-btn cs-btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function setExpiry(hours) {
+            const now    = new Date();
+            now.setHours(now.getHours() + hours);
+            // Format to datetime-local value (YYYY-MM-DDTHH:MM)
+            const pad = n => String(n).padStart(2, '0');
+            const val = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+            document.querySelector('input[type="datetime-local"]').value = val;
+        }
+
+        function downloadResultAsPng() {
+            var img = document.getElementById("finalQrImg");
+            if (!img) return;
+            var link = document.createElement("a");
+            link.download = "Visitor-QR.png";
+            link.href = img.src;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadResultAsJpg() {
+            var img = document.getElementById("finalQrImg");
+            if (!img) return;
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            // Fill background white
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0);
+            var dataUrl = canvas.toDataURL("image/jpeg");
+
+            var link = document.createElement("a");
+            link.download = "Visitor-QR.jpg";
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+}

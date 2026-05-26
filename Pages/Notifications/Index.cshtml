@@ -1,0 +1,136 @@
+@page
+@model CampusSentinel.Pages.Notifications.IndexModel
+@{
+    ViewData["Title"] = "Notifications Inbox";
+}
+
+<div class="cs-animate" style="max-width: 900px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+                <i class="ti ti-bell" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Notifications Inbox
+            </h1>
+            <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Manage your alerts and notifications.</p>
+        </div>
+        <form method="post" asp-page-handler="MarkAllAsRead">
+            <button type="submit" class="cs-btn cs-btn-secondary">
+                <i class="ti ti-checks"></i> Mark all as read
+            </button>
+        </form>
+    </div>
+
+    <div class="cs-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+        <form method="get" style="display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap;">
+            <div class="cs-form-group" style="margin-bottom: 0; min-width: 200px;">
+                <label class="cs-label">Type</label>
+                <select asp-for="FilterEventType" class="cs-select" asp-items="Html.GetEnumSelectList<CampusSentinel.Models.NotificationEventType>()">
+                    <option value="">All Types</option>
+                </select>
+            </div>
+            <div class="cs-form-group" style="margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem; height: 40px;">
+                <input type="checkbox" asp-for="UnreadOnly" id="unreadOnly" style="width: 1.2rem; height: 1.2rem; accent-color: var(--cs-accent);" />
+                <label for="unreadOnly" class="cs-label" style="margin-bottom: 0; cursor: pointer;">Unread Only</label>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+                <button type="submit" class="cs-btn cs-btn-primary">Filter</button>
+                <a asp-page="./Index" class="cs-btn cs-btn-ghost">Clear</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="notification-list">
+        @foreach (var item in Model.Notifications)
+        {
+            var isUnread = !item.IsRead;
+            var borderColor = GetEventColor(item.EventType);
+            var bgStyle = isUnread ? "background: var(--cs-bg-elevated); border-color: " + borderColor + ";" : "background: var(--cs-bg); border-color: var(--cs-border);";
+
+            <div class="cs-card cs-animate" style="margin-bottom: 1rem; padding: 1.5rem; border-left-width: 4px; @bgStyle">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                            <span style="background: @GetEventColor(item.EventType, 0.15); color: @GetEventColor(item.EventType); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">
+                                @item.EventType
+                            </span>
+                            <span style="color: var(--cs-text-muted); font-size: 0.85rem;">
+                                <i class="ti ti-clock"></i> @item.SentAt.ToString("MMM dd, HH:mm")
+                            </span>
+                            @if (isUnread)
+                            {
+                                <span class="cs-notif-dot unread" style="position: relative; top: auto; right: auto;"></span>
+                            }
+                        </div>
+                        <p style="margin-bottom: 0; font-size: 1rem; color: var(--cs-text-primary);">@item.RenderedBody</p>
+                    </div>
+                    @if (!item.IsRead)
+                    {
+                        <form method="post" asp-page-handler="MarkAsRead" asp-route-id="@item.Id">
+                            <button type="submit" class="cs-btn cs-btn-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; color: var(--cs-success);">
+                                <i class="ti ti-check"></i> Mark Read
+                            </button>
+                        </form>
+                    }
+                </div>
+                @if (item.RelatedEntityId.HasValue)
+                {
+                    <div style="margin-top: 1rem; font-size: 0.85rem;">
+                        <a href="/@GetEntityPage(item.RelatedEntityType)/Detail?id=@item.RelatedEntityId" style="color: var(--cs-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.2rem;">
+                            View Related @item.RelatedEntityType <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+
+        @if (!Model.Notifications.Any())
+        {
+            <div class="cs-card" style="text-align: center; padding: 4rem 2rem; border-style: dashed;">
+                <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--cs-text-muted);">
+                    <i class="ti ti-bell-z"></i>
+                </div>
+                <h3 style="color: var(--cs-text-secondary); margin: 0 0 0.5rem;">All caught up!</h3>
+                <p style="color: var(--cs-text-muted); margin: 0;">You have no new notifications.</p>
+            </div>
+        }
+    </div>
+
+    @if (Model.TotalPages > 1)
+    {
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 0.5rem;">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <a asp-page="./Index" asp-route-pageNumber="@i" asp-route-FilterEventType="@Model.FilterEventType" asp-route-UnreadOnly="@Model.UnreadOnly" 
+                   class="cs-btn @(i == Model.CurrentPage ? "cs-btn-primary" : "cs-btn-secondary")" style="padding: 0.4rem 0.8rem; min-width: 36px; justify-content: center;">
+                    @i
+                </a>
+            }
+        </div>
+    }
+</div>
+
+@functions {
+    string GetEventColor(CampusSentinel.Models.NotificationEventType type, double opacity = 1.0)
+    {
+        return type switch
+        {
+            CampusSentinel.Models.NotificationEventType.BlacklistAlert => $"rgba(239, 68, 68, {opacity})", /* cs-danger */
+            CampusSentinel.Models.NotificationEventType.CapacityThreshold => $"rgba(245, 158, 11, {opacity})", /* cs-warning */
+            CampusSentinel.Models.NotificationEventType.AfterHoursAccess => $"rgba(59, 130, 246, {opacity})", /* cs-info */
+            CampusSentinel.Models.NotificationEventType.IncidentLogged => $"rgba(249, 115, 22, {opacity})",
+            CampusSentinel.Models.NotificationEventType.ShiftMissed => $"rgba(156, 163, 175, {opacity})",
+            CampusSentinel.Models.NotificationEventType.UnauthorizedScan => $"rgba(139, 92, 246, {opacity})",
+            _ => $"rgba(0, 201, 167, {opacity})" /* cs-accent */
+        };
+    }
+
+    string GetEntityPage(string type)
+    {
+        return type switch
+        {
+            "Incident" => "Incidents",
+            "GuardShift" => "Schedule",
+            "AccessLog" => "Admin/AccessLogs",
+            _ => ""
+        };
+    }
+}

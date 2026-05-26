@@ -1,0 +1,126 @@
+@page
+@model CampusSentinel.Pages.Incidents.IndexModel
+@using CampusSentinel.Models
+
+@{
+    ViewData["Title"] = "Incidents";
+}
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <input type="text" class="cs-input" placeholder="Search incidents..." style="max-width: 300px;" />
+        <a asp-page="./Create" class="cs-btn cs-btn-primary"><i class="ti ti-plus"></i> Report New</a>
+    </div>
+
+    <div class="cs-card" style="margin-bottom: 2rem;">
+        <form method="get" style="display: flex; gap: 1rem; align-items: flex-end;">
+            <div class="cs-form-group" style="margin-bottom: 0;">
+                <label class="cs-label">Severity</label>
+                <select asp-for="FilterSeverity" class="cs-select" asp-items="Html.GetEnumSelectList<IncidentSeverity>()">
+                    <option value="">All Severities</option>
+                </select>
+            </div>
+            <div class="cs-form-group" style="margin-bottom: 0;">
+                <label class="cs-label">Status</label>
+                <select asp-for="FilterStatus" class="cs-select" asp-items="Html.GetEnumSelectList<IncidentStatus>()">
+                    <option value="">All Statuses</option>
+                </select>
+            </div>
+            <button type="submit" class="cs-btn cs-btn-primary">Filter</button>
+            <a asp-page="./Index" class="cs-btn cs-btn-secondary">Clear</a>
+        </form>
+    </div>
+
+    <div class="cs-table-wrap">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Severity</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                    <th>Reported By</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Incidents)
+                {
+                    <tr>
+                        <td>#@item.Id.ToString("D4")</td>
+                        <td style="font-weight: 500;">@item.Title</td>
+                        <td>
+                            @{
+                                var sevColor = item.Severity switch {
+                                    IncidentSeverity.Low => "rgba(16, 185, 129, 0.2)",
+                                    IncidentSeverity.Medium => "rgba(245, 158, 11, 0.2)",
+                                    IncidentSeverity.High => "rgba(249, 115, 22, 0.2)",
+                                    IncidentSeverity.Critical => "rgba(239, 68, 68, 0.2)",
+                                    _ => "rgba(255, 255, 255, 0.1)"
+                                };
+                                var sevText = item.Severity switch {
+                                    IncidentSeverity.Low => "#10b981",
+                                    IncidentSeverity.Medium => "#f59e0b",
+                                    IncidentSeverity.High => "#f97316",
+                                    IncidentSeverity.Critical => "#ef4444",
+                                    _ => "#fff"
+                                };
+                            }
+                            <span class="cs-badge" style="background: @sevColor; color: @sevText;">@item.Severity</span>
+                        </td>
+                        <td>
+                            @{
+                                var statColor = item.Status switch {
+                                    IncidentStatus.Open => "rgba(239, 68, 68, 0.2)",
+                                    IncidentStatus.UnderReview => "rgba(59, 130, 246, 0.2)",
+                                    IncidentStatus.Resolved => "rgba(16, 185, 129, 0.2)",
+                                    IncidentStatus.Closed => "rgba(156, 163, 175, 0.2)",
+                                    _ => "rgba(255, 255, 255, 0.1)"
+                                };
+                                var statText = item.Status switch {
+                                    IncidentStatus.Open => "#ef4444",
+                                    IncidentStatus.UnderReview => "#3b82f6",
+                                    IncidentStatus.Resolved => "#10b981",
+                                    IncidentStatus.Closed => "#9ca3af",
+                                    _ => "#fff"
+                                };
+                            }
+                            <span class="cs-badge" style="background: @statColor; color: @statText;">@item.Status</span>
+                        </td>
+                        <td>@item.Location</td>
+                        <td>@(item.ReportedBy?.Username ?? "Unknown")</td>
+                        <td>@item.ReportedAt.ToString("MMM dd, HH:mm")</td>
+                        <td>
+                            <a asp-page="./Detail" asp-route-id="@item.Id" class="cs-btn cs-btn-ghost" style="padding: 0.25rem 0.75rem; font-size: 0.85rem; color: var(--cs-info);">View</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="cs-btn cs-btn-ghost" style="padding: 0.25rem 0.75rem; font-size: 0.85rem; color: var(--cs-warning); margin-left: 0.5rem;">Edit</a>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Incidents.Any())
+                {
+                    <tr>
+                        <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 2rem;">No incidents found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.TotalPages > 1)
+        {
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.5rem;">
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <a asp-page="./Index" asp-route-pageNumber="@i" asp-route-FilterSeverity="@Model.FilterSeverity" asp-route-FilterStatus="@Model.FilterStatus" 
+                       class="cs-btn @(i == Model.CurrentPage ? "cs-btn-primary" : "cs-btn-secondary")" style="padding: 0.5rem 1rem;">
+                        @i
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>

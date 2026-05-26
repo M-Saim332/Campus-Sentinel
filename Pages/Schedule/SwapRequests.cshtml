@@ -1,0 +1,68 @@
+@page
+@model CampusSentinel.Pages.Schedule.SwapRequestsModel
+@{
+    ViewData["Title"] = "Swap Requests";
+}
+
+<div class="cs-animate">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="color: var(--cs-text-primary); margin: 0;">Pending Shift Swaps</h2>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">Back to Schedule</a>
+    </div>
+
+    <div class="cs-table-wrap">
+        <table class="cs-table">
+            <thead>
+                <tr>
+                    <th>Requested At</th>
+                    <th>Shift Date & Time</th>
+                    <th>From Guard</th>
+                    <th>To Guard</th>
+                    <th>Reason</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Requests != null && Model.Requests.Any())
+                {
+                    foreach (var req in Model.Requests)
+                    {
+                        <tr>
+                            <td>@req.RequestedAt.ToString("MMM dd, HH:mm")</td>
+                            <td>
+                                @if (req.Shift != null)
+                                {
+                                    <div style="font-weight: 600;">@req.Shift.ShiftDate.ToString("MMM dd")</div>
+                                    <div style="font-size: 0.85rem; color: var(--cs-text-muted);">@req.Shift.StartTime.ToString("HH:mm") - @req.Shift.EndTime.ToString("HH:mm")</div>
+                                }
+                            </td>
+                            <td style="color: var(--cs-danger); font-weight: 600;">@req.RequestingGuard?.Username</td>
+                            <td style="color: var(--cs-success); font-weight: 600;">@req.TargetGuard?.Username</td>
+                            <td>@req.Reason</td>
+                            <td>
+                                <div style="display: flex; gap: 0.5rem;">
+                                     <form method="post" asp-page-handler="Resolve" style="margin: 0;">
+                                        <input type="hidden" name="id" value="@req.Id" />
+                                        <input type="hidden" name="approve" value="true" />
+                                        <button type="submit" class="cs-btn cs-btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Approve</button>
+                                    </form>
+                                    <form method="post" asp-page-handler="Resolve" style="margin: 0;">
+                                        <input type="hidden" name="id" value="@req.Id" />
+                                        <input type="hidden" name="approve" value="false" />
+                                        <button type="submit" class="cs-btn cs-btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; color: var(--cs-danger);">Reject</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 2rem; color: var(--cs-text-muted);">No pending swap requests.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
