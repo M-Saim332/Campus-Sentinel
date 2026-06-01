@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model CampusSentinel.Pages.Admin.Challans.IssueModel
 @{
     ViewData["Title"] = "Issue Challan";
@@ -299,9 +299,9 @@
                     <div class="ch-subject-header">
                         <div class="ch-subject-avatar" id="chAvatarInitials">?</div>
                         <div>
-                            <p class="ch-subject-name" id="chSubjectName">â€”</p>
+                            <p class="ch-subject-name" id="chSubjectName">—</p>
                             <div id="chSubjectTypeBadge"></div>
-                            <p class="ch-subject-meta" id="chSubjectDetail">â€”</p>
+                            <p class="ch-subject-meta" id="chSubjectDetail">—</p>
                         </div>
                     </div>
                     <div class="ch-subject-qr">
@@ -348,7 +348,7 @@
                     <div class="ch-form-group">
                         <label for="chViolationType">Violation Type <span class="required">*</span></label>
                         <select id="chViolationType" name="ChallanInput.ViolationType" class="cs-input" required>
-                            <option value="" disabled selected>â€” Select violation â€”</option>
+                            <option value="" disabled selected>— Select violation —</option>
                             @foreach (var v in IssueModel.ViolationTypes)
                             {
                                 <option value="@v">@v</option>
@@ -372,7 +372,7 @@
                         <label for="chDescription">Additional Notes <span style="font-weight:400;color:var(--cs-text-muted);">(optional)</span></label>
                         <textarea id="chDescription" name="ChallanInput.Description"
                                   class="cs-input" rows="3"
-                                  placeholder="Evidence details, witness names, location specificsâ€¦"
+                                  placeholder="Evidence details, witness names, location specifics…"
                                   maxlength="2000"></textarea>
                     </div>
 
@@ -415,7 +415,7 @@
                     <i class="ti ti-info-circle"></i> Issuing Guidelines
                 </p>
                 <ul style="font-size:0.8rem; color:var(--cs-text-secondary); margin:0; padding-left:1.2rem; line-height:1.8;">
-                    <li>Always scan the <strong>original ID card</strong> â€” do not accept screenshots.</li>
+                    <li>Always scan the <strong>original ID card</strong> — do not accept screenshots.</li>
                     <li>Set Amount in <strong>PKR</strong> as per the campus fine schedule.</li>
                     <li>For recurring violations, add context in the description field.</li>
                     <li>The subject will be notified automatically upon issuance.</li>
@@ -441,7 +441,7 @@ const chCtx     = chCanvas.getContext('2d', { willReadFrequently: true });
 // â”€â”€ Camera controls â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function chStartCamera() {
     if (chScanning) return;
-    chSetStatus('Starting cameraâ€¦', '');
+    chSetStatus('Starting camera…', '');
 
     if (typeof jsQR === 'undefined') {
         chSetStatus('QR library not loaded.', 'err'); return;
@@ -455,7 +455,7 @@ async function chStartCamera() {
         try { stream = await navigator.mediaDevices.getUserMedia(cfg); break; }
         catch(e) { lastErr = e; }
     }
-    if (!stream) { chSetStatus('Camera unavailable â€” use manual entry.', 'err'); return; }
+    if (!stream) { chSetStatus('Camera unavailable — use manual entry.', 'err'); return; }
 
     chStream = stream;
     document.getElementById('ch-cam-idle').style.display = 'none';
@@ -464,7 +464,7 @@ async function chStartCamera() {
     chVideo.srcObject = stream;
     await chVideo.play();
     chScanning = true;
-    chSetStatus('â— Live â€” scanningâ€¦', 'live');
+    chSetStatus('● Live — scanning…', 'live');
     chRafId = requestAnimationFrame(chTick);
 }
 
@@ -509,7 +509,7 @@ document.getElementById('chManualId').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') { e.preventDefault(); chResolveCode(this.value); }
 });
 
-// â”€â”€ Resolve QR code via AJAX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Resolve QR code via AJAX ──────────────────────────────────────────────
 async function chResolveCode(qrCode) {
     if (!qrCode || !qrCode.trim()) return;
     qrCode = qrCode.trim();
@@ -521,7 +521,7 @@ async function chResolveCode(qrCode) {
     card.className     = 'ch-subject-card';
     document.getElementById('ch-found-body').style.display    = 'none';
     document.getElementById('ch-notfound-body').style.display = 'none';
-    document.getElementById('chSubjectName').textContent      = 'Resolvingâ€¦';
+    document.getElementById('chSubjectName').textContent      = 'Resolving…';
 
     try {
         const resp = await fetch(`?handler=Resolve&qrCode=${encodeURIComponent(qrCode)}`, {
@@ -534,7 +534,7 @@ async function chResolveCode(qrCode) {
     }
 }
 
-// â”€â”€ Render subject card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Render subject card ──────────────────────────────────────────────────────
 function chShowSubject(data) {
     const card         = document.getElementById('ch-subject-card');
     const foundBody    = document.getElementById('ch-found-body');
@@ -553,7 +553,7 @@ function chShowSubject(data) {
         const initials = data.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
         document.getElementById('chAvatarInitials').textContent = initials;
         document.getElementById('chSubjectName').textContent    = data.name;
-        document.getElementById('chSubjectDetail').textContent  = data.detail || 'â€”';
+        document.getElementById('chSubjectDetail').textContent  = data.detail || '—';
         document.getElementById('chSubjectQr').textContent      = data.qrCodeId;
 
         // Type badge
@@ -581,7 +581,7 @@ function chShowSubject(data) {
     }
 }
 
-// â”€â”€ Submit the challan form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Submit the challan form ──────────────────────────────────────────────────
 async function chSubmitChallan() {
     const qr        = document.getElementById('chQrInput').value.trim();
     const violation = document.getElementById('chViolationType').value.trim();
@@ -594,7 +594,7 @@ async function chSubmitChallan() {
 
     // Loading state
     document.getElementById('chSubmitIcon').className  = 'ti ti-loader-2 ch-spin';
-    document.getElementById('chSubmitLabel').textContent = 'Issuingâ€¦';
+    document.getElementById('chSubmitLabel').textContent = 'Issuing…';
     document.getElementById('chSubmitBtn').disabled    = true;
     document.getElementById('ch-error-banner').style.display = 'none';
 

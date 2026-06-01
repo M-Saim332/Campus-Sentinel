@@ -842,3 +842,4 @@ C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compre
 C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8yd291acju-{0}-tq14xb53it-tq14xb53it.gz
 C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6c1ct4lztm-{0}-s0ao4509z6-s0ao4509z6.gz
 C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4tpujy6333-{0}-cfzoxyk52o-cfzoxyk52o.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.sourcelink.json
