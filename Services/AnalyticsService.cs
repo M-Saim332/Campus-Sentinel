@@ -24,7 +24,9 @@ namespace CampusSentinel.Services
         public int BlacklistedCount { get; set; }
         public int OpenIncidentsToday { get; set; }
         public int ActiveGuardsCount { get; set; }
+
         public List<string> ActiveGuardsList { get; set; } = new List<string>();
+        public int DeniedAccessCount { get; set; }
     }
 
     public class AnalyticsService : IAnalyticsService
@@ -84,8 +86,11 @@ namespace CampusSentinel.Services
 
             return new DashboardStats
             {
+                // Count denied access attempts for today
+                DeniedAccessCount = await _context.AccessLogs.CountAsync(l => l.Status == "Denied" && l.Timestamp >= DateTime.Today),
                 TotalStudents = await _context.Students.CountAsync(),
-                TotalVisitorsToday = await _context.Visitors.CountAsync(v => v.CreatedAt >= DateTime.Today),
+                // Count visitors created today (midnight to next midnight)
+                TotalVisitorsToday = await _context.Visitors.CountAsync(v => v.CreatedAt >= DateTime.Today && v.CreatedAt < DateTime.Today.AddDays(1)),
                 CurrentOccupancy = await GetCurrentOccupancyAsync(),
                 BlacklistedCount = await _context.Students.CountAsync(s => s.IsBlacklisted) + await _context.Visitors.CountAsync(v => v.IsBlacklisted),
                 OpenIncidentsToday = await _context.Incidents.CountAsync(i => i.Status == IncidentStatus.Open && i.ReportedAt >= DateTime.Today),

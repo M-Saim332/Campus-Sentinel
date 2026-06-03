@@ -27,6 +27,7 @@ namespace CampusSentinel.Services
             await SeedIncidentsAsync();
             await SeedZonesAsync();
             await SeedShiftsAsync();
+            await SeedChallansAsync();
         }
 
         private async Task SeedSecurityGuardsAsync()
@@ -48,24 +49,25 @@ namespace CampusSentinel.Services
 
         private async Task SeedStudentsAsync()
         {
-            if (await _context.Students.AnyAsync()) return;
+            int currentCount = await _context.Students.CountAsync();
+            if (currentCount >= 1100) return;
 
             string[] names = { "Ali Khan", "Sara Ahmed", "Zainab Malik", "Bilal Hassan", "Fatima Raza", "Usman Sheikh", "Ayesha Siddiqa", "Omer Farooq", "Maryam Bibi", "Hassan Ali" };
             string[] depts = { "CS", "EE", "BBA", "ME", "DS", "AI" };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = currentCount; i < 1110; i++)
             {
                 var dept = depts[i % depts.Length];
                 _context.Students.Add(new Student
                 {
-                    FullName = names[i],
-                    RegistrationNo = $"{2022 + (i % 3)}-{dept}-{100 + i}",
-                    QrCodeId = $"{2022 + (i % 3)}-{dept}-{100 + i}",
+                    FullName = names[i % names.Length] + " " + i,
+                    RegistrationNo = $"STD-{2022 + (i % 3)}-{dept}-{1000 + i}",
+                    QrCodeId = $"STD-{2022 + (i % 3)}-{dept}-{1000 + i}",
                     Department = dept,
                     Gender = i % 2 == 0 ? "Male" : "Female",
                     ResidencyType = i % 3 == 0 ? "Hostelite" : "Day Scholar",
                     Session = 2022 + (i % 3),
-                    CreatedAt = DateTime.Now.AddMonths(-i)
+                    CreatedAt = DateTime.Now.AddMonths(- (i % 12))
                 });
             }
             await _context.SaveChangesAsync();
@@ -73,23 +75,24 @@ namespace CampusSentinel.Services
 
         private async Task SeedStaffAsync()
         {
-            if (await _context.Staff.AnyAsync()) return;
+            int currentCount = await _context.Staff.CountAsync();
+            if (currentCount >= 200) return;
 
             string[] names = { "Dr. Ahmed", "Ms. Sana", "Mr. Rashid", "Dr. Zafar", "Ms. Hira", "Mr. Kamran", "Ms. Nadia", "Dr. Iqbal", "Mr. Salman", "Ms. Rabia" };
             StaffCategory[] categories = { StaffCategory.Faculty, StaffCategory.Faculty, StaffCategory.Helper, StaffCategory.Faculty, StaffCategory.Gardener, StaffCategory.Worker, StaffCategory.Faculty, StaffCategory.Faculty, StaffCategory.Helper, StaffCategory.Faculty };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = currentCount; i < 210; i++)
             {
                 _context.Staff.Add(new Staff
                 {
-                    FullName = names[i],
-                    Category = categories[i],
-                    Designation = categories[i] == StaffCategory.Faculty ? "Professor" : "Support Staff",
+                    FullName = names[i % names.Length] + " " + i,
+                    Category = categories[i % categories.Length],
+                    Designation = categories[i % categories.Length] == StaffCategory.Faculty ? "Professor" : "Support Staff",
                     DepartmentOrUni = "Campus University",
                     Gender = i % 2 == 0 ? "Male" : "Female",
-                    PhoneNumber = $"0300-123456{i}",
-                    StaffId = $"STF-{1000 + i}",
-                    CreatedAt = DateTime.Now.AddMonths(-i)
+                    PhoneNumber = $"0300-123456{(i % 10)}",
+                    StaffId = $"STF-{2000 + i}",
+                    CreatedAt = DateTime.Now.AddMonths(-(i % 12))
                 });
             }
             await _context.SaveChangesAsync();
@@ -97,20 +100,21 @@ namespace CampusSentinel.Services
 
         private async Task SeedVisitorsAsync()
         {
-            if (await _context.Visitors.AnyAsync()) return;
+            int currentCount = await _context.Visitors.CountAsync();
+            if (currentCount >= 20) return;
 
             string[] names = { "Guest 1", "Guest 2", "Contractor A", "Delivery B", "Parent C", "Visitor D", "Guest E", "Contractor F", "Delivery G", "Parent H" };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = currentCount; i < 30; i++)
             {
                 _context.Visitors.Add(new Visitor
                 {
-                    FullName = names[i],
+                    FullName = names[i % names.Length] + " " + i,
                     Purpose = "Official Visit",
                     Role = i % 3 == 0 ? "Contractor" : "Guest",
                     TemporaryQrCodeId = $"VST-{10000 + i}",
                     ExpirationTime = DateTime.Now.AddHours(4),
-                    CreatedAt = DateTime.Now.AddDays(-i)
+                    CreatedAt = DateTime.Now.AddDays(-(i % 30))
                 });
             }
             await _context.SaveChangesAsync();
@@ -143,22 +147,23 @@ namespace CampusSentinel.Services
 
         private async Task SeedIncidentsAsync()
         {
-            if (await _context.Incidents.AnyAsync()) return;
+            int currentCount = await _context.Incidents.CountAsync();
+            if (currentCount >= 30) return;
 
             var guard = await _context.Users.FirstOrDefaultAsync(u => u.Role == "SecurityGuard");
             string[] titles = { "Lost Item", "Unauthorized Access", "Power Failure", "Water Leak", "Noise Complaint", "Minor Scuffle", "Health Emergency", "Fire Drill", "Equipment Damage", "Suspicious Activity" };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = currentCount; i < 40; i++)
             {
                 _context.Incidents.Add(new Incident
                 {
-                    Title = titles[i],
-                    Description = $"Automatically generated description for {titles[i]}",
+                    Title = titles[i % titles.Length],
+                    Description = $"Automatically generated description for {titles[i % titles.Length]}",
                     Severity = (IncidentSeverity)(i % 4),
                     Status = (IncidentStatus)(i % 4),
                     Location = i % 2 == 0 ? "Library" : "Cafeteria",
                     ReportedById = guard?.Id ?? 1,
-                    ReportedAt = DateTime.Now.AddDays(-i)
+                    ReportedAt = DateTime.Now.AddDays(-(i % 30))
                 });
             }
             await _context.SaveChangesAsync();
@@ -203,6 +208,36 @@ namespace CampusSentinel.Services
                         CreatedByAdminId = admin.Id
                     });
                 }
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task SeedChallansAsync()
+        {
+            int currentCount = await _context.Challans.CountAsync();
+            if (currentCount >= 20) return;
+
+            var admin = await _context.Users.FirstOrDefaultAsync(u => u.Role == "Admin");
+            if (admin == null) return;
+
+            var students = await _context.Students.Take(50).ToListAsync();
+            if (!students.Any()) return;
+            string[] violations = { "No ID Card", "Parking Violation", "Smoking in Prohibited Area", "Late Entry", "Littering" };
+
+            for (int i = currentCount; i < 30; i++)
+            {
+                var student = students[i % students.Count];
+                _context.Challans.Add(new Challan
+                {
+                    QrCodeId = student.QrCodeId,
+                    SubjectName = student.FullName,
+                    SubjectType = "Student",
+                    ViolationType = violations[i % violations.Length],
+                    Amount = 500 + (i * 50),
+                    IssuedByUserId = admin.Id,
+                    IssueDate = DateTime.UtcNow.AddDays(- (i % 30)),
+                    Status = i % 2 == 0 ? ChallanStatus.Pending : ChallanStatus.Paid
+                });
             }
             await _context.SaveChangesAsync();
         }

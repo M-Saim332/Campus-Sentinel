@@ -94,6 +94,11 @@
             <div class="cs-stat-value" style="color: var(--cs-danger);" data-target="@Model.Stats.BlacklistedCount">@Model.Stats.BlacklistedCount</div>
             <div style="font-size: 0.75rem; color: var(--cs-danger);">Denied Entry Access</div>
         </div>
+        <div class="cs-stat-card" style="border-color: rgba(239, 68, 68, 0.2);">
+            <div class="cs-stat-label">Denied Access</div>
+            <div class="cs-stat-value" style="color: var(--cs-danger);" data-target="@Model.Stats.DeniedAccessCount">@Model.Stats.DeniedAccessCount</div>
+            <div style="font-size: 0.75rem; color: var(--cs-danger);">Access attempts denied</div>
+        </div>
         <div class="cs-stat-card" style="border-color: rgba(245, 158, 11, 0.2);">
             <div class="cs-stat-label">Open Incidents</div>
             <div class="cs-stat-value" style="color: var(--cs-warning);" data-target="@Model.Stats.OpenIncidentsToday">@Model.Stats.OpenIncidentsToday</div>

@@ -209,7 +209,7 @@ namespace CampusSentinel.Services
                                 row.RelativeItem().Column(col =>
                                 {
                                     col.Item().Text("Date Reported").SemiBold();
-                                    col.Item().Text(incident.ReportedAt.ToString("g"));
+                                    col.Item().Text(incident.ReportedAt.ToString("HH:mm"));
                                     
                                     col.Item().PaddingTop(10).Text("Status").SemiBold();
                                     col.Item().Text(incident.Status.ToString()).FontColor(incident.Status == IncidentStatus.Open ? Colors.Red.Medium : Colors.Green.Medium);
@@ -242,7 +242,7 @@ namespace CampusSentinel.Services
                                 {
                                     column.Item().PaddingBottom(10).Background(Colors.Grey.Lighten4).Padding(10).Column(col =>
                                     {
-                                        col.Item().Text($"{note.AddedBy?.Username ?? "Unknown"} - {note.AddedAt:g}").SemiBold().FontSize(10).FontColor(Colors.Grey.Darken1);
+                                        col.Item().Text($"{note.AddedBy?.Username ?? "Unknown"} - {note.AddedAt:HH:mm}").SemiBold().FontSize(10).FontColor(Colors.Grey.Darken1);
                                         col.Item().Text(note.Note);
                                     });
                                 }

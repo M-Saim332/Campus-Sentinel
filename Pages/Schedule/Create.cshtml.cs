@@ -75,13 +75,8 @@ namespace CampusSentinel.Pages.Schedule
             var adminUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
             if (adminUser == null) return Unauthorized();
 
-            if (Input.StartTime >= Input.EndTime)
-            {
-                ModelState.AddModelError("", "End time must be after start time.");
-                Guards = await _context.Users.Where(u => u.Role == "SecurityGuard").ToListAsync();
-                Zones = await _context.CampusZones.Where(z => z.IsActive).ToListAsync();
-                return Page();
-            }
+            // Night shifts are allowed: e.g. StartTime=22:00, EndTime=05:00 means shift crosses midnight.
+            // No time-order validation needed here.
 
             try
             {

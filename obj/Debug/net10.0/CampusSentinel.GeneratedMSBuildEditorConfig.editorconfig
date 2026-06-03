@@ -110,6 +110,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mssai/OneDrive/Desktop/CAMPUS_SENTINAL UPDATED/Pages/Auth/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mssai/OneDrive/Desktop/CAMPUS_SENTINAL UPDATED/Pages/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -196,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mssai/OneDrive/Desktop/CAMPUS_SENTINAL UPDATED/Pages/Schedule/WeeklyReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcV2Vla2x5UmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mssai/OneDrive/Desktop/CAMPUS_SENTINAL UPDATED/Pages/Settings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mssai/OneDrive/Desktop/CAMPUS_SENTINAL UPDATED/Pages/Shared/_ValidationScriptsPartial.cshtml]

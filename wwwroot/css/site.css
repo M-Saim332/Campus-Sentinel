@@ -124,35 +124,46 @@
 }
 
 [data-theme="light"] {
-  --cs-bg-base:         #F8FAFC;
-  --cs-bg-surface:      #FFFFFF;
-  --cs-bg-elevated:     #F1F5F9;
-  --cs-bg-overlay:      #E2E8F0;
-  --cs-accent:          #4F46E5;
-  --cs-accent-dim:      #4338CA;
-  --cs-accent-glow:     rgba(79, 70, 229, 0.1);
-  --cs-accent-alt:      #2563EB;
-  --cs-accent-text:     #FFFFFF;
-  --cs-accent-shadow:   rgba(79, 70, 229, 0.2);
-  --cs-success:         #15803D;
-  --cs-warning:         #B45309;
-  --cs-danger:          #B91C1C;
-  --cs-info:            #1D4ED8;
-  --cs-success-bg:      #DCFCE7;
+  /* ── Surfaces & Backgrounds ── */
+  --cs-bg-base:         #F4F7FB; 
+  --cs-bg-surface:      #FFFFFF; 
+  --cs-bg-elevated:     #FFFFFF; 
+  --cs-bg-overlay:      #E8EDF2; 
+
+  /* ── Brand Accents ── */
+  --cs-accent:          #009A82; 
+  --cs-accent-dim:      #007B68; 
+  --cs-accent-glow:     rgba(0, 154, 130, 0.1); 
+  --cs-accent-alt:      #3B82F6;
+  --cs-accent-text:     #FFFFFF; 
+  --cs-accent-shadow:   rgba(0, 154, 130, 0.25); 
+
+  /* ── Semantic Colors (Status Badges) ── */
+  --cs-success:         #059669; 
+  --cs-success-bg:      #D1FAE5;
+  --cs-warning:         #D97706;
   --cs-warning-bg:      #FEF3C7;
+  --cs-danger:          #DC2626;
   --cs-danger-bg:       #FEE2E2;
+  --cs-info:            #2563EB;
   --cs-info-bg:         #DBEAFE;
-  --cs-text-primary:    #0F172A;
-  --cs-text-secondary:  #475569;
-  --cs-text-muted:      #94A3B8;
-  --cs-text-accent:     #4F46E5;
-  --cs-border:          rgba(15, 23, 42, 0.08);
-  --cs-border-hover:    rgba(15, 23, 42, 0.15);
-  --cs-bg-footer:       rgba(255, 255, 255, 0.75);
-  --cs-border-accent:   rgba(79, 70, 229, 0.3);
-  --cs-shadow-sm:       0 1px 3px  rgba(15,23,42,0.05);
-  --cs-shadow-md:       0 4px 16px rgba(15,23,42,0.08);
-  --cs-shadow-glow:     0 0 24px   rgba(79,70,229,0.05);
+
+  /* ── Typography & Contrast ── */
+  --cs-text-primary:    #1E293B; 
+  --cs-text-secondary:  #475569; 
+  --cs-text-muted:      #64748B; 
+  --cs-text-accent:     #009A82; 
+
+  /* ── Borders & Dividers ── */
+  --cs-border:          #E2E8F0; 
+  --cs-border-hover:    #CBD5E1; 
+  --cs-bg-footer:       rgba(255, 255, 255, 0.85);
+  --cs-border-accent:   rgba(0, 154, 130, 0.3);
+
+  /* ── Shadows ── */
+  --cs-shadow-sm:       0 1px 3px rgba(15, 23, 42, 0.05);
+  --cs-shadow-md:       0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 4px rgba(15, 23, 42, 0.04);
+  --cs-shadow-glow:     0 0 20px rgba(0, 154, 130, 0.15);
 }
 
 [data-theme="light"] .cs-logo-full,
@@ -215,9 +226,9 @@ a:hover { color: var(--cs-accent-dim); }
 
 /* Sidebar logo container */
 .cs-sidebar-logo {
-  padding: 20px 20px 18px;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--cs-border);
-  min-height: 96px;
+  min-height: 72px;
   display: flex;
   align-items: center;
 }
@@ -229,16 +240,15 @@ a:hover { color: var(--cs-accent-dim); }
   width: 100%;
 }
 
-/* Full wordmark logo — 40px tall, fills sidebar comfortably */
+/* Full wordmark logo — normalized to fit sidebar width cleanly */
 .cs-logo-full {
-  height: 40px;
-  width: auto;
-  max-width: 200px;
+  height: auto;
+  width: 110px;
+  max-width: 110px;
   display: block;
   object-fit: contain;
-  object-position: center;
+  object-position: left center;
   transition: opacity 0.2s ease, transform 0.25s var(--cs-ease);
-  /* Entrance animation */
   animation: cs-logo-enter 0.5s var(--cs-ease-spring) both;
 }
 
@@ -591,12 +601,15 @@ a:hover { color: var(--cs-accent-dim); }
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius-lg);
   padding: 20px 24px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--cs-ease);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .cs-card:hover {
   border-color: var(--cs-border-hover);
   box-shadow: var(--cs-shadow-md);
+  transform: translateY(-2px);
 }
 
 .cs-card-header {

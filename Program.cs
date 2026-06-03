@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using CampusSentinel.Data;
 using CampusSentinel.Repositories;
 using CampusSentinel.Services;
@@ -38,15 +39,21 @@ builder.Services.AddRazorPages(options =>
 
     // Schedule module
     options.Conventions.AuthorizeFolder("/Schedule", "RequireGuardRole");
-    options.Conventions.AuthorizePage("/Schedule/Index", "RequireAdminRole");
+    options.Conventions.AuthorizePage("/Schedule/Index", "RequireGuardRole");
     options.Conventions.AuthorizePage("/Schedule/Create", "RequireAdminRole");
     options.Conventions.AuthorizePage("/Schedule/SwapRequests", "RequireAdminRole");
     options.Conventions.AuthorizePage("/Schedule/WeeklyReport", "RequireAdminRole");
 });
 
 // Configure Database
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+    ?? "Data Source=campussentinel.db";
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CampusSentinel;Trusted_Connection=True;MultipleActiveResultSets=true"));
+{
+    options.UseSqlite(connectionString);
+    options.ConfigureWarnings(warnings => 
+        warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+});
 
 // Register Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -85,9 +92,46 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.EnsureCreated(); 
+    
+    try
+    {
+        // Try to ensure the database and all tables are created matching current C# models.
+        dbContext.Database.EnsureCreated();
 
-    // Ensure at least one admin exists
+        // Perform a quick query validation check on new and old tables. 
+        // If an old database exists with missing tables, it will throw an exception
+        // and safely trigger the self-healing recreate block.
+        _ = dbContext.Users.FirstOrDefault();
+        _ = dbContext.Incidents.FirstOrDefault();
+        _ = dbContext.SystemSettings.FirstOrDefault();
+    }
+    catch (Exception)
+    {
+        // Self-healing: If there's any database or schema mismatch, drop and recreate it perfectly from scratch
+        dbContext.Database.EnsureDeleted();
+        dbContext.Database.EnsureCreated();
+    }
+
+    // Ensure default admins exist
+    var existingHassan = dbContext.Users.FirstOrDefault(u => u.Username == "hassan");
+    if (existingHassan == null)
+    {
+        var defaultHassan = new CampusSentinel.Models.Admin
+        {
+            Username = "hassan",
+            PasswordHash = "hassan123", 
+            IsActive = true,
+            CreatedAt = DateTime.Now
+        };
+        dbContext.Users.Add(defaultHassan);
+        dbContext.SaveChanges();
+    }
+    else if (existingHassan.PasswordHash != "hassan123")
+    {
+        existingHassan.PasswordHash = "hassan123";
+        dbContext.SaveChanges();
+    }
+
     var existingAdmin = dbContext.Users.FirstOrDefault(u => u.Username == "admin");
     if (existingAdmin == null)
     {

@@ -4,30 +4,42 @@
     ViewData["Title"] = "Add Guard";
 }
 
-<div class="animate-fade-in" style="max-width: 600px; margin: 0 auto;">
-    <div style="margin-bottom: 2rem;">
-        <h2>Add Security Guard</h2>
+@* Validation summary *@
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="cs-alert cs-alert-danger" role="alert">
+        Please correct the errors below.
+    </div>
+}
+<div class="validation-summary text-danger" asp-validation-summary="All"></div>
+
+<div class="cs-animate" style="max-width: 700px; margin: 0 auto;">
+    <div class="cs-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 class="cs-title"><i class="ti ti-user-plus" style="color: var(--cs-accent); margin-right: 0.5rem;"></i>Register Security Guard</h2>
+        <a asp-page="./Index" class="cs-btn cs-btn-secondary">
+            <i class="ti ti-arrow-left"></i> Back to List
+        </a>
     </div>
 
-    <div class="glass-card">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="Input.Username" class="form-label"></label>
-                <input asp-for="Input.Username" class="form-control" />
-                <span asp-validation-for="Input.Username" class="text-danger"></span>
+    <div class="cs-card">
+        <form method="post" class="cs-form">
+            <div class="cs-form-group">
+                <label asp-for="Input.Username" class="cs-label"><i class="ti ti-user" style="margin-right:0.3rem;"></i>Username *</label>
+                <input asp-for="Input.Username" class="cs-input" placeholder="e.g. guard01" />
+                <span asp-validation-for="Input.Username" class="cs-error"></span>
             </div>
-            
-            <div class="form-group">
-                <label asp-for="Input.Password" class="form-label"></label>
-                <input asp-for="Input.Password" class="form-control" type="password" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <div class="cs-form-group">
+                <label asp-for="Input.Password" class="cs-label"><i class="ti ti-lock" style="margin-right:0.3rem;"></i>Password *</label>
+                <input asp-for="Input.Password" class="cs-input" type="password" placeholder="Secure password" />
+                <span asp-validation-for="Input.Password" class="cs-error"></span>
             </div>
-
-            <div style="margin-top: 2rem;">
-                <input type="submit" value="Add Guard" class="btn btn-primary" />
-                <a asp-page="Index" style="margin-left: 1rem;">Back to List</a>
+            <div class="cs-form-actions" style="margin-top: 1.5rem; display:flex; gap:0.75rem;">
+                <button type="submit" class="cs-btn cs-btn-primary" style="flex:1;">
+                    <i class="ti ti-user-check"></i> Add Guard
+                </button>
+                <a asp-page="Index" class="cs-btn cs-btn-secondary">
+                    Cancel
+                </a>
             </div>
         </form>
     </div>

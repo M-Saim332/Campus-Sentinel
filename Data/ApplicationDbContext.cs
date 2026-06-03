@@ -31,6 +31,9 @@ namespace CampusSentinel.Data
         // ── Challan Generation Feature ────────────────────────────────────────
         public DbSet<Challan> Challans { get; set; }
 
+        // ── System Configuration Feature ──────────────────────────────────────
+        public DbSet<SystemSetting> SystemSettings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -139,6 +142,14 @@ namespace CampusSentinel.Data
                 new NotificationTemplate { Id = 8, EventType = NotificationEventType.UnauthorizedScan, Channel = NotificationChannel.InApp, BodyTemplate = "UNAUTHORIZED SCAN: An invalid or unauthorized QR code was scanned at {{Location}} at {{Time}}.", IsActive = true }
             );
 
+            // Seed System Settings
+            var staticDate = new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            modelBuilder.Entity<SystemSetting>().HasData(
+                new SystemSetting { Id = 1, Key = "CampusName", Value = "Campus Sentinel Institute", Description = "The display name of the campus", UpdatedAt = staticDate },
+                new SystemSetting { Id = 2, Key = "LockdownMode", Value = "false", Description = "If true, blocks all entry regardless of QR validity", UpdatedAt = staticDate },
+                new SystemSetting { Id = 3, Key = "MaxCapacity", Value = "5000", Description = "Maximum campus occupancy before warnings are issued", UpdatedAt = staticDate }
+            );
+
             // ── Seed Default Administrator ──
             modelBuilder.Entity<Admin>().HasData(
                 new Admin 
@@ -146,7 +157,16 @@ namespace CampusSentinel.Data
                     Id = 1, 
                     Username = "admin", 
                     PasswordHash = "admin123", // In production this must be hashed
-                    IsActive = true 
+                    IsActive = true,
+                    CreatedAt = staticDate
+                },
+                new Admin 
+                { 
+                    Id = 2, 
+                    Username = "hassan", 
+                    PasswordHash = "hassan123", 
+                    IsActive = true,
+                    CreatedAt = staticDate
                 }
             );
         }

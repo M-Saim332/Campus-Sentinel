@@ -1,0 +1,237 @@
+@page
+@model CampusSentinel.Pages.Settings.IndexModel
+@{
+    ViewData["Title"] = "System Settings";
+}
+
+<div class="cs-animate" style="max-width: 900px; margin: 0 auto;">
+
+    <!-- Header -->
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--cs-text-primary); margin: 0 0 0.25rem;">
+            <i class="ti ti-settings" style="color: var(--cs-accent); margin-right: 0.4rem;"></i> Settings
+        </h1>
+        <p style="color: var(--cs-text-muted); margin: 0; font-size: 0.875rem;">Manage system configurations, notifications, and security.</p>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div style="background: @(Model.IsStatusError ? "var(--cs-danger-bg)" : "var(--cs-success-bg)"); border-left: 3px solid @(Model.IsStatusError ? "var(--cs-danger)" : "var(--cs-success)"); border-radius: var(--cs-radius-sm); padding: 0.875rem 1rem; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center;">
+            <i class="ti @(Model.IsStatusError ? "ti-alert-triangle" : "ti-check")" style="color: @(Model.IsStatusError ? "var(--cs-danger)" : "var(--cs-success)"); flex-shrink: 0;"></i>
+            <div style="color: @(Model.IsStatusError ? "var(--cs-danger)" : "var(--cs-success)"); font-size: 0.875rem;">@Model.StatusMessage</div>
+        </div>
+    }
+
+    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+
+        <!-- Sidebar Navigation -->
+        <div class="cs-card" style="flex: 1; min-width: 250px; padding: 1rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a asp-page="./Index" asp-route-tab="system" class="cs-nav-item @(Model.ActiveTab == "system" ? "active" : "")">
+                    <i class="ti ti-server"></i>
+                    <span class="cs-nav-label">System Configuration</span>
+                </a>
+                <a asp-page="./Index" asp-route-tab="preferences" class="cs-nav-item @(Model.ActiveTab == "preferences" ? "active" : "")">
+                    <i class="ti ti-bell-ringing"></i>
+                    <span class="cs-nav-label">Notifications</span>
+                </a>
+                <a asp-page="./Index" asp-route-tab="security" class="cs-nav-item @(Model.ActiveTab == "security" ? "active" : "")">
+                    <i class="ti ti-shield-lock"></i>
+                    <span class="cs-nav-label">Security</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div style="flex: 3; min-width: 400px;">
+            
+            @if (Model.ActiveTab == "system")
+            {
+                <div class="cs-card cs-animate">
+                    <div class="cs-card-header">
+                        <span class="cs-card-title"><i class="ti ti-server" style="margin-right: 6px;"></i>System Configuration</span>
+                        <span class="cs-badge cs-badge-warning" style="font-size: 0.7rem;">Admin Only</span>
+                    </div>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <form method="post" asp-page-handler="SaveSystemSettings">
+                            <div class="cs-form-group">
+                                <label asp-for="CampusName" class="cs-label">Campus Name</label>
+                                <input asp-for="CampusName" class="cs-input" />
+                                <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 4px;">Displayed across reports and dashboard.</div>
+                            </div>
+
+                            <div class="cs-form-group">
+                                <label asp-for="MaxCapacity" class="cs-label">Maximum Campus Capacity</label>
+                                <input asp-for="MaxCapacity" type="number" class="cs-input" />
+                                <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 4px;">Trigger alerts when occupancy exceeds this number.</div>
+                            </div>
+
+                            <div class="cs-form-group" style="display: flex; align-items: center; gap: 1rem; background: var(--cs-bg-elevated); padding: 1rem; border-radius: var(--cs-radius-md); border: 1px solid var(--cs-border);">
+                                <div style="flex: 1;">
+                                    <label class="cs-label" style="margin-bottom: 0;">Emergency Lockdown Mode</label>
+                                    <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 2px;">When enabled, all QR code scans will be rejected at all gates.</div>
+                                </div>
+                                <div>
+                                    <!-- Simple styled toggle switch using checkbox -->
+                                    <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                                        <input asp-for="LockdownMode" type="checkbox" style="opacity: 0; width: 0; height: 0; position: absolute;" id="lockdownToggle" />
+                                        <span class="cs-toggle-slider" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--cs-bg-overlay); transition: .4s; border-radius: 24px; border: 1px solid var(--cs-border);"></span>
+                                        <span class="cs-toggle-knob" style="position: absolute; content: ''; height: 18px; width: 18px; left: 3px; bottom: 2px; background-color: var(--cs-text-secondary); transition: .4s; border-radius: 50%;"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1.5rem; text-align: right;">
+                                <button type="submit" class="cs-btn cs-btn-primary">
+                                    <i class="ti ti-device-floppy"></i> Save System Settings
+                                </button>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <div style="padding: 2rem; text-align: center;">
+                            <i class="ti ti-lock" style="font-size: 3rem; color: var(--cs-text-muted); margin-bottom: 1rem; opacity: 0.5;"></i>
+                            <h3 style="color: var(--cs-text-primary); margin-bottom: 0.5rem;">Access Restricted</h3>
+                            <p style="color: var(--cs-text-secondary);">Only administrators can view and modify system configurations.</p>
+                        </div>
+                    }
+                </div>
+            }
+
+            @if (Model.ActiveTab == "preferences")
+            {
+                <div class="cs-card cs-animate">
+                    <div class="cs-card-header">
+                        <span class="cs-card-title"><i class="ti ti-bell-ringing" style="margin-right: 6px;"></i>Notification Preferences</span>
+                    </div>
+
+                    <form method="post" asp-page-handler="SavePreferences">
+                        <p style="color: var(--cs-text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Choose how you want to be notified about important security events.</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- In-App Notifications -->
+                            <div style="display: flex; align-items: center; gap: 1rem; background: var(--cs-bg-elevated); padding: 1rem; border-radius: var(--cs-radius-md); border: 1px solid var(--cs-border);">
+                                <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--cs-info-bg); color: var(--cs-info); display: flex; align-items: center; justify-content: center;">
+                                    <i class="ti ti-browser" style="font-size: 20px;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 500; color: var(--cs-text-primary);">In-App Alerts</div>
+                                    <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 2px;">Receive push notifications and badges inside the portal.</div>
+                                </div>
+                                <div>
+                                    <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                                        <input asp-for="InAppNotifications" type="checkbox" style="opacity: 0; width: 0; height: 0; position: absolute;" onchange="updateToggleUI(this)" />
+                                        <span class="cs-toggle-slider" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--cs-bg-overlay); transition: .4s; border-radius: 24px; border: 1px solid var(--cs-border);"></span>
+                                        <span class="cs-toggle-knob" style="position: absolute; content: ''; height: 18px; width: 18px; left: 3px; bottom: 2px; background-color: var(--cs-text-secondary); transition: .4s; border-radius: 50%;"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Email Notifications -->
+                            <div style="display: flex; align-items: center; gap: 1rem; background: var(--cs-bg-elevated); padding: 1rem; border-radius: var(--cs-radius-md); border: 1px solid var(--cs-border);">
+                                <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--cs-success-bg); color: var(--cs-success); display: flex; align-items: center; justify-content: center;">
+                                    <i class="ti ti-mail" style="font-size: 20px;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 500; color: var(--cs-text-primary);">Email Notifications</div>
+                                    <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 2px;">Get daily summaries and critical alerts via email.</div>
+                                </div>
+                                <div>
+                                    <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                                        <input asp-for="EmailNotifications" type="checkbox" style="opacity: 0; width: 0; height: 0; position: absolute;" onchange="updateToggleUI(this)" />
+                                        <span class="cs-toggle-slider" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--cs-bg-overlay); transition: .4s; border-radius: 24px; border: 1px solid var(--cs-border);"></span>
+                                        <span class="cs-toggle-knob" style="position: absolute; content: ''; height: 18px; width: 18px; left: 3px; bottom: 2px; background-color: var(--cs-text-secondary); transition: .4s; border-radius: 50%;"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; text-align: right;">
+                            <button type="submit" class="cs-btn cs-btn-primary">
+                                <i class="ti ti-device-floppy"></i> Save Preferences
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            }
+
+            @if (Model.ActiveTab == "security")
+            {
+                <div class="cs-card cs-animate">
+                    <div class="cs-card-header">
+                        <span class="cs-card-title"><i class="ti ti-shield-lock" style="margin-right: 6px;"></i>Security Settings</span>
+                    </div>
+
+                    <form method="post" asp-page-handler="ChangePassword">
+                        <div class="cs-form-group">
+                            <label asp-for="CurrentPassword" class="cs-label">Current Password</label>
+                            <input asp-for="CurrentPassword" type="password" class="cs-input" />
+                        </div>
+                        <div class="cs-form-group">
+                            <label asp-for="NewPassword" class="cs-label">New Password</label>
+                            <input asp-for="NewPassword" type="password" class="cs-input" />
+                        </div>
+                        <div class="cs-form-group">
+                            <label asp-for="ConfirmPassword" class="cs-label">Confirm New Password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="cs-input" />
+                        </div>
+
+                        <div style="margin-top: 1.5rem; text-align: right;">
+                            <button type="submit" class="cs-btn cs-btn-primary">
+                                <i class="ti ti-key"></i> Update Password
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        /* Custom toggle switch CSS to match the design system */
+        input[type=checkbox]:checked + .cs-toggle-slider {
+            background-color: var(--cs-accent) !important;
+            border-color: var(--cs-accent) !important;
+        }
+        input[type=checkbox]:checked ~ .cs-toggle-knob {
+            transform: translateX(20px);
+            background-color: #fff !important;
+        }
+    </style>
+    <script>
+        // Run on load to set initial state of toggles
+        document.querySelectorAll('input[type=checkbox]').forEach(el => {
+            // Force the UI update if checked
+            if(el.checked) {
+                var slider = el.nextElementSibling;
+                var knob = el.nextElementSibling.nextElementSibling;
+                slider.style.backgroundColor = 'var(--cs-accent)';
+                slider.style.borderColor = 'var(--cs-accent)';
+                knob.style.transform = 'translateX(20px)';
+                knob.style.backgroundColor = '#fff';
+            }
+        });
+
+        function updateToggleUI(el) {
+            var slider = el.nextElementSibling;
+            var knob = el.nextElementSibling.nextElementSibling;
+            if(el.checked) {
+                slider.style.backgroundColor = 'var(--cs-accent)';
+                slider.style.borderColor = 'var(--cs-accent)';
+                knob.style.transform = 'translateX(20px)';
+                knob.style.backgroundColor = '#fff';
+            } else {
+                slider.style.backgroundColor = 'var(--cs-bg-overlay)';
+                slider.style.borderColor = 'var(--cs-border)';
+                knob.style.transform = 'translateX(0)';
+                knob.style.backgroundColor = 'var(--cs-text-secondary)';
+            }
+        }
+    </script>
+}

@@ -31,12 +31,17 @@ namespace CampusSentinel.Services
             var today = DateOnly.FromDateTime(now);
             var timeNow = TimeOnly.FromDateTime(now);
             
-            var missedShiftsQuery = await _context.GuardShifts
+            // Load shifts into memory first to allow TimeOnly.AddMinutes evaluation
+            var allShifts = await _context.GuardShifts
                 .Include(s => s.GuardUser)
                 .Include(s => s.Zone)
-                .Where(s => s.Status == ShiftStatus.Scheduled && 
-                            (s.ShiftDate < today || (s.ShiftDate == today && s.StartTime.AddMinutes(30) < timeNow)))
                 .ToListAsync();
+
+            var missedShiftsQuery = allShifts.Where(s =>
+                s.Status == ShiftStatus.Scheduled &&
+                (s.ShiftDate < today ||
+                 (s.ShiftDate == today && s.StartTime.AddMinutes(30) < timeNow)));
+
                 
             if (missedShiftsQuery.Any())
             {
@@ -107,8 +112,14 @@ namespace CampusSentinel.Services
 
         public async Task<bool> DetectConflictsAsync(int guardUserId, DateOnly date, TimeOnly startTime, TimeOnly endTime, int? excludeShiftId = null)
         {
+            // Check the shift date and the day before (an overnight shift from the previous day could overlap)
+            var prevDate = date.AddDays(-1);
+            var nextDate = date.AddDays(1);
+
             var query = _context.GuardShifts
-                .Where(s => s.GuardUserId == guardUserId && s.ShiftDate == date && s.Status != ShiftStatus.Missed && s.Status != ShiftStatus.Swapped);
+                .Where(s => s.GuardUserId == guardUserId 
+                    && s.ShiftDate >= prevDate && s.ShiftDate <= date
+                    && s.Status != ShiftStatus.Missed && s.Status != ShiftStatus.Swapped);
 
             if (excludeShiftId.HasValue)
             {
@@ -117,11 +128,28 @@ namespace CampusSentinel.Services
 
             var shifts = await query.ToListAsync();
 
-            return shifts.Any(s => 
-                (startTime >= s.StartTime && startTime < s.EndTime) ||
-                (endTime > s.StartTime && endTime <= s.EndTime) ||
-                (startTime <= s.StartTime && endTime >= s.EndTime)
-            );
+            // Build the new shift's DateTime range
+            var newStart = date.ToDateTime(startTime);
+            var newEnd = date.ToDateTime(endTime);
+            if (newEnd <= newStart)
+            {
+                // Overnight shift: end time is on the next day
+                newEnd = nextDate.ToDateTime(endTime);
+            }
+
+            return shifts.Any(s =>
+            {
+                var existingStart = s.ShiftDate.ToDateTime(s.StartTime);
+                var existingEnd = s.ShiftDate.ToDateTime(s.EndTime);
+                if (existingEnd <= existingStart)
+                {
+                    // Existing overnight shift
+                    existingEnd = s.ShiftDate.AddDays(1).ToDateTime(s.EndTime);
+                }
+
+                // Standard overlap check: two ranges overlap if one starts before the other ends and vice versa
+                return newStart < existingEnd && newEnd > existingStart;
+            });
         }
 
         public async Task<bool> CompleteShiftAsync(int shiftId)

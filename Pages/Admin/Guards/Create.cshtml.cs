@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using CampusSentinel.Data;
 using CampusSentinel.Models;
 
@@ -50,10 +50,12 @@ namespace CampusSentinel.Pages.Admin.Guards
                 return Page();
             }
 
+            var hasher = new PasswordHasher<SecurityGuard>();
+            var passwordHash = hasher.HashPassword(new SecurityGuard(), Input.Password);
             var guard = new SecurityGuard
             {
                 Username = Input.Username,
-                PasswordHash = Input.Password, // In a real app, hash this
+                PasswordHash = passwordHash,
                 Role = "SecurityGuard"
             };
 

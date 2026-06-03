@@ -101,7 +101,7 @@
                 <label asp-for="Visitor.ExpirationTime" class="cs-label">
                     <i class="ti ti-clock" style="font-size: 12px;"></i> Access Expiration *
                 </label>
-                <input asp-for="Visitor.ExpirationTime" class="cs-input" type="datetime-local" />
+                <input asp-for="Visitor.ExpirationTime" class="cs-input" type="datetime-local" asp-format="{0:yyyy-MM-ddTHH:mm}" />
                 <span asp-validation-for="Visitor.ExpirationTime" style="color: var(--cs-danger); font-size: 0.8rem;"></span>
                 <div style="font-size: 0.75rem; color: var(--cs-text-muted); margin-top: 4px;">
                     After this time the QR code will be denied at all gates automatically.
