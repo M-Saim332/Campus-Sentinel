@@ -1,0 +1,16 @@
+# bin and obj folders
+[Bb]in/
+[Oo]bj/
+
+# vs folders
+.vs/
+.vscode/
+
+# database
+*.db
+*.db-shm
+*.db-wal
+
+# other
+*.user
+*.suo
