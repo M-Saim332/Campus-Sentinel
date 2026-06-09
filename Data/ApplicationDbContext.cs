@@ -169,6 +169,13 @@ namespace CampusSentinel.Data
                     CreatedAt = staticDate
                 }
             );
+
+            // Configure tables that have database triggers (prevents OUTPUT clause errors)
+            modelBuilder.Entity<GuardShift>()
+                .ToTable(tb => tb.HasTrigger("trg_GuardShifts_PreventOverlap"));
+
+            modelBuilder.Entity<Challan>()
+                .ToTable(tb => tb.HasTrigger("trg_Challans_AutoBlacklist"));
         }
     }
 }

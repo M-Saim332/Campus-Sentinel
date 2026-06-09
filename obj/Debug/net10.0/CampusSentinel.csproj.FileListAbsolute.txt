@@ -1,0 +1,1128 @@
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.endpoints.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\OFL.txt
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.runtime.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.exe
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.deps.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.runtimeconfig.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.pdb
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Core.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Identity.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Humanizer.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MailKit.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MimeKit.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\PdfSharpCore.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QRCoder.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QuestPDF.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ICSharpCode.SharpZipLib.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.Fonts.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.ImageSharp.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.ClientModel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Drawing.Common.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\PdfSharpCore.resources.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libstdc++-6.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libwinpthread-1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\zlib1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libstdc++-6.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libwinpthread-1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.AssemblyReference.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfoInputs.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfo.cs
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.CoreCompileInputs.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cs
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\bundle\CampusSentinel.styles.css
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\projectbundle\CampusSentinel.bundle.scp.css
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jugw5gabdt-{0}-o1l41uqvk5-o1l41uqvk5.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sujvhsj0js-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xpfmse02e5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\do7833ob7y-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\trw6f7pt0o-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xbbtlwzjv3-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\9v7apwmsq5-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vwc7uayv8u-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nyqgmwrf4w-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\h1r1ftq7zk-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1ar8l18mem-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l421vxwocr-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sdyjnh961w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wmkaylhmj3-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\o32qx6q76v-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\87xt9qtbm3-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6h511qyuxk-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vciq2i385t-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\qvit7uor5r-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7yn9d3cvfk-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0vxrv35vap-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\ejk5jglw0h-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uaj4lnmuk9-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\pkql9xjehp-{0}-06098lyss8-06098lyss8.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uohzj56e2o-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5t8rfxhchk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jk1ptjgg65-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\mj89ibuvpo-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\66buut81n2-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\hf1fxddp3j-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\13cixk22pg-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z08em0wsr3-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3vjpto3b3o-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\lksxupxf0j-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5ge9hz1wlr-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uehto6jyaw-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vtoen4mrb9-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\zq6ylcxgej-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\06nqmtqtbs-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0s9stvs1sz-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\539yjjf4yo-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\fz4b84x25z-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\15y1hh21dk-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3p9fdbbmih-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l76nmq4gc6-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gy7e4fh6cn-{0}-47otxtyo56-47otxtyo56.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sv5ie2low5-{0}-4v8eqarkd7-4v8eqarkd7.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8xd2o03uq2-{0}-356vix0kms-356vix0kms.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nh3ypzc3a5-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7t3346dfpn-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4by59girpp-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8p6mvf4gtq-{0}-ag7o75518u-ag7o75518u.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wg0e382szz-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\s2w4itvzm3-{0}-0i3buxo5is-0i3buxo5is.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gxsi8s1dmw-{0}-o1o13a6vjx-o1o13a6vjx.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z4sb52vg6d-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\47h2x7c0x0-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xouc6gj4wj-{0}-muycvpuwrr-muycvpuwrr.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3af4pfy8ph-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1zr9hoqv1z-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\w40cjrvh68-{0}-4a5vx6aik4-4a5vx6aik4.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\2sbmtbff72-{0}-4a5vx6aik4-4a5vx6aik4.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSe.15EF9E10.Up2Date
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\refint\CampusSentinel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.pdb
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.genruntimeconfig.cache
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\ref\CampusSentinel.dll
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\q0zdnf5ghw-{0}-d4vc7wfq03-d4vc7wfq03.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8yd291acju-{0}-1b3pzk9krg-1b3pzk9krg.gz
+C:\Users\This PC\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4tpujy6333-{0}-fy6wkzgzvi-fy6wkzgzvi.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.AssemblyReference.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rpswa.dswa.cache.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.GeneratedMSBuildEditorConfig.editorconfig
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfoInputs.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfo.cs
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.CoreCompileInputs.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.MvcApplicationPartsAssemblyInfo.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cs
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjimswa.dswa.cache.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\bundle\CampusSentinel.styles.css
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\projectbundle\CampusSentinel.bundle.scp.css
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4tpujy6333-{0}-fy6wkzgzvi-fy6wkzgzvi.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\q0zdnf5ghw-{0}-d4vc7wfq03-d4vc7wfq03.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8yd291acju-{0}-1b3pzk9krg-1b3pzk9krg.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jugw5gabdt-{0}-o1l41uqvk5-o1l41uqvk5.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sujvhsj0js-{0}-bqjiyaj88i-bqjiyaj88i.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xpfmse02e5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\do7833ob7y-{0}-erw9l3u2r3-erw9l3u2r3.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\trw6f7pt0o-{0}-aexeepp0ev-aexeepp0ev.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xbbtlwzjv3-{0}-d7shbmvgxk-d7shbmvgxk.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\9v7apwmsq5-{0}-ausgxo2sd3-ausgxo2sd3.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vwc7uayv8u-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nyqgmwrf4w-{0}-cosvhxvwiu-cosvhxvwiu.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\h1r1ftq7zk-{0}-ub07r2b239-ub07r2b239.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1ar8l18mem-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l421vxwocr-{0}-b7pk76d08c-b7pk76d08c.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sdyjnh961w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wmkaylhmj3-{0}-rzd6atqjts-rzd6atqjts.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\o32qx6q76v-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\87xt9qtbm3-{0}-dxx9fxp4il-dxx9fxp4il.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6h511qyuxk-{0}-jd9uben2k1-jd9uben2k1.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vciq2i385t-{0}-khv3u5hwcm-khv3u5hwcm.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\qvit7uor5r-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7yn9d3cvfk-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0vxrv35vap-{0}-c2oey78nd0-c2oey78nd0.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\ejk5jglw0h-{0}-tdbxkamptv-tdbxkamptv.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uaj4lnmuk9-{0}-j5mq2jizvt-j5mq2jizvt.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\pkql9xjehp-{0}-06098lyss8-06098lyss8.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uohzj56e2o-{0}-nvvlpmu67g-nvvlpmu67g.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5t8rfxhchk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jk1ptjgg65-{0}-pj5nd1wqec-pj5nd1wqec.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\mj89ibuvpo-{0}-46ein0sx1k-46ein0sx1k.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\66buut81n2-{0}-v0zj4ognzu-v0zj4ognzu.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\hf1fxddp3j-{0}-37tfw0ft22-37tfw0ft22.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\13cixk22pg-{0}-hrwsygsryq-hrwsygsryq.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z08em0wsr3-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3vjpto3b3o-{0}-ft3s53vfgj-ft3s53vfgj.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\lksxupxf0j-{0}-6cfz1n2cew-6cfz1n2cew.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5ge9hz1wlr-{0}-6pdc2jztkx-6pdc2jztkx.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uehto6jyaw-{0}-493y06b0oq-493y06b0oq.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vtoen4mrb9-{0}-iovd86k7lj-iovd86k7lj.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\zq6ylcxgej-{0}-vr1egmr9el-vr1egmr9el.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\06nqmtqtbs-{0}-kbrnm935zg-kbrnm935zg.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0s9stvs1sz-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\539yjjf4yo-{0}-y7v9cxd14o-y7v9cxd14o.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\fz4b84x25z-{0}-notf2xhcfb-notf2xhcfb.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\15y1hh21dk-{0}-h1s4sie4z3-h1s4sie4z3.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3p9fdbbmih-{0}-63fj8s7r0e-63fj8s7r0e.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l76nmq4gc6-{0}-0j3bgjxly4-0j3bgjxly4.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gy7e4fh6cn-{0}-47otxtyo56-47otxtyo56.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sv5ie2low5-{0}-4v8eqarkd7-4v8eqarkd7.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8xd2o03uq2-{0}-356vix0kms-356vix0kms.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nh3ypzc3a5-{0}-83jwlth58m-83jwlth58m.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7t3346dfpn-{0}-mrlpezrjn3-mrlpezrjn3.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4by59girpp-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8p6mvf4gtq-{0}-ag7o75518u-ag7o75518u.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wg0e382szz-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\s2w4itvzm3-{0}-0i3buxo5is-0i3buxo5is.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gxsi8s1dmw-{0}-o1o13a6vjx-o1o13a6vjx.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z4sb52vg6d-{0}-ttgo8qnofa-ttgo8qnofa.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\47h2x7c0x0-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xouc6gj4wj-{0}-muycvpuwrr-muycvpuwrr.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3af4pfy8ph-{0}-87fc7y1x7t-87fc7y1x7t.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1zr9hoqv1z-{0}-mlv21k5csn-mlv21k5csn.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\w40cjrvh68-{0}-4a5vx6aik4-4a5vx6aik4.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\2sbmtbff72-{0}-4a5vx6aik4-4a5vx6aik4.gz
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.dll
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\refint\CampusSentinel.dll
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.pdb
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.Development.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.endpoints.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\OFL.txt
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.runtime.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.exe
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.deps.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.runtimeconfig.json
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.pdb
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Core.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Identity.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Humanizer.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MailKit.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MimeKit.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Mono.TextTemplating.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Newtonsoft.Json.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\PdfSharpCore.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QRCoder.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QuestPDF.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ICSharpCode.SharpZipLib.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.Fonts.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.ImageSharp.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.ClientModel.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.CodeDom.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Convention.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Hosting.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Runtime.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.TypedParts.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Drawing.Common.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Memory.Data.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\PdfSharpCore.resources.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libstdc++-6.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libwinpthread-1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\zlib1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libstdc++-6.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libwinpthread-1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.development.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\swae.build.ex.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSe.15EF9E10.Up2Date
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.genruntimeconfig.cache
+F:\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\ref\CampusSentinel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.AssemblyReference.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfoInputs.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfo.cs
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.CoreCompileInputs.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cs
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.sourcelink.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.runtime.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.endpoints.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\OFL.txt
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.exe
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.deps.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.runtimeconfig.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.pdb
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Core.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Identity.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Humanizer.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MailKit.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MimeKit.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\PdfSharpCore.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QRCoder.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QuestPDF.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ICSharpCode.SharpZipLib.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.Fonts.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.ImageSharp.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.ClientModel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Drawing.Common.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\PdfSharpCore.resources.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libstdc++-6.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libwinpthread-1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\zlib1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libstdc++-6.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libwinpthread-1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\bundle\CampusSentinel.styles.css
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\projectbundle\CampusSentinel.bundle.scp.css
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4tpujy6333-{0}-9k1q5p6srq-9k1q5p6srq.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\q0zdnf5ghw-{0}-d4vc7wfq03-d4vc7wfq03.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8yd291acju-{0}-tq14xb53it-tq14xb53it.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jugw5gabdt-{0}-o1l41uqvk5-o1l41uqvk5.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sujvhsj0js-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xpfmse02e5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\do7833ob7y-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\trw6f7pt0o-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xbbtlwzjv3-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\9v7apwmsq5-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vwc7uayv8u-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nyqgmwrf4w-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\h1r1ftq7zk-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1ar8l18mem-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l421vxwocr-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sdyjnh961w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wmkaylhmj3-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\o32qx6q76v-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\87xt9qtbm3-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6h511qyuxk-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vciq2i385t-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\qvit7uor5r-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7yn9d3cvfk-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0vxrv35vap-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\ejk5jglw0h-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uaj4lnmuk9-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\pkql9xjehp-{0}-06098lyss8-06098lyss8.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uohzj56e2o-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5t8rfxhchk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jk1ptjgg65-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\mj89ibuvpo-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\66buut81n2-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\hf1fxddp3j-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\13cixk22pg-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z08em0wsr3-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3vjpto3b3o-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\lksxupxf0j-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5ge9hz1wlr-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uehto6jyaw-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vtoen4mrb9-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\zq6ylcxgej-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\06nqmtqtbs-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0s9stvs1sz-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\539yjjf4yo-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\fz4b84x25z-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\15y1hh21dk-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3p9fdbbmih-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l76nmq4gc6-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gy7e4fh6cn-{0}-47otxtyo56-47otxtyo56.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sv5ie2low5-{0}-4v8eqarkd7-4v8eqarkd7.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8xd2o03uq2-{0}-356vix0kms-356vix0kms.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nh3ypzc3a5-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7t3346dfpn-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4by59girpp-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8p6mvf4gtq-{0}-ag7o75518u-ag7o75518u.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wg0e382szz-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\s2w4itvzm3-{0}-0i3buxo5is-0i3buxo5is.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gxsi8s1dmw-{0}-o1o13a6vjx-o1o13a6vjx.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z4sb52vg6d-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\47h2x7c0x0-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xouc6gj4wj-{0}-muycvpuwrr-muycvpuwrr.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3af4pfy8ph-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1zr9hoqv1z-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6c1ct4lztm-{0}-s0ao4509z6-s0ao4509z6.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\w40cjrvh68-{0}-4a5vx6aik4-4a5vx6aik4.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\2sbmtbff72-{0}-4a5vx6aik4-4a5vx6aik4.gz
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSe.15EF9E10.Up2Date
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\refint\CampusSentinel.dll
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.pdb
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.genruntimeconfig.cache
+C:\Users\mssai\OneDrive\Desktop\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\ref\CampusSentinel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.Development.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\appsettings.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.endpoints.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\LatoFont\OFL.txt
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.staticwebassets.runtime.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.exe
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.deps.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.runtimeconfig.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\CampusSentinel.pdb
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Humanizer.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MailKit.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\MimeKit.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\PdfSharpCore.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QRCoder.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\QuestPDF.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ICSharpCode.SharpZipLib.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.Fonts.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\SixLabors.ImageSharp.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.CodeDom.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Drawing.Common.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\PdfSharpCore.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libstdc++-6.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\libwinpthread-1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\zlib1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libstdc++-6.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\libwinpthread-1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.AssemblyReference.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.GeneratedMSBuildEditorConfig.editorconfig
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfoInputs.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.AssemblyInfo.cs
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.csproj.CoreCompileInputs.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.MvcApplicationPartsAssemblyInfo.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.RazorAssemblyInfo.cs
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.sourcelink.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\bundle\CampusSentinel.styles.css
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\scopedcss\projectbundle\CampusSentinel.bundle.scp.css
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\q0zdnf5ghw-{0}-d4vc7wfq03-d4vc7wfq03.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8yd291acju-{0}-tq14xb53it-tq14xb53it.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jugw5gabdt-{0}-o1l41uqvk5-o1l41uqvk5.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sujvhsj0js-{0}-bqjiyaj88i-bqjiyaj88i.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xpfmse02e5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\do7833ob7y-{0}-erw9l3u2r3-erw9l3u2r3.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\trw6f7pt0o-{0}-aexeepp0ev-aexeepp0ev.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xbbtlwzjv3-{0}-d7shbmvgxk-d7shbmvgxk.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\9v7apwmsq5-{0}-ausgxo2sd3-ausgxo2sd3.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vwc7uayv8u-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nyqgmwrf4w-{0}-cosvhxvwiu-cosvhxvwiu.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\h1r1ftq7zk-{0}-ub07r2b239-ub07r2b239.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1ar8l18mem-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l421vxwocr-{0}-b7pk76d08c-b7pk76d08c.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sdyjnh961w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wmkaylhmj3-{0}-rzd6atqjts-rzd6atqjts.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\o32qx6q76v-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\87xt9qtbm3-{0}-dxx9fxp4il-dxx9fxp4il.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6h511qyuxk-{0}-jd9uben2k1-jd9uben2k1.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vciq2i385t-{0}-khv3u5hwcm-khv3u5hwcm.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\qvit7uor5r-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7yn9d3cvfk-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0vxrv35vap-{0}-c2oey78nd0-c2oey78nd0.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\ejk5jglw0h-{0}-tdbxkamptv-tdbxkamptv.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uaj4lnmuk9-{0}-j5mq2jizvt-j5mq2jizvt.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\pkql9xjehp-{0}-06098lyss8-06098lyss8.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uohzj56e2o-{0}-nvvlpmu67g-nvvlpmu67g.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5t8rfxhchk-{0}-s35ty4nyc5-s35ty4nyc5.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\jk1ptjgg65-{0}-pj5nd1wqec-pj5nd1wqec.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\mj89ibuvpo-{0}-46ein0sx1k-46ein0sx1k.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\66buut81n2-{0}-v0zj4ognzu-v0zj4ognzu.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\hf1fxddp3j-{0}-37tfw0ft22-37tfw0ft22.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\13cixk22pg-{0}-hrwsygsryq-hrwsygsryq.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z08em0wsr3-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3vjpto3b3o-{0}-ft3s53vfgj-ft3s53vfgj.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\lksxupxf0j-{0}-6cfz1n2cew-6cfz1n2cew.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\5ge9hz1wlr-{0}-6pdc2jztkx-6pdc2jztkx.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\uehto6jyaw-{0}-493y06b0oq-493y06b0oq.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\vtoen4mrb9-{0}-iovd86k7lj-iovd86k7lj.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\zq6ylcxgej-{0}-vr1egmr9el-vr1egmr9el.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\06nqmtqtbs-{0}-kbrnm935zg-kbrnm935zg.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\0s9stvs1sz-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\539yjjf4yo-{0}-y7v9cxd14o-y7v9cxd14o.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\fz4b84x25z-{0}-notf2xhcfb-notf2xhcfb.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\15y1hh21dk-{0}-h1s4sie4z3-h1s4sie4z3.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3p9fdbbmih-{0}-63fj8s7r0e-63fj8s7r0e.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\l76nmq4gc6-{0}-0j3bgjxly4-0j3bgjxly4.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gy7e4fh6cn-{0}-47otxtyo56-47otxtyo56.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\sv5ie2low5-{0}-4v8eqarkd7-4v8eqarkd7.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8xd2o03uq2-{0}-356vix0kms-356vix0kms.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\nh3ypzc3a5-{0}-83jwlth58m-83jwlth58m.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\7t3346dfpn-{0}-mrlpezrjn3-mrlpezrjn3.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4by59girpp-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\8p6mvf4gtq-{0}-ag7o75518u-ag7o75518u.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\wg0e382szz-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\s2w4itvzm3-{0}-0i3buxo5is-0i3buxo5is.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\gxsi8s1dmw-{0}-o1o13a6vjx-o1o13a6vjx.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\z4sb52vg6d-{0}-ttgo8qnofa-ttgo8qnofa.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\47h2x7c0x0-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\xouc6gj4wj-{0}-muycvpuwrr-muycvpuwrr.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\3af4pfy8ph-{0}-87fc7y1x7t-87fc7y1x7t.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\1zr9hoqv1z-{0}-mlv21k5csn-mlv21k5csn.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\6c1ct4lztm-{0}-s0ao4509z6-s0ao4509z6.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\w40cjrvh68-{0}-4a5vx6aik4-4a5vx6aik4.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\2sbmtbff72-{0}-4a5vx6aik4-4a5vx6aik4.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.development.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\swae.build.ex.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSe.15EF9E10.Up2Date
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\refint\CampusSentinel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.pdb
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\CampusSentinel.genruntimeconfig.cache
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\ref\CampusSentinel.dll
+d:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\obj\Debug\net10.0\compressed\4tpujy6333-{0}-9sjbsl6l9f-9sjbsl6l9f.gz
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Core.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Azure.Identity.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.ClientModel.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Memory.Data.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll

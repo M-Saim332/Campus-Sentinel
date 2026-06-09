@@ -47,10 +47,17 @@ builder.Services.AddRazorPages(options =>
 
 // Configure Database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+<<<<<<< HEAD
     ?? "Data Source=campussentinel.db";
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlite(connectionString);
+=======
+    ?? "Server=localhost;Database=CampusSentinel;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true";
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+>>>>>>> 0536f83 (Update project)
     options.ConfigureWarnings(warnings => 
         warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
@@ -112,6 +119,28 @@ using (var scope = app.Services.CreateScope())
         dbContext.Database.EnsureCreated();
     }
 
+<<<<<<< HEAD
+=======
+    // Execute SQL Server objects schema (Triggers, Functions, SPs, Indexes)
+    var sqlPath = Path.Combine(Directory.GetCurrentDirectory(), "Database", "SqlServerSchema_V2.sql");
+    if (File.Exists(sqlPath))
+    {
+        var sqlScript = File.ReadAllText(sqlPath);
+        var batches = System.Text.RegularExpressions.Regex.Split(
+            sqlScript, 
+            @"^\s*GO\s*$", 
+            System.Text.RegularExpressions.RegexOptions.Multiline | System.Text.RegularExpressions.RegexOptions.IgnoreCase
+        );
+        foreach (var batch in batches)
+        {
+            if (!string.IsNullOrWhiteSpace(batch))
+            {
+                dbContext.Database.ExecuteSqlRaw(batch);
+            }
+        }
+    }
+
+>>>>>>> 0536f83 (Update project)
     // Ensure default admins exist
     var existingHassan = dbContext.Users.FirstOrDefault(u => u.Username == "hassan");
     if (existingHassan == null)

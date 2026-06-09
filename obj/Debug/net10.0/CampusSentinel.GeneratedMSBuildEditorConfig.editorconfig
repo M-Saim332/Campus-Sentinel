@@ -1,0 +1,223 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.RootNamespace = CampusSentinel
+build_property.RootNamespace = CampusSentinel
+build_property.ProjectDir = D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\UET STUDY\Second semester\CAMPUS_SENTINAL UPDATED
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Challans/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2hhbGxhbnNcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Challans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2hhbGxhbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Challans/Issue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2hhbGxhbnNcSXNzdWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Guards/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR3VhcmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Guards/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR3VhcmRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Guards/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR3VhcmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Guards/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR3VhcmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Staff/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RhZmZcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Staff/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RhZmZcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Staff/DownloadId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RhZmZcRG93bmxvYWRJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Staff/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RhZmZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Students/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3R1ZGVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Students/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3R1ZGVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Students/DownloadId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3R1ZGVudHNcRG93bmxvYWRJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Students/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3R1ZGVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Visitors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Visitors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Visitors/DownloadId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcRG93bmxvYWRJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Visitors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Admin/Visitors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlzaXRvcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Auth/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Auth/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Incidents/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jaWRlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Incidents/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jaWRlbnRzXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Incidents/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jaWRlbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Incidents/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jaWRlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Notifications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Notifications/Log.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9uc1xMb2cuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Notifications/Preferences.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9uc1xQcmVmZXJlbmNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Notifications/Templates.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9uc1xUZW1wbGF0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Scan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Nhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Schedule/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Schedule/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Schedule/MySchedule.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcTXlTY2hlZHVsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Schedule/SwapRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU3dhcFJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Schedule/WeeklyReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcV2Vla2x5UmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Settings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UET STUDY/Second semester/CAMPUS_SENTINAL UPDATED/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pyqprt0ezu

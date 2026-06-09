@@ -61,8 +61,13 @@ namespace CampusSentinel.Services
                 _context.Students.Add(new Student
                 {
                     FullName = names[i % names.Length] + " " + i,
+<<<<<<< HEAD
                     RegistrationNo = $"STD-{2022 + (i % 3)}-{dept}-{1000 + i}",
                     QrCodeId = $"STD-{2022 + (i % 3)}-{dept}-{1000 + i}",
+=======
+                    RegistrationNo = $"{2022 + (i % 3)}-{dept}-{1000 + i}",
+                    QrCodeId = $"{2022 + (i % 3)}-{dept}-{1000 + i}",
+>>>>>>> 0536f83 (Update project)
                     Department = dept,
                     Gender = i % 2 == 0 ? "Male" : "Female",
                     ResidencyType = i % 3 == 0 ? "Hostelite" : "Day Scholar",
